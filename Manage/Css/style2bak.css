@@ -1,0 +1,877 @@
+html,body,.Wrap,.Main{width:100%;}
+html{overflow-y:scroll;}
+body { font-family:Arial,"微软雅黑";background:#f5f5f5;}
+.Wrap{padding-bottom:4.2%;}
+.Main{}
+
+.Position{position:absolute;}
+.Hide{display:none;}
+/*头部*/
+.HeaderWrap{width:100%;height:63px;background:#000;}
+.HeaderInner{width:95%;margin:auto;position:relative;height:63px;position:relative;}
+.HeaderLogo{height:63px;line-height:63px;width:100%;} 
+.HeaderWraps{width:100%;height:40px;background:#fff;border-bottom:1px solid #e6e6e6; margin-bottom:1%;}
+.HeaderWraps .HeaderInner{width:95%;margin:auto; height:40px;line-height:40px;}
+.HeaderTimeLeft,.HeaderTimeRight{font-size:14px;color:#949495; line-height:inherit;}
+.HeaderTimeLeft span,.HeaderTimeRight span{font-size:14px;color:#949495;}
+.HeaderTimeRight span{display:inline-block;*display:inline;zoom:1;}
+.HeaderTimeLeft span.span_1,.HeaderTimeRight span.span_1{margin-right:10px;}
+.HeaderTimeRight span.span_2,.HeaderTimeRight span.span_3,.HeaderTimeRight span.span_4,.HeaderTimeRight span.span_5,.HeaderTimeRight span.span_6{cursor:pointer;text-decoration:underline;}
+.HeaderTimeRight span.span_5{margin-right:20px;}
+.HeaderTimeRight span.span_6{}
+
+
+.HeaderTimeLeft{float:left;}
+.HeaderTimeRight{float:right;} 
+
+/*中间内容*/
+ .ContentWrap{background:#f5f5f5;width:98%;margin:auto;}
+ .ContentInner{background:#fff;border-radius:6px; border:1px solid #e6e6e6;}
+ .GraphicAddLink{color:#459ae9;}
+
+ /***********************************登录页Star*****************************************/
+ .ContentLoginWrap{width:553px;height:428px;margin:auto;margin:auto;margin-bottom:56px; background:url(../Image/Login/LoginBg.png) no-repeat;position:relative;}
+ .LoginBox{position:absolute;height:34px;left:105px;}
+ .LoginBox input{width:243px;height:34px;line-height:34px;font-size:16px;color:#d7d7d7;display:inline-block;*display:inline;zoom:1;}
+ .LoginBox label span{display:inline-block;*display:inline;zoom:1;vertical-align:middle;}
+ .LoginBox label span.span_1{width:19px;height:19px;overflow:hidden;}
+ .LoginBox label span.span_1 img{ vertical-align:sub;display:none;}
+ /*.LoginBox label span.span_1 img.ProperIcon{ vertical-align:sub;display:none;}
+ .LoginBox label span.span_1 img.ErrorIcon{ vertical-align:sub;display:block;}*/
+ .LoginBox label span.span_2{margin-right:5px;}
+ .LoginBox1{top:91px;}
+ .LoginBox2{top:158px;}
+ .LoginBox3{top:225px;left:68px;}
+ .LoginBox3 input{width:127px;}
+ .LoginBox3 .TwoCode{width:80px; height:30px;text-align:center;margin-left:5px;cursor:pointer; line-height:30px;font-size:14px;color:#555;display:inline-block;*display:inline;zoom:1;border-radius:4px;border:1px solid #e6e6e6;}
+ .LoginBox3 label{ }
+ .LoginBox label{font-size:14px;color:#ff6900; margin-left:10px;display:inline-block;*display:inline;zoom:1;display:none;} 
+ /*同意按钮*/
+ .Agree{position:absolute;left:66px;top:291px;font-size:80px;width:18px;height:18px;}
+ /*登录按钮*/
+ .LoginBtn{width:283px;height:34px;font-size:16px;color:#fff; position:absolute;top:330px;left:67px;cursor:pointer;background:#505050;border-radius:4px;-moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;}
+ .LoginBtn:hover{background:#ff6900;}
+
+.MenuFunctionLoacitionBox label.BackgroundFrameSelectFil,.MenuFunctionLoacitionBox label.BackgroundFrameUploadImg{cursor:pointer;height:33px;overflow:hidden;-moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;}
+.MenuFunctionLoacitionBox label.BackgroundFrameSelectFil{ background:url(../Image/uploadbtnAndSeleftFileBtn.jpg) no-repeat; background-position:0px 0px;}
+.MenuFunctionLoacitionBox label.BackgroundFrameUploadImg{background:url(../Image/uploadbtnAndSeleftFileBtn.jpg) no-repeat; background-position:-151px 0px;}
+.MenuFunctionLoacitionBox label.BackgroundFrameSelectFil:hover{background-position:0px -33px;}
+.MenuFunctionLoacitionBox label.BackgroundFrameUploadImg:hover{background-position:-151px -33px;}
+
+/*忘记密码*/
+.ForgotPasswordWrap{width:100%;text-align:center;font-size:14px;color:#c5c5c5;position:absolute;top:380px;left:0;}
+.ForgotPasswordWrap a{font-size:14px;color:#c5c5c5;text-decoration:underline;}
+
+ /***********************************登录页_End*****************************************/
+
+
+
+ /***********************************修改密码_Star*****************************************/
+/*Dx20150122添加修改密码界面*/
+.PassWordChangePageWrap{width:510px;margin:70px auto;border:1px solid #e6e6e6;border-radius:4px;}
+.PassWordChangePageInner{width:100%;position:relative;margin:20px auto;}
+.PassWordChangeText{height:30px;line-height:30px;text-align:center;font-size:20px;color:#a0a0a0;}
+.PassWordChangeStar{width:60%;margin:auto;}
+.PassBox{width:100%;height:30px;line-height:30px;border-radius:4px;margin:10px auto; padding:15px 0px;position:relative;}
+.PassBox .PassWordChangeDesc,.PassBox .PassWordChangeInput{display:inline-block;*display:inline;zoom:1;height:30px;line-height:30px;color:#a0a0a0;font-size:13px;}
+.PassBox .PassWordChangeDesc{width:60px;text-align:right;}
+.PassBox .PassWordChangeInput{margin-left:10px;border:1px solid #e6e6e6;border-radius:4px;}
+.PassBox .PassWordChangeTips{position:absolute;height:30px;line-height:30px;left:257px;width:150px; font-size:12px;color:#ff3e3e;display:none;}
+
+/*确认取消按钮*/
+.PassWordChangeBtnWrap{text-align:center;width:100%;height:40px;margin:20px auto;}
+.PassWordChangeBtnWrap span{padding:8px 20px;background:#505050;color:#fff;cursor:pointer;margin:auto 6px; font-size:14px;border-radius:4px;-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}
+.PassWordChangeBtnWrap span:hover{background:#ff6900;}
+
+ /***********************************修改密码_End*****************************************/
+
+
+
+
+
+ /***********************************自定义菜单Star*****************************************/
+
+ /***********************************左侧菜单*****************************************/
+ .ContentCustomMenuWrap{width:100%;margin:auto;position:relative;}
+
+
+.CmnLeftMenuWrap{position:relative; width:14%;border-right:1px solid #e6e6e6;float:left; background:#fff;/*float:left;z-index:2;*/}
+ 
+.CmnLeftMenuInner{width:100%;}
+.CmnLeftMenuBox{width:100%;position:relative;}
+.CmnLeftMenuList,.LeftMenuLargeScale{width:100%;position:relative;padding:1% 0px;cursor:pointer; border-bottom:1px solid #e2e2e2; /*-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;*/}
+.CmnLeftMenuList{border:1px solid #fff;border-bottom:1px solid #e2e2e2;}
+.LeftMenuLargeScale{font-size:16px;text-align:center;padding:6% 0%;}
+
+/*Icon*/
+.CmnLeftMenuListIcon{width:16%;overflow:hidden;margin-left:10%;}
+.CmnLeftMenuListIcon img{width:100%;vertical-align:middle;}
+/*a标签*/
+.CmnLeftMenuListTitle{width:70%; font-size:15px;color:#a0a0a0;text-decoration:none;white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow:hidden; -moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}
+
+.CmnLeftMenuListIcon,.CmnLeftMenuListTitle{display:inline-block;*display:inline;zoom:1;vertical-align:middle;}
+
+.CmnLeftMenuList:hover{background:#f7f7f7;z-index:22;border:1px solid #ff6900;border-right:none;}
+.CmnLeftMenuList:hover .CmnLeftMenuListTitle{text-decoration:none;color:#ff6900;}
+
+
+
+/*********************菜单展开******************/
+ .MenuExpansionWrap{width:70%;position:fixed;left:14.8%;top:15%;background:#fff;height:70%;overflow:hidden; z-index:20;  border:1px solid #e2e2e2;/*border-left:none;*/}
+ .MenuExpansionInner{width:100%;height:100%;position:absolute;top:0;left:0;}
+
+ /*菜单-我的位置*/
+ .MenuExpansionTitleWrap{margin:1.5% 0 1% 3%;}
+ .MenuExpansionReturn{padding:0.5% 1.5%;float:right; border-radius:4px;font-family:Arial;margin-right:5%; font-size:12px;color:#fff;background:#7C7171; cursor:pointer;display:inline; background:#ff6900;-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}
+ 
+ .MenuExpansionTitleList{padding:0.5% 0.5%;margin-right:0.2%; border-radius:4px;font-family:Arial; font-size:12px;color:#454545; /*color:#fff;background:#7C7171;*/ cursor:pointer;display:inline;-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}
+ /*.MenuExpansionTitleList.Select{background:#ff6900;}
+ .MenuExpansionTitleList:hover{background:#ff6900;}*/
+ .MenuExpansionReturn:active,.MenuExpansionTitleList:active{
+     -webkit-transform:scale(0.8);
+     -o-transform:scale(0.8);
+     -moz-transform:scale(0.8);
+     -ms-transform:scale(0.8);
+     transform:scale(0.8);
+ }
+ 
+
+ .MenuExpansionCon{width:98%;margin:auto;position:absolute;left:1%;top:11%;height:89%;overflow-y:auto;-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}
+
+
+
+ /*行*/
+ .MenuExpansionDl{width:100%;margin-bottom:2%;}
+ .MenuExpansionDt,.MenuExpansionDd{display:inline-block;*display:inline;zoom:1;margin:0 auto;padding:0;vertical-align:top;}
+
+ .MenuExpansionDt{width:6%;margin-bottom:2%; text-align:right;font-weight:bold;padding:0% 1% 0% 0%;white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow:hidden;}
+ .MenuExpansionDt a {-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in; }
+ .MenuExpansionDt a i{margin-left:5%;}
+
+ .MenuExpansionDt a,.MenuExpansionDd a{color:#666;font-family:Arial;}
+
+ .MenuExpansionDt a:hover,.MenuExpansionDd a:hover{text-decoration:none;color:#ff6900;}
+
+ .MenuExpansionDd{width:92%;border-bottom:1px solid #e0e0e0;display:block;margin-left:2%;}
+ .MenuExpansionDd a{border-right:1px solid #e0e0e0;padding: 0 1%;white-space: nowrap;display:inline-block;*display:inline;zoom:1;margin: 0 0 2% 0;position:relative;-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}
+ /*更多按钮*/
+ .MenuExpansionDd a .MenuExpansionMoreBtn{position:absolute;background:#ff6900;color:#fff;font-size:19px;text-align:center;line-height:10px; border-radius:50%;overflow:hidden;width:10px;height:10px;bottom:-3px;right:2px;display:none;}
+  
+ /***********************************左侧菜单_End*****************************************/
+
+
+
+
+ /***********************************右侧内容*****************************************/
+  
+ .RightContentWrap{float:left;width:85%;}
+ /*筛选*/
+ .FilterWrap{width:100%; border-bottom:1px solid #e6e6e6;position:relative;margin-bottom:10px; padding:1% 0px;}
+ .FilterInner{position:absolute; top:50%;margin-top:-16px;width:100%;}
+ .FilterSelect,.SearchWrap{width:166px; height:30px;border:1px solid #e6e6e6;border-radius:4px;float:right;margin-right:10px;}
+ .FilterSelect{position:relative;}
+ .FilterSelect span{width:13px;height:19px; position:absolute;top:12px;right:10px;display:block;}
+ .FilterSelect span img{display:block;vertical-align:middle;}
+ .FilterSelect h1{height:30px;line-height:30px;font-size:14px;cursor:pointer;}
+ .FilterSelect h1:hover{ background: #dadada;color: #000;}
+ .FilterSelect .FilterDownPull{width:113px; height:auto;display:none; max-height:200px;background:#fff;position:relative;left:-1px;top:-1px;z-index:1;border:1px solid #e6e6e6;border-radius:4px;}
+ .FilterSelect .FilterDownPull a{width:113px;height:30px;line-height:30px;display:block;text-decoration:none;color:#454545; font-size:14px;text-align: left}
+ .FilterSelect .FilterDownPull a:hover{background:#dadada;}
+  
+  /*搜索*/
+.SearchWrap{width:210px;margin-right:40px;}
+.SearchWrap input{width:170px;height:30px;line-height:30px;text-align:center; display:inline-block;*display:inline;zoom:1;vertical-align:middle;font-size:14px;}
+.SearchWrap a{width:32px;height:30px;display:inline-block;*display:inline;zoom:1;vertical-align:middle;cursor:pointer; background:url(../Image/CustomMenu/SearchIcon.png) no-repeat center;}
+
+/**从什么至什么*/
+.FromToInputWrap{float:right; height:30px;line-height:30px; display:none;margin:auto 5px;}
+.FromToInputWrap input{height:30px;line-height:30px;width:100px; border:1px solid #e8e8e8;border-radius:4px;margin:auto 5px;text-align:center;}
+
+/*添加菜单*/
+.MenuAddBtn{width:130px;height:30px;line-height:30px;text-align:center;font-size:14px;float:right;cursor:pointer;position:relative;color: #505050;margin-right:10px;
+-moz-transition: all .2s ease-in;
+-webkit-transition: all .2s ease-in;
+-o-transition: all .2s ease-in;
+transition: all .2s ease-in;
+background: #fff;
+border-radius: 4px;
+border: 1px solid #e8e8e8;}
+.MenuAddBtn:hover{background: #ff6900;color: #fff;}
+.MenuAddBtn img.JiaIcon{position:absolute;top:5px;left:10px;}
+.MenuAddBtn img.NewIcon{position:absolute;top:7px;right:10px;}
+ /***********************************编辑菜单_Star*****************************************/
+ /*菜单功能区域*/
+.MenuFunctionLoacitionWrap{width:100%;margin:auto;display:none;}
+.MenuFunctionLoacitionWrapEditor{}
+.MenuFunctionLoacitionInner{width:943px;margin:auto;border:1px solid #e6e6e6;border-radius:4px;margin-bottom:40px;}
+.MenuFunctionLoacitionWrapEditor .MenuFunctionLoacitionInner{}
+.EditorTableTitle{}
+.EditorTableTitle tbody{}
+.EditorTableTitle tbody tr{text-align:center;}
+.EditorTableTitle tbody tr td{padding:10px 0px;font-size:14px;color:#505050;word-break:break-all; text-align:center;}
+.EditorTableTitle tbody tr td a{}
+
+.EditorTableTitle tbody tr td a.EditorIconBtn,.EditorTableTitle tbody tr td a.DelIconBtn{-moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;vertical-align:middle;display:inline-block;cursor:pointer; *display:inline;zoom:1;width:31px;height:32px;overflow:hidden; background:url(../Image/CustomMenu/EditorAndDelBtn.png) no-repeat;}
+.EditorTableTitle tbody tr td a.EditorIconBtn{background-position:0px 0px;}
+.EditorTableTitle tbody tr td a.DelIconBtn{background-position:-32px 0px;}
+
+.EditorTableTitle tbody tr td a.EditorIconBtn:hover{background-position:0px -30px;}
+.EditorTableTitle tbody tr td a.DelIconBtn:hover{background-position:-32px -30px;}
+
+.EditorTableTitle .MenuFunctionLoacitionListTitle{vertical-align:top;padding:0px 0px 0px 0px;}
+.EditorTableTitle .MenuFunctionLoacitionListInner{padding: 5px 0;vertical-align:middle;}
+
+/*.EditorTableTitle tbody tr td a img:hover { border:#ff6900 1px dashed;cursor:pointer;height:30px; }*/
+
+.W50{width:50px;}
+.W60{width:60px;}
+.W70{width:70px;}
+.W80{width:80px;}
+.W90{width:90px;}
+.EditorTableTitle1{border-bottom:none;}/*border-bottom:1px solid #e6e6e6;*/
+.EditorTableTitle1 tbody tr td{}/*color:#000;*/
+
+.AddMenuBtn{text-align:right;margin:40px auto;position:relative;clear:both;height:30px;}
+.AddMenuBtn span{cursor:pointer;} 
+.MenuFunctionLoacitionWrapEditor .AddMenuBtn{}
+.MenuFunctionLoacitionWrapEditor .AddMenuBtn span{padding:20px 40px;font-size:15px;position:relative; color:#505050; -moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in; background:#fff;border-radius:4px;border:1px solid #e8e8e8;}  
+.MenuFunctionLoacitionWrapEditor .AddMenuBtn span:hover{background:#ff6900;color:#fff;}  
+.MenuFunctionLoacitionWrapEditor .AddMenuBtn span:active{-webkit-transform:scale(0.9);}  
+
+.MenuFunctionLoacitionWrapEditor .AddMenuBtn span img{position:absolute;top:18px;}   
+.MenuFunctionLoacitionWrapEditor .AddMenuBtn span img.JiaIcon{left:10px;}   
+.MenuFunctionLoacitionWrapEditor .AddMenuBtn span img.NewIcon{right:10px;}   
+
+.ConfigurationFormBtn{width:50%; height:40px;position:relative;top:-82px;}
+.ConfigurationFormBtn a{display:inline-block;*display:inline;zoom:1;padding:10px 10px; text-decoration:none;cursor:pointer; -moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in; background:#fff;border-radius:4px;}
+.ConfigurationFormBtn a:hover{background:#ff6900;color:#fff;}
+.ConfigurationFormBtn a:hover span{color:#fff;}
+.ConfigurationFormBtn a span{font-size:15px;color:#505050; -moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;}
+ 
+ 
+
+
+ /***********************************编辑菜单_End*****************************************/
+
+  /***********************************添加菜单_Star*****************************************/
+.MenuFunctionLoacitionWrapAddMenu{display:block;width:100%;}
+.MenuFunctionLoacitionInner{width:100%;border:none;border-bottom:1px solid #e6e6e6;}
+.MenuFunctionLoacitionBoxWrap{margin:auto; padding-left:40px; }
+.MenuFunctionLoacitionBox{height:35px;width:100%;margin-bottom:1%;vertical-align:middle;}
+
+/*.MenuFunctionLoacitionBox label{display:inline-block;*display:inline;zoom:1;font-size:16px;text-align:center;color:#505050;line-height:35px;height:35px;vertical-align:middle;}
+.MenuFunctionLoacitionBox label.Label1{width:200px;margin-right:20px;text-align:right;}
+.MenuFunctionLoacitionBox label.Label1 span{margin:0 5px;font-size:16px;color:#505050;}
+.MenuFunctionLoacitionBox label.Label2{width:316px;border:1px solid #e6e6e6;border-radius:4px;}
+.MenuFunctionLoacitionBox label.Label2 input{width:316px;height:33px;line-height:33px;font-size:14px;color:#000;text-indent:10px;}
+.MenuFunctionLoacitionBox label.Label2 h1{width:316px;height:35px; line-height:35px;font-size:14px ;cursor:pointer; color:#d7d7d7;text-align:left; text-indent:10px;}
+.MenuFunctionLoacitionBox label.Label2 h1:hover{background:#dadada;color:#000;}
+.MenuFunctionLoacitionBox label.Label2 .Pull_DownWrap{background:#fff; top:-1px;left:-1px; border-top:none; width:316px;height:auto;max-height:200px;overflow-x:hidden;overflow-y:auto;position:relative;z-index:1; font-size:14px;color:#d7d7d7;border:1px solid #e6e6e6;border-radius:4px; text-align:left; text-indent:10px;display:none;}
+.MenuFunctionLoacitionBox label.Label2 .Pull_DownWrap a{display:block;width:316px;height:33px;line-height:33px;font-size:14px;color:#454545;text-align:left; text-indent:10px;text-decoration:none;}
+.MenuFunctionLoacitionBox label.Label2 .Pull_DownWrap a:hover{background:#dadada;}
+.MenuFunctionLoacitionBox label.Label3{font-size:14px;color:#ff6900;}
+.MenuFunctionLoacitionBox label.Label3 span{display:inline-block;*display:inline;zoom:1;}
+.MenuFunctionLoacitionBox label.Label3 span.span_1{width:22px;height:22px;overflow:hidden;vertical-align:middle;position:relative;}
+.MenuFunctionLoacitionBox label.Label3 span.span_1 img{position:absolute;top:0;left:0;display:none;}*/
+
+.MenuFunctionLoacitionBox .Label1,.MenuFunctionLoacitionBox .Label2,.MenuFunctionLoacitionBox .Label3{display:inline-block;*display:inline;zoom:1;font-size:16px;text-align:center;color:#505050;line-height:35px;height:35px;vertical-align:middle;}
+.MenuFunctionLoacitionBox .Label1{width:20%;margin-right:20px;text-align:right;}
+.MenuFunctionLoacitionBox .Label1 span{margin:0 5px;font-size:16px;color:#505050;}
+.MenuFunctionLoacitionBox .Label2{width:316px;border:1px solid #e6e6e6;border-radius:4px;}
+.MenuFunctionLoacitionBox .Label2 input{width:316px;height:33px;line-height:33px;font-size:14px;color:#000;text-indent:10px;}
+.MenuFunctionLoacitionBox .Label2 h1{width:316px;height:35px; line-height:35px;font-size:14px ;cursor:pointer; color:#d7d7d7;text-align:left; text-indent:10px;}
+.MenuFunctionLoacitionBox .Label2 h1:hover{background:#dadada;color:#000;}
+.MenuFunctionLoacitionBox .Label2 .Pull_DownWrap{background:#fff; top:-1px;left:-1px; border-top:none; width:316px;height:auto;max-height:200px;overflow-x:hidden;overflow-y:auto;position:relative;z-index:1; font-size:14px;color:#d7d7d7;border:1px solid #e6e6e6;border-radius:4px; text-align:left; text-indent:10px;display:none;}
+.MenuFunctionLoacitionBox .Label2 .Pull_DownWrap a{display:block;width:316px;height:33px;line-height:33px;font-size:14px;color:#454545;text-align:left; text-indent:10px;text-decoration:none;}
+.MenuFunctionLoacitionBox .Label2 .Pull_DownWrap a:hover{background:#dadada;}
+.MenuFunctionLoacitionBox .Label3{font-size:14px;color:#ff6900;width:25%;text-align:left;}
+.MenuFunctionLoacitionBox .Label3 span{display:inline-block;*display:inline;zoom:1;}
+.MenuFunctionLoacitionBox .Label3 span.span_1{width:22px;height:22px;overflow:hidden;vertical-align:middle;position:relative;}
+.MenuFunctionLoacitionBox .Label3 span.span_1 img{position:absolute;top:0;left:0;display:none;}
+
+
+
+
+
+/*.MenuFunctionLoacitionBox label.Label3 span.span_1 img.ProperIcon{display:none;}
+.MenuFunctionLoacitionBox label.Label3 span.span_1 img.ErrorIcon{display:none;}*/
+
+.MenuFunctionLoacitionBoxPullDown label.Label2{position:relative;}
+.MenuFunctionLoacitionBoxPullDown label.Label2 span{width: 13px;height: 19px;position: absolute;top: 12px;right: 10px;display: block;}
+.MenuFunctionLoacitionBoxPullDown label.Label2 span img{display: block; vertical-align:middle;}
+ 
+.MenuFunctionLoacitionCheckbox{}
+.MenuFunctionLoacitionCheckbox label.Label2{border:none;text-align:left;}
+.MenuFunctionLoacitionCheckbox label.Label2 span{vertical-align:middle;display:inline-block;}
+.MenuFunctionLoacitionCheckbox label.Label2 span.span_1{vertical-align:middle;display:inline-block;margin-right:5px;}
+.MenuFunctionLoacitionCheckbox label.Label2 span a{vertical-align:middle;display:inline-block;}
+.MenuFunctionLoacitionCheckbox label.Label2 span a.a_1{margin-right:5px;}
+.MenuFunctionLoacitionCheckbox label.Label2 span a.a_1 img{vertical-align:middle;display:inline-block;display:none;}
+.MenuFunctionLoacitionCheckbox label.Label2 span a.a_1 img.RoundIcon{display:block;}
+.MenuFunctionLoacitionCheckbox label.Label2 span a.a_1 img.SelectRoundIcon{display:none;}
+.MenuFunctionLoacitionCheckbox label.Label2 span.Selectspan a.a_1 img.RoundIcon{display:none;}
+.MenuFunctionLoacitionCheckbox label.Label2 span.Selectspan a.a_1 img.SelectRoundIcon{display:block;}
+.MenuFunctionLoacitionCheckbox label.Label2 span a.a_2{font-size:16px;color:#454545;text-decoration:none;cursor:default;}
+ 
+.MenuFunctionLoacitionWrapAddMenu .AddMenuBtn{}
+.MenuFunctionLoacitionWrapAddMenu .AddMenuBtn a{cursor:pointer;}
+.MenuFunctionLoacitionWrapAddMenu .AddMenuBtn a.confirm,.MenuFunctionLoacitionWrapAddMenu .AddMenuBtn a.cancle {-moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;}
+ 
+.MenuFunctionLoacitionWrapAddMenu .AddMenuBtn span{background:#505050;-moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;padding:10px 40px;line-height:33px;font-size:20px;color:#fff;border-radius:4px; margin-right:10px;}
+.MenuFunctionLoacitionWrapAddMenu .AddMenuBtn span:hover{background:#ff6900;}
+.MenuFunctionLoacitionWrapAddMenu .AddMenuBtn span:active{-webkit-transform:scale(0.9);}
+
+ /***********************************添加菜单_End*****************************************/
+
+ .FlipWrap{width:100%;text-align:center;font-size:0;margin:40px auto;}
+ .FlipBox{display:inline-block;*display:inline;zoom:1;text-align:center;font-size:0;vertical-align:middle;}
+ .FlipPageBtn{display:inline-block;*display:inline;zoom:1;height:26px;padding:12px 14px 0;border:1px solid #E5E5E5;/*border-left:0 none;*/font-size:14px;cursor:pointer;vertical-align:middle;}
+ .FlipPreviousBtn{border-left:1px solid #E5E5E5;}
+ .FlipMoreText {cursor:default;}
+
+ .FlipBox1 .FlipPageBtn.Select{background:#EFEFEF;cursor:default;}
+ .FlipBox1 .FlipPageBtn:hover{background:#EFEFEF;} 
+ .FlipPageNum,.FlipMoreText{} 
+ .FlipBox2{margin-left:10px;}
+ .FlipBox2 .FlipPageBtn{border:none;padding:6px 10px;height:20px;line-height:20px;vertical-align:0;cursor:default;}
+ .FlipBox2 .FlipPageValue{padding:6px 5px;}
+ .FlipBox2 .FlipPageValue input{ background:none;border:1px solid #E5E5E5; width:32px;height:20px;text-align:center;} 
+ .FlipBox2 .FlipConfirm{margin-left:20px;height:20px;line-height:20px;vertical-align:0;padding:6px 10px;border:1px solid #E5E5E5;background:#EFEFEF;border-radius:4px;cursor:pointer; }
+ .FlipBox2 .FlipConfirm:hover{background:#949495;color:#fff; }
+ .FlipBox2 .FlipConfirm:active{background:#e2e2e2;}
+
+ /***********************************右侧内容_end*****************************************/
+
+
+
+
+ /***********************************FooterWrap_Star*****************************************/
+ .FooterWrap{width:100%;background:#d7d7d7;position:fixed;bottom:0;left:0;z-index:10000;}
+ .FooterInner{width:1200px;text-align:center;font-size:14px;margin:auto;color:#fff;padding:1% 0%;}
+ .FooterWraps{position:fixed;bottom:0;left:0;}
+
+ /*我的公众号 开始*/
+ .add_public_box{width:944px;overflow:hidden;margin:0 auto;}
+ .add_public_con{width:1074px;}
+ .add_public_list{width:292px;height:368px; margin-right:31px;float:left;border:1px solid #e8e8e8;margin-top:36px;padding-bottom:20px;}
+ .public_pic{width:292px;height:175px;overflow:hidden;text-align:center;border-bottom:1px solid #e8e8e8;margin-bottom:10px;}
+ .publi_desc_item{width:245px;margin:0 auto;line-height:22px;}
+ .publi_select_btn{width:245px;margin:0 auto;height:42px;line-height:42px;border-radius:3px;-moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;background:#505050;text-align:center;color:#FFF;margin-top:15px;cursor:pointer;font-size:16px;}
+ .publi_select_btn:hover{background:#ff6900;}
+
+ .Add_public_btn_wrap{width:292px;height:368px; margin-right:31px;float:left;margin-top:36px;text-align:right;}
+
+
+.Add_public_btn{height:34px;text-align:right;padding: 31px 47px;background:#fff;border-radius:4px;border:1px solid #e8e8e8;display:inline-block;padding-top:40px;cursor:pointer;color:#a0a0a0;}
+.Add_public_btn span{position:relative; color:#a0a0a0;display:inline-block;vertical-align:middle;margin:0 2px; line-height:10px;font-size:20px;}  
+.add_icon{margin-top:4px;}
+.sel_icon{margin-top:2px;}
+
+/*权限管理*/
+.limit_contrl_box{width:944px;overflow:hidden;margin:0 auto;margin-top:35px;border:1px solid #e8e8e8;border-radius:2px;}
+.limit_contrl_table{width:944px;position:relative;}
+.thead_line{position:absolute;left:0px;top:62px;width:100%;height:1px;background:#e8e8e8;}
+.limit_contrl_table table thead tr{border-bottom:1px solid #e8e8e8;} 
+.limit_contrl_table table tr td{padding:20px 0;text-align:center;color:#505050;} 
+
+
+.limit_contrl_table table tr td.w185{width:185px;}
+.limit_contrl_table table tr td.w190{width:190px;}
+.limit_contrl_table table tr td.w173{width:173px;}
+.limit_contrl_table table tr td.w198{width:198px;}
+.limit_contrl_table table tr td.w210{width:210px;}
+
+.tab_btn_box{width:100%;height:45px;margin:38px 0px;}
+.tab_btn{width:153px;height:45px;float:left;background:#505050;border-radius:2px;text-align:center;line-height:45px;color:#FFF;cursor:pointer;margin-left:20px;font-size:17px;}
+.tab_btn01{margin-left:574px;}
+
+
+/*11-11 add*/
+.add_public_list{position:relative;}
+.edit_del_box{position:absolute;right:-24px;top:0px;width:30px;}
+.edit_del_box span{display:block;border-radius:2px;border:1px solid #e8e8e8;margin-bottom:6px;width:30px;height:30px;background:#FFF;cursor:pointer;}
+
+.edit_parts{width:944px;margin:0 auto;margin-top:36px;}
+
+.edit_list li{ margin-bottom:15px;}
+.edit_list li .value_box{ width:310px; height:35px; line-height:35px; text-align:right; color:#1d6fb8; font-size:18px; display:inline-block;background:#FFF;border:1px solid #d7d7d7;  border-radius:5px; vertical-align:middle;}
+.edit_list li .value_box input{ width:310px; height:35px; line-height:35px;  font-size:16px; background:none; border:none; text-indent:8px;}
+.edit_list li .lab{ width:116px; height:35px; line-height:35px; text-align:center; margin-right:10px;color:#505050; font-size:18px; display:inline-block;vertical-align:middle;}
+.edit_list li em{ width:10px; height:35px; line-height:35px; text-align:center; color:#505050; font-size:18px; display:inline-block;vertical-align:middle;}
+
+
+.edit_list li .value_box.nobj{ background:none;border:0px solid #d7d7d7;}
+
+.rank_select_btn{width:80px; height:35px; line-height:35px; text-align:center; color:#505050; font-size:18px; display:inline-block;vertical-align:middle;background:url(../Image/CustomMenu/RoundIcon.png) no-repeat left 6px;text-indent:3px;cursor:pointer;}
+.rank_select_btn.selected{background:url(../Image/CustomMenu/SelectRoundIcon.png) no-repeat left 6px;text-indent:3px;cursor:pointer;}
+
+.sel_file{width:153px; height:35px; line-height:35px; text-align:center; color:#505050; font-size:18px; display:inline-block;vertical-align:middle;background:url(../Image/CustomMenu/sel_file.png) no-repeat center ;cursor:pointer;border:1px solid #d7d7d7;  border-radius:5px;margin-right:10px;overflow:hidden;}
+.sel_file input{width:153px; height:35px; line-height:35px;  font-size:70px; opacity:0;filter:alpha(opacity=0);}
+.upload_file{width:153px; height:35px; line-height:35px; text-align:center; color:#505050; font-size:18px; display:inline-block;vertical-align:middle;background:url(../Image/CustomMenu/upload.png) no-repeat center ;cursor:pointer;border:1px solid #d7d7d7;  border-radius:5px;margin-right:10px;overflow:hidden;}
+.upload_file input{width:153px; height:35px; line-height:35px;  font-size:70px; opacity:0;filter:alpha(opacity=0);}
+
+
+
+.logo_size_box{width:780px;height:180px;margin-left:136px;margin-bottom:30px;}
+.logo_box{width:300px;height:175px;border:1px solid #d7d7d7;float:left;}
+.logo_size_desc{width:300px;height:25px;float:left;margin-top:150px;margin-left:30px;font-size:16px;color:#949495;}
+
+.line_001{width:1014px;height:1px;background:#E5E5E5;position:relative;margin-bottom:20px;left:-35px;margin-top:20px;}
+
+.eweima{width:240px;height:240px;margin-left:135px;border:1px solid #d7d7d7;text-align:center;line-height:240px;}
+.eweima img{display:inline-block;vertical-align:middle;}
+
+ 
+/*操作提示浮层*/
+.ManageTipsPopWrap{width:100%;height:100%;position:fixed;top:0;left:0;z-index:100;background:url(../Image/Public/BlackMask.png) repeat;display:none;}
+.ManageTipsPopInner{width:40%;margin:auto;margin-top:10%;}
+.ManageTipsTitle{padding:15px 0px;background:#f5f5f5;position:relative;}
+.ManageTipsTitle .span_1{font-size:18px;color:#505050;margin-left:20px;}
+.ManageTipsTitle .span_2{ position:absolute;right:20px;top:50%;width:26px;display:block; height:26px;overflow:hidden; margin-top:-13px;background:url(../Image/Public/chacha.png) no-repeat;-moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;cursor:pointer;border-radius:50%;}
+.ManageTipsTitle .span_2:hover{background-position:0 -26px;}
+.ManageTipsPopCon{width:99.5%;margin:auto;background:#fff;border:1px solid #e8e8e8;}
+.ManageTipsBox{width:100%;padding:13% 0px; }
+.ManageTipsBox .GraphicPvPullDownTitle{text-align:center;width:80%;margin:auto;}
+.ManageTipsBox .GraphicPvPullDownTitle span{display:inline-block;*display:inline;zoom:1;vertical-align:middle;}
+.ManageTipsBox .GraphicPvPullDownTitle span.span_1{}
+.ManageTipsBox .GraphicPvPullDownTitle span.span_1 img{display:none; }
+.ManageTipsBox .GraphicPvPullDownTitle span.span_1 img.ManageTipsPopCorrect{display:block;}
+.ManageTipsBox .GraphicPvPullDownTitle span.span_1 img.ManageTipsPopErrorIcon{display:none;} 
+.ManageTipsBox .GraphicPvPullDownTitle span.span_2{font-size:30px;color:#505050;font-weight:bold;}
+
+.ManageTipsFooter{padding:3% 0px;text-align:right;font-size:14px;color:#a0a0a0;}
+.ManageTipsFooter a{font-size:14px;color:#ff6900;text-decoration:underline;}
+.ManageTipsFooter a:hover{text-decoration:underline;}
+.ManageTipsFooter span{font-size:14px;color:#a0a0a0;margin-right:15px; }
+
+ 
+
+
+
+
+
+/******Dx20141228添加明细表单浮层*******/
+ /******明细表单*******/
+.DetailedFormWrap{width:100%; margin-left:0;height:100%; overflow-y:auto; border-bottom:none;} 
+.DetailedFormWrap .SearchWrap{margin-right:0;} 
+.DetailedFormWrap .FilterWrap,.DetailedFormWrap h2{display:inline-block;*display:inline;zoom:1;padding:3% 0px;} 
+.DetailedFormWrap .FilterWrap,.DetailedFormWrap .MenuFunctionLoacitionWrap,.DetailedFormWrap .EditorTableTitle{width:100%;}
+.DetailedFormWrap .MenuFunctionLoacitionWrap{position:relative;}
+.DetailedFormWrap .FilterWrap{margin-bottom:0;}
+.DetailedFormWrap .FilterWrap .FilterInner{width:98%;} 
+.DetailedFormWrap h2{position:absolute;left:-10px;top:10px;}
+.DetailedFormWrap .MenuFunctionLoacitionInner{margin-bottom:10px;}
+.DetailedFormWrap .FlipBox2 .FlipPageValue input{width:40px;text-align:center;line-height:20px; text-indent:initial;}
+.DetailedFormWrap .FilterWrap .FilterInner .SearchWrap input{width:170px;height:28px;line-height:28px;vertical-align:top;}
+.DetailedFormWrap .MenuFunctionLoacitionWrapEditor .AddMenuBtn span img{top:13px;}
+.DetailedFormWrap .EditorTableTitle tbody tr td{padding:5px 0px;}
+.DetailedFormWrap .AddMenuBtn{margin:13px auto;}
+.DetailedFormWrap .FlipWrap{margin:10px auto;}
+.DetailedFormWrap .FlipPageBtn{border-left:1px solid #E5E5E5;height:30px;padding: 12px 14px 0;vertical-align:middle;}
+.DetailedFormWrap .FlipPreviousBtn{}
+
+/*.DetailedFormWrap .AddMenuBtn a.ConfigurationFormBtn{padding:4px 3px;top:-5px;left:8px;}*/
+
+/*20150302DX修改（PS：修改cmn-UserFormTemplate下.MenuFunctionLoacitionInner:下边框none）*/
+.MenuFunctionLoacitionBox .Label2 .cmn-UserFormTemplate .MenuFunctionLoacitionInner{border-bottom:none;}
+
+
+/**20150324 Dx修改,给label2添加class:DetailedFormPopWrap,可让该区域改为浮层显示**/
+.DetailedFormPopWrap{height: 100%;width: 100%;z-index: 2;left: 0px;top: 0px;position: fixed;border: none;display: block;background: rgba(0, 0, 0, 0.8);}
+.DetailedFormPopWrap .DetailedFormWrap{width: 80%;height: 80%;position: fixed;left: 9%;top: 10%;background: #fff;border: 1px solid #e8e8e8;z-index: 222;}
+.DetailedFormPopWrap .DetailedFormWrap .FilterWrap,.DetailedFormPopWrap .DetailedFormWrap h2{padding:2% 0px;} 
+
+/*关闭明细浮层*/
+.CloseDetailedFormPopBtn{display:none;cursor:pointer; position:fixed;z-index:2;width:3%; right:7%;top:3%;-moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;}
+.CloseDetailedFormPopBtn img{width:100%;}
+.CloseDetailedFormPopBtn:active{
+    -webkit-transform:scale(0.8);
+    -ms-transform:scale(0.8);
+    -moz-transform:scale(0.8);
+    -o-transform:scale(0.8);
+    transform:scale(0.8);
+    
+}
+
+
+/*明细遮罩*/
+.DetailedFormMask{ background:url(../dsf/sdf.png) repeat;}
+
+
+
+ /***************翻页**************/
+.FlipWrap {
+	width: 100%;
+	text-align: center;
+	font-size: 0;
+	margin: 40px auto;
+}
+.FlipBox {
+	display: inline-block;
+*display:inline;
+	zoom: 1;
+	text-align: center;
+	font-size: 0;
+	vertical-align: middle;
+}
+/*.FlipPageBtn {
+	display: inline-block; *display:inline;
+	zoom: 1;
+	height: 26px;
+	padding: 12px 14px 0;
+	border: 1px solid #E5E5E5;
+	border-left: 0 none;
+	font-size: 14px;
+	cursor: pointer;
+	vertical-align: middle;
+}*/
+.FlipPreviousBtn {
+	border-left: 1px solid #E5E5E5;
+}
+.FlipMoreText {
+	cursor: default;
+}
+.FlipBox1 .FlipPageBtn.Select {
+	background: #EFEFEF;
+	cursor: default;
+}
+.FlipBox1 .FlipPageBtn:hover {
+	background: #EFEFEF;
+}
+.FlipPageNum, .FlipMoreText {
+}
+.FlipBox2 {
+	margin-left: 10px;
+}
+.FlipBox2 .FlipPageBtn {
+	border: none;
+	padding: 6px 10px;
+	height: 20px;
+	line-height: 20px;
+	vertical-align: 0;
+	cursor: default;
+}
+.FlipBox2 .FlipPageValue {
+	padding: 6px 5px;
+}
+.FlipBox2 .FlipPageValue input {
+	background: none;
+	border: 1px solid #E5E5E5;
+	width: 32px;
+	height: 20px;
+	text-align: center;
+}
+.FlipBox2 .FlipConfirm {
+	margin-left: 20px;
+	height: 20px;
+	line-height: 20px;
+	vertical-align: 0;
+	padding: 6px 10px;
+	border: 1px solid #E5E5E5;
+	background: #EFEFEF;
+	border-radius: 4px;
+	cursor: pointer;
+    -moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;
+
+}
+.FlipBox2 .FlipConfirm:hover {
+	background: #949495;
+	color: #fff;
+}
+.FlipBox2 .FlipConfirm:active {
+	background: #e2e2e2;
+}
+
+/****************确认取消浮层*******************/
+    .addNotePopWrap {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background: url(Image/Shady.png);
+    }
+    .addNote {
+        position: fixed;
+        width: 720px;
+        background: #fff;
+        top: 200px;
+        left: 343px;
+        border: 1px solid #e5e6ea;
+        border-radius: 3px;
+    }
+.addNote {
+	width: 720px;
+	background: #fff;
+	border: 1px solid #e5e6ea;
+	border-radius: 3px;
+}
+.addNote h1.title {
+	position: relative;
+	background-color: #f4f5f9;
+	height: 55px;
+	line-height: 55px;
+	padding: 0 15px;
+}
+.addNote h1.title a {
+	color: #333;
+	font-size: 16px;
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	right: 15px;
+	top: 0;
+}
+.addNote .midbox {
+	display: block;
+	height: 230px;
+	width: 100%;
+}
+.addNote .midbox .input {
+	width: 400px;
+	border: 1px solid #e5e6ea;
+	padding: 10px;
+	height: 25px;
+	border-radius: 3px;
+	line-height: 25px;
+	margin: 80px 0 0 160px;
+}
+.addNote .bottomBtn {
+	background-color: #f4f5f9;
+	padding: 17px 0;
+	height: 34px;
+	text-align: center;
+	width: 100%;
+}
+.addNote .bottomBtn .btn {
+	display: inline-block;
+	height: 34px;
+	width: 102px;
+	text-align: center;
+	line-height: 34px;
+	border-radius: 3px;
+}
+.addNote .bottomBtn .btn.confirm {
+	color: #fff;
+	background-color: #41b747;
+	margin-right: 15px;
+}
+.addNote .bottomBtn .btn.cancle {
+	color: #333;
+	border: 1px solid #e5e6ea;
+	background-color: #fff;
+	border-radius: 3px;
+}
+.addNote .bottomBtn .btn.confirm:hover, .addNote .bottomBtn .btn.cancle {
+	filter: alpha(opacity=80);
+	opacity: .8;
+}
+
+
+/*          不知道那个模块 目前发现 用户表单字段模板里面有用到里面的样式     ↓     */
+/***********************************************2014-11-24***********************************************/
+.tablemodule{ font-size:14px; border:1px solid #e0e0e0; width:944px; height:auto; margin-left:36px; padding-bottom:200px;}
+.tablemodule table{ width:944px; text-align:center;}
+.tablemodule table thead td{ border-bottom:1px solid #e0e0e0;}
+.tablemodule table tr{ height:76px; line-height:70px;}
+.tablemodule table .editBtn,
+.tablemodule table .removeBtn{ display:inline-block; width:31px; height:32px; background:url(../Image/editor_remove_btn.jpg) no-repeat; background-position:0 0; text-indent:-999em; vertical-align:middle;}
+.tablemodule table .removeBtn{ background-position:-31px 0; margin-left:6px;}
+.tablemodule .funNavBox{ border-top:1px solid #e0e0e0; padding-top:38px; width:100%;}
+.tablemodule .funNavBox a{ display:inline-block; margin-left:26px; line-height:64px; text-align:center; color:#505050; height:64px; width:146px; border-radius:3px; border:1px solid #e0e0e0; font-size:16px;}
+.tablemodule .funNavBox a i{ display:inline-block; margin-right:5px; margin-top:12px; vertical-align:top;}
+.tablemodule .funNavBox .importIcon{ background:url(../Image/dc_icon.png) no-repeat; height:30px; width:26px;}
+.tablemodule .funNavBox .searchIcon{ background:url(../Image/search_icon.png) no-repeat; height:30px; width:30px; margin-top:15px;}
+.tablemodule .funNavBox .createIcon{ background:url(../Image/add_icon.png) no-repeat; height:30px; width:30px; margin-top:14px;}
+.tablemodule .funNavBox .removeIcon{ background:url(../Image/remove_icon_btn.png) no-repeat; height:30px; width:30px; margin-top:15px;}
+.tablemodule .funNavBox a:hover{ background-color:#eee;}
+.tablemodule .funNavBox a em{ background:#ffbe90; color:#fff; display:inline-block; height:20px; line-height:20px; padding:0 5px; margin-left:5px;}
+
+.chartmodule{ font-size:14px; border:1px solid #e0e0e0; width:944px; height:auto; margin-left:36px; padding-bottom:80px;}
+.chartmodule table{ width:100%; text-align:center;}
+.chartmodule table thead{ height:76px;}
+.chartmodule table tbody tr td{ padding:10px 0;}
+.chartmodule table thead td{border-top:1px solid #e0e0e0; padding:12px 0;}
+
+.chartmodule table a.remove_btn,.chartmodule table a.link_btn,.chartmodule table a.addBtn{-moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;vertical-align:top; cursor:pointer;display:inline-block;*display:inline;zoom:1; height:32px; width:31px;  text-indent:-999em;cursor:pointer;}
+
+.chartmodule table a.remove_btn{background:url(../Image/CustomMenu/CompetenceEditor.png) no-repeat;}
+.chartmodule table a.link_btn{background:url(../Image/CustomMenu/CompetenceLink.png) no-repeat;}
+.chartmodule table a.addBtn{background:url(../Image/CustomMenu/CompetenceAdd.png) no-repeat;}
+.chartmodule table a.remove_btn:hover,.chartmodule table a.link_btn:hover,.chartmodule table a.addBtn:hover{background-position:0px -32px;} 
+
+.chartmodule table input.one,
+.chartmodule table input.two,
+.chartmodule table select.three,
+.chartmodule table input.four,
+.chartmodule table input.five,
+.chartmodule table input.six{line-height:25px; height:25px;border:1px solid #e0e0e0;}
+.chartmodule table input.one{ padding:0 5px; width:114px; }
+.chartmodule table input.two{ padding:0 5px; width:88px; }
+.chartmodule table select.three{ width:80px;}
+.chartmodule table input.four{ padding:0 5px; width:52px;}
+.chartmodule table input.five{ padding:0 5px; width:98px; }
+.chartmodule table input.six{ padding:0 5px; width:42px;}
+.chartmodule table .checkbox{ display:inline-block; height:25px; width:25px;}
+
+.chartmodule table .checkbox.nocheck,
+.chartmodule table .checkbox.yescheck{ display:inline-block; height:25px; width:25px; background:url(../Image/check_icon.png) no-repeat; background-position:-25px 0;cursor:pointer;}
+.chartmodule table .checkbox.yescheck{ background-position:0 0;}
+
+
+.chartmodule table tr.hide{display:none;}
+.chartmodule table tr:hover{background:#FAFAFA;} 
+
+.chartmodule .savaSubmit { height:55px; width:100%; position:relative;}
+.chartmodule .savaSubmit a{ display:inline; height:35px; width:110px; cursor:pointer; border-radius:5px; color:#fff; font-size:16px; line-height:35px; text-align:center; background:#505050; float:right; margin:10px;}
+.chartmodule .savaSubmit a:hover{background:#ff6900;-moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;}
+.chartmodule .savaSubmit a:hover{ filter:alpha(opacity=80); opacity:.8}
+.chartmodule .savaSubmit a:active{-webkit-transform:scale(0.9);}
+.chartmodule .savaSubmit .checkallbtn{ line-height:25px; height:25px; position:absolute; top:25px; left:20px; font-size:16px;}
+.chartmodule .savaSubmit .checkallbtn i{ margin-right:15px; height:25px; width:25px; vertical-align:top; display:inline-block;}
+.chartmodule .savaSubmit .checkallbtn.nocheck i, .chartmodule .savaSubmit .checkallbtn.yescheck i {
+cursor:pointer;
+display: inline-block;
+height: 25px;
+width: 25px;
+background: url(../Image/check_icon.png) no-repeat;
+background-position: -25px 0;
+vertical-align:top;
+}
+.chartmodule .savaSubmit .checkallbtn.yescheck i{ background-position: 0 0; }
+
+
+.chartmodule .addColContainer{ margin:10px 0; height:auto; width:400px;background:#fff; padding:35px 0;}
+.chartmodule .addColContainer input.one{padding: 0 5px;
+width: 114px;
+line-height: 25px;
+height: 25px;
+border: 1px solid #e0e0e0;}
+.chartmodule .addColContainer input.two {
+padding: 0 5px;
+width: 88px;
+line-height: 25px;
+height: 25px;
+border: 1px solid #e0e0e0;
+}
+.chartmodule .addColContainer select.three {
+width: 80px;
+line-height: 25px;
+height: 25px;
+border: 1px solid #e0e0e0;
+}
+.chartmodule .addColContainer input.four {
+padding: 0 5px;
+width: 52px;
+line-height: 25px;
+height: 25px;
+border: 1px solid #e0e0e0;
+}
+.chartmodule .addColContainer input.five {
+padding: 0 5px;
+width: 98px;
+line-height: 25px;
+height: 25px;
+border: 1px solid #e0e0e0;
+}
+.chartmodule .addColContainer input.six {
+padding: 0 5px;
+width: 42px;
+line-height: 25px;
+height: 25px;
+border: 1px solid #e0e0e0;
+}
+.chartmodule .addColContainer  .checkbox.nocheck, .chartmodule .addColContainer  .checkbox.yescheck {
+	cursor:pointer;
+display: inline-block;
+height: 25px;
+width: 25px;
+background: url(../Image/check_icon.png) no-repeat;
+background-position: -25px 0;
+vertical-align:top;
+}
+.chartmodule .addColContainer .mlone{ margin:0 20px 0 20px;}
+.chartmodule .addColContainer .checkbox.yescheck {
+background-position: 0 0;
+}
+/*          不知道那个模块 目前发现 用户表单字段模板里面有用到里面的样式      ↑    */
+/************************************************************************/
+ 
+
+
+
+
+
+
+
+/********************新增cms模块管理********************/
+.CmsNewAddCmsTplMgWrap,.CmsReferenceLabelWrap{width:100%;}
+.CmsNewAddCmsTplMgInner,.CmsReferenceLabelInner{width:100%;} 
+
+.CmsNewAddCmsTplMgFunWrap,.CmsReferenceLabelWrap{width:100%;margin:10px auto;border:1px solid #e8e8e8;border-left:none;border-right:none;padding-bottom:20px;}
+.CmsNewAddCmsTplMgFunTitle,.CmsReferenceLabelTitle{width:100%;height:30px;line-height:30px; text-indent:20px;font-size:15px;}
+.CmsNewAddCmsTplMgFunCon{width:100%;}
+.CmsNewAddCmsTplMgFunCon .CmsNewAddCmsTplMgFunName,.CmsNewAddCmsTplMgFunCon .CmsNewAddCmsTplMgFunNameInput,.CmsNewAddCmsTplMgFunCon .CmsNewAddCmsTplMgFunTips{display:inline-block;*display:inline;zoom:1;font-size:14px;vertical-align:middle;padding:5px 0px;}
+.CmsNewAddCmsTplMgFunCon .CmsNewAddCmsTplMgFunName{margin-left:20px;}
+.CmsNewAddCmsTplMgFunNameInput input{padding:5px 0px;border:1px solid #e8e8e8;}
+
+/*参考标签*/
+.CmsReferenceLabelCon{width:100%;}
+.CmsReferenceLabelList{width:100%;padding:10px;font-size:0;}
+.CmsReferenceLabelCon .CmsReferenceLabelBtn{display:inline-block;*display:inline;zoom:1;font-size:14px; margin:3px 3px;  color:#fff; padding:8px 20px;border-radius:6px;cursor:pointer; background:#949495;-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}
+.CmsReferenceLabelCon .CmsReferenceLabelBtn.Select{background:#ff6900;}
+.CmsReferenceLabelCon .CmsReferenceLabelBtn:hover{background:#ff6900;}
+
+/*参考标签详情*/
+.CmsReferenceLabelDetaWrap{width:100%;height:100px; border:1px solid #e8e8e8;display:none; border-left:none;border-right:none;}
+.CmsReferenceLabelDetaWrap textarea{width:100%;height:100%; overflow-y:auto;background:none;font-size:16px;color:#000;text-indent:24px;}
+
+
+/*编辑模式*/
+.EditorModeWrap{width:100%;height:300px;position:relative;}
+.EditorModeInner{width:100%;height:100%;position:relative;}
+.EditorCodeWrap{width:100%;height:100%;font-size:17px; position:relative;background:none;border:1px solid #e8e8e8;border-left:none;border-right:none;}
+.EditorCodeWrap2{display:none;}
+
+/*保存取消按钮*/
+.EditorModeBottomBtnWrap{width:100%;margin:20px auto;text-align:left;font-size:0;}
+.EditorModeBottomBtnWrap .EditorModeBottomBtnInner>div{ display:inline-block;*display:inline;margin:3px 3px; font-size:14px;zoom:1;color:#fff; padding:8px 20px;border-radius:6px;cursor:pointer; background:#949495;-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}
+.EditorModeBottomBtnWrap .EditorModeBottomBtnInner>div:hover{background:#ff6900;}
+
+
+/*右击弹出菜单*/
+.RightClickMenuButtonWrap{position:absolute;width:10%;padding:0% 0px;left:20%;top:10%;border:1px solid #e8e8e8;}
+.RightClickMenuButtonInner{width:100%;}
+.RightClickMenuButtonBox{width:100%;}
+.RightClickMenuButtonList{width:100%;position:relative;}
+
+.RightClickMenuButtonDeta{width:100%;position:relative; text-align:center;background:url(../Image/Public/RightArrow.png) no-repeat right center;-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}
+.RightClickMenuButtonDeta .ClickArea{width:100%;display:block;padding:2% 0px;font-size:14px;color:#a0a0a0;text-decoration:none;-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}
+
+.RightClickMenuButtonDeta:hover{background:#ff6900;}
+.RightClickMenuButtonDeta:hover>.ClickArea{color:#fff;}
+
+
+.RightClickMenuDownPullButtonWrap{width:100%;position:absolute;top:0;left:100%;border:1px solid #e8e8e8;text-align:center;padding:1% 0px;display:none;-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}
+
+.RightClickMenuDownPullDetaButton{width:100%;background:#fff;font-size:14px;background: url(../Image/Public/RightArrow.png) no-repeat right center;-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}
+/*.RightClickMenuDownPullDetaButton .ClickArea{width:100%;display:block;padding:2% 0px;font-size:14px;color:#a0a0a0;text-decoration:none;-moz-transition: all .2s ease-in;-webkit-transition: all .2s ease-in;-o-transition: all .2s ease-in;transition: all .2s ease-in;}*/
+
+.RightClickMenuDownPullDetaButton:hover{background:#ff6900;}
+.RightClickMenuDownPullDetaButton:hover>.ClickArea{color:#fff;}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

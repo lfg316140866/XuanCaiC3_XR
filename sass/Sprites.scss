@@ -1,0 +1,46 @@
+﻿@charset "utf-8";
+
+/**********************module01  start*******************/
+//-layout: vertical/horizontal/diagonal/smart;配置sprite的布局方式，默认布局方式为vertical
+
+//-clean-up: true/false;清除过期的sprite // 
+
+
+//-position: 0px;                // 配置所有sprite的位置，默认为0px
+//-<sprite>-position: 0px;        // 配置单个sprite的位置，默认继承$<map>-position的值
+
+
+//-spacing: 5px;                // 配置所有sprite间距为5px，默认为0px
+//-<sprite>-spacing: 10px;        // 配置单个sprite间距为10px，默认继承$<map>-spacing的值
+
+
+//-sprite-dimensions: true;    // 启用自动设置sprite尺寸，默认值为false
+
+//$<map>-<sprite>-repeat: no-repeat/repeat-x;       //设置精灵的重复性，Compass发布时还不支持跨y轴的图片重复。
+
+
+//-sprite-selectors: false;    // 默认为true
+// $logo-sprite-dimensions:true;
+$btn-spacing: 8px;
+$btn-layout: 'vertical';
+@import "btn/*.png";
+@include all-btn-sprites;
+// .menu01 {
+// @include Color-sprite(menu01);
+// width: 110px;height: 27px;
+// @include all-Color-sprites;
+// @include all-Color-sprites;
+// .medium_play{ @include Color-sprite(play01);}
+//.medium_play:hover{ @include Color-sprite(close);}
+
+
+/********************module01  end*********************/
+
+
+////********************module02  start*******************/
+
+//$icons: sprite-map("Color/*.png");
+// //添加间距
+// $icons: sprite-map("Color/*.png",$spacing: 0px,$layout:horizontal);
+// .close-icon { background: sprite($icons, close); }
+////*********************module02  end********************/

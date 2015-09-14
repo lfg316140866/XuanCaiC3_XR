@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" id="viewport" content="target-densitydpi=device-dpi,width=640, maximum-scale=0.5">
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+	document.getElementById('viewport').setAttribute('content', 'target-densitydpi=device-dpi,width=640, maximum-scale=' + window.screen.width / 640);
+</script>
+<title>C3-XR完美体验</title>
+<link rel="stylesheet" href="css/style.css?m=3122326" />
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<!-- <div class="loading" style="display:none;">
+	<figure class="loading_top"><img src="images/loading_top.jpg"></figure>
+	<figure class="loading_icon"><img src="images/loading_icon.png"></figure>
+	<div class="loading_num">80%</div>
+	<figure class="loading_bottom"><img src="images/loading_bottom.jpg"></figure>
+</div> -->
+<section class="wrapper" id="wrap">
+	<header class="logo">
+		<div class="logo_text"></div><div class="logo_icon"></div>
+	</header>
+	<article class="home">
+		<div class="home_btn"></div>
+	</article>
+	<article class="nav">
+		<a class="btn_power" href="power.html"></a>
+		<a class="btn_control" href="control.html"></a>
+	</article>
+
+	<!--screenTips-->
+	<div class="screenTips2">
+		<div class="st_overlay"></div>
+		<div class="st_icon2"></div>
+	</div>
+</section>
+</body>
+</html>
+<script type="text/javascript" src="js/main.min.js"></script>
+<script type="text/javascript" src="js/share.js"></script>
+<script>
+orient2();
+//用户变化屏幕方向时调用
+$(window).bind( 'orientationchange', function(e){
+orient2();
+});
+
+function orient2() {
+	if (window.orientation == 90 || window.orientation == -90) {
+		//ipad、iphone横屏；Andriod横屏
+		$("#wrap").attr("class","wrapper2");
+		$(".screenTips2").show();
+		return false;
+	}else if (window.orientation == 0 || window.orientation == 180) {
+		//ipad、iphone竖屏；Andriod竖屏
+		$("#wrap").attr("class","wrapper");
+		$(".screenTips2").hide();
+		return false;
+	}
+}
+
+$(function(){
+	$(".home_btn").click(function(){
+		$(".nav").fadeIn();
+	})
+})
+</script>

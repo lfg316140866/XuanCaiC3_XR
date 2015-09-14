@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>接口测试 </title>
+    <script src="../../Js/ThirdLib/jquery.js"></script>
+    <script src="../../Js/ThirdLib/Json2.js"></script>
+    <script src="../../Js/Cmn.js"></script>
+    <script src="../../Js/CmnAjax.js"></script>
+    <script src="../Js/SiteConfig.js"></script>
+    <script src="../Js/CmnMis/CmnMis.js"></script>
+    <script src="../Js/CmnMis/CmnMisFrame.js"></script>
+    <script src="../Js/CmnMis/CmnMisUserForm.js"></script>
+    <script src="../Js/CmnMis/CmnMisFunc.js"></script>
+    <script src="../Js/CmnMis/CmnMisTableOpt.js"></script>
+    <script src="../Js/CmnMis/CmnMisControl.js"></script>
+    <script src="../Js/CmnMis/CmnMisItf.js"></script>
+</head>
+<body>
+
+    <div class="UserForm">
+        <div class="cmn-EditPanel">
+         
+            <div class="cmn-Ctl-Container txtItfName" style="margin-top: 12px; height: 30px;">
+                <span class="cmn-Ctl-ColNameContainer" style="display: inline-block; text-align: right;">
+                    <font color="red" class="cmn-Ctl-ColIsRequired">*  </font>
+                    <label class="cmn-Ctl-ColName">接口名称：</label> 
+                </span>
+                <span style="display: inline-block; height: 30px; width: 250px; line-height: normal;" class="cmn-Ctl-Content cmn-control" data-control-type="Text" name="itfname">
+                    <input type="text" class="cmn-control-text" style="width:250px;">
+                </span>
+            </div>
+            <br />
+
+            <div class="cmn-Ctl-Container txtSql" style="margin-bottom: 12px; ">
+                <span style="display: inline-block;  width: 250px; line-height: normal;" class="cmn-Ctl-Content cmn-control" data-control-type="TextArea" name="sql">
+                    <textarea class="cmn-control-textArea" style="width:800px;height:180px;"></textarea>
+                </span>
+            </div>
+
+            <div class="cmn-Ctl-Container txtitfurl" style="margin-bottom: 12px; display:none; ">
+                <span style="display: inline-block;  width: 250px; line-height: normal;" class="cmn-Ctl-Content cmn-control" data-control-type="TextArea" name="itfurl">
+                    <textarea class="cmn-control-textArea" style="width:800px;height:180px;"></textarea>
+                </span>
+            </div>
+
+            <div class="UseHelp" style="font-size:12px; margin-bottom:4px;">参数说明：如果sql需要传入参数，{$Key$} 或 {$r:key$}；获取cookies:{$c:key$}；获取session:{$s:key$}</div>
+        </div>
+    </div>
+
+    <div id="divParamInput" style="margin-top:6px;margin-bottom:8px;"></div>
+    <input type="button" id="btnCreateParam" style="width:130px;height:50px;" value="创建参数输入" />
+    <input type="button" id="btnCallItf" style="width:130px;height:50px;" value="保存并调用接口" />
+    <input type="button" id="btnExecSql" style="width:130px;height:50px;" value="执行Sql" /><span class="hitExecSql">(注：最多显示10条记录)</span>
+    <br /><br />
+    <div id="divResult" style="word-break:break-all;"></div>
+    <div style="margin-top:30px;">
+        <div style="font-weight:bold;">js框架调用代码</div>
+        <textarea id="txtCmnCode" style="width:90%;height:34px;"></textarea>
+        <div style="font-weight:bold;">接口Url</div>
+        <textarea id="txtItfUrl" style="width:90%;height:34px;"></textarea>
+    </div>
+    <script type="text/javascript">
+        $(window).ready(function () {
+            var RecData = null;
+
+            //填充数据
+            CmnMis.TableOpt.InitEidtPanel("cmn_itf_interface", ".UserForm", Cmn.Func.GetParamFromUrl("interfaceid"), function (data) {
+                document.title = "接口" + CmnMis.UI.Control.GetControl(".txtItfName").GetValue() + "调试";
+
+                RecData = data;
+
+                if (data["interfacetype"] != "1") {
+                    $(".txtitfurl").show();
+                    $(".txtSql").hide();
+
+                    $("#btnExecSql").hide();
+                    $(".hitExecSql").hide();
+                    $("#btnCreateParam").hide();
+
+                    $(".UseHelp").html("例如：[CmnMis]Cmn.Mis.ItfFunc.GetUserID，中括号中是包名，中括号后面为要调用的函数的路径");
+                }
+            });
+
+            $("[name=sql],[name=itfurl]").width("100%");
+            $(".cmn-control-textArea").width("90%");
+            $(".txtitfurl,.txtitfurl span,.txtSql,.txtSql span").height("");
+
+            function CreateParamInput() {
+                /// <summary>创建参数输入框</summary>
+
+                var _sql = CmnMis.UI.Control.GetControl(".txtSql").GetValue();
+                var _params = _sql.match(/(#\S+?#)|(\{\$r:\S+?\$\})|(\{\$[^:\s]+?\$\})/g);
+                var _paramHtml = "";
+                var _paramCount = 0; //参数个数
+                var _needCreate = false; //是否需要创建
+
+                //检查需不需要重新创建参数
+                if (_params == null) { _paramCount = 0; }
+                else {
+                    //去掉参数格式，只保留参数名
+                    for (var _i = 0; _i < _params.length; _i++) {
+                        _params[_i] = _params[_i].replace(/#/g, "").replace(/\{\$r:/g, "").replace(/\{\$/g, "").replace(/\$\}/g, "");
+                        _params[_i] = Cmn.Func.Trim(_params[_i]);
+                    }
+
+                    //需要去除重复的
+                    var _diffCount = 0;
+
+                    for (var _i = 0; _i < _params.length; _i++) {
+                        var _isExists = false;
+
+                        for (var _k = _i + 1; _k < _params.length; _k++) {
+                            if (_params[_i] == _params[_k]) { _isExists = true; break; }
+                        }
+
+                        if (!_isExists) { _diffCount = _diffCount + 1; }
+                    }
+
+                    _paramCount = _diffCount;
+                }
+
+                if (_paramCount != $(".params").length) { //个数一样就认为不需要重新创建参数
+                    _needCreate = true;
+                }
+
+                if (_needCreate == false) { return 0; }
+
+                //创建参数输入框
+                $("#divParamInput").html(""); //清空参数
+
+                if (_params != null) {
+                    for (var _i = 0; _i < _params.length; _i++) {
+                        var _paramName = _params[_i].replace(/#/g, "");
+
+                        if (_paramHtml.indexOf("id='" + _paramName + "'") < 0) { //已经加过的就不加了
+                            _paramHtml += _paramName + "<input id='" + _paramName + "' class='params' type='text' />";
+                            _paramCount++;
+                        }
+                    }
+
+                    $("#divParamInput").html(_paramHtml);
+                }
+
+                return _paramCount;
+            }
+
+            //创建参数输入
+            $("#btnCreateParam").click(function () {
+                if (CreateParamInput() > 0) { Cmn.alert("参数输入已创建，请输入参数。"); }
+                else { Cmn.alert("没有需要创建的参数！"); }
+            });
+
+            //检测需不需要创建参数输入
+            function CheckParamInput() {
+                //var _sql = CmnMis.UI.Control.GetControl(".txtSql").GetValue();
+
+                //var _countInSql = _sql.match(/#\S+?#/g); //没有匹配到的话是null
+
+                //if (_countInSql == null) { _countInSql = 0; }
+                //else { //需要去除重复的
+                //    var _diffCount = 0;
+
+                //    for (var _i = 0; _i < _countInSql.length; _i++) {
+                //        var _isExists = false;
+
+                //        for (var _k = _i+1; _k < _countInSql.length; _k++) {
+                //            if (_countInSql[_i] == _countInSql[_k]) { _isExists = true; break; }
+                //        }
+
+                //        if (!_isExists) { _diffCount = _diffCount + 1; }
+                //    }
+
+                //    _countInSql = _diffCount;
+                //}
+
+                //if (_countInSql != $(".params").length) {
+                //    $("#btnCreateParam").click();
+
+                //    if ($(".params").length > 0) { return false; } //如果大于0需要填入参数，返回false
+                //}
+
+                if (CreateParamInput() > 0) {
+                    Cmn.alert("参数已创建，请输入参数。");
+                    return false;
+                }
+
+                //生成调用代码
+                var _param = "";
+                var _urlParam = "";
+                var _itfName = CmnMis.UI.Control.GetControl(".txtItfName").GetValue();
+
+                $(".params").each(function () {
+                    if (_param != "") { _param += ","; }
+                    _param += "\"" + $(this).attr("id") + "\":\"" + $(this).val() + "\"";
+
+                    if (_urlParam != "") { _urlParam += "&"; }
+                    _urlParam += $(this).attr("id") + "=" + $(this).val();
+                });
+
+                $("#txtCmnCode").val("CmnMis.Itf.GetData(\"" + _itfName + "\", " + (_param == "" ? "\"\"" : "{" + _param + "}") + ", false, function (data) {});");
+                $("#txtItfUrl").val(Cmn.Func.AddParamToUrl(CmnMis.Func.GetCmnItfUrl(), "method=GetSqlData&ItfName=" +
+                    _itfName) + (_urlParam == "" ? "" : "&" + _urlParam));
+
+                return true;
+            }
+
+            //调用接口
+            $("#btnCallItf").click(function () {
+                if (CheckParamInput() == false) { return; }
+
+                $("#divResult").html("");
+                $("#divResult").hide();
+
+                CmnMis.TableOpt.Update("cmn_itf_interface", Cmn.Func.GetParamFromUrl("interfaceid"), function () {
+                    var _param = {};
+
+                    $(".params").each(function () {
+                        _param[$(this).attr("id")] = $(this).val();
+                    });
+
+                    CmnMis.Itf.GetData(CmnMis.UI.Control.GetControl(".txtItfName").GetValue(), _param, false, function (data) {
+                        $("#divResult").html("接口调用结果：<br/>" + JSON.stringify(data));
+
+                        $("#divResult").slideDown(1000);
+                    });
+                });
+            });
+
+
+            //执行sql语句
+            $("#btnExecSql").click(function () {
+                if (CheckParamInput() == false) { return; }
+
+                var _sql = CmnMis.UI.Control.GetControl(".txtSql").GetValue();
+
+                if (_sql == "") { Cmn.alert("sql语句不能为空"); return; }
+
+                //替换参数
+                $(".params").each(function () {
+                    _sql = _sql.replace(new RegExp("#" + $(this).attr("id") + "#", "g"), $(this).val());
+                });
+
+                var _param = {};
+
+                $(".params").each(function () {
+                    _param[$(this).attr("id")] = $(this).val();
+                });
+
+                _param["sql"] = _sql;
+                _param["Top"] = "10";
+
+                $("#divResult").html("");
+                $("#divResult").hide();
+
+                CmnAjax.PostData(Cmn.Func.AddParamToUrl(InterfaceUrl, "method=DBGetResultSet"),
+                    _param, function (data) {
+                        if (data.IsSuccess && data.IsSuccess == "0" && data.ErrMsg == "未登录") {
+                            window.location.href = Cmn.Func.GetRoot() + "/manage/Login.html?SysName=" + Cmn.Func.GetParamFromUrl("SysName", window.location.href);
+                        }
+                        else if (data.IsSuccess == "0") { $("#divResult").html(data.ErrMsg); }
+                        else {
+                            var _result = "<div>执行成功！</div><br/><table border='1'><tr>";
+                            var _rec = "";
+                            var _data = data.data;
+
+                            if (data.data == undefined) { _data = data; }
+
+                            for (var _i = 0; _i < _data.length; _i++) {
+                                _rec += "<tr>";
+
+                                for (var _key in _data[_i]) {
+                                    if (_i == 0) { _result += "<th>" + _key + "</th>"; }
+
+                                    _rec += "<td>" + _data[_i][_key] + "</td>";
+                                }
+
+                                _rec += "</tr>";
+                            }
+
+                            _result += "</tr>" + _rec + "</table>";
+
+                            $("#divResult").html(_result);
+                        }
+
+                        $("#divResult").slideDown(1000);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

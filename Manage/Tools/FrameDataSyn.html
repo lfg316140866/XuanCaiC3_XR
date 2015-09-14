@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>框架数据同步</title>
+    <script src="../../Js/ThirdLib/jquery.js"></script>
+    <script src="../../Js/ThirdLib/Json2.js"></script>
+    <script src="../../Js/Cmn.js"></script>
+    <script src="../../Js/CmnAjax.js"></script>
+    <script src="../Js/SiteConfig.js"></script>
+    <script src="../Js/CmnMis/CmnMis.js"></script>
+    <script src="../Js/CmnMis/CmnMisFrame.js"></script>
+    <script src="../Js/CmnMis/CmnMisUserForm.js"></script>
+    <script src="../Js/CmnMis/CmnMisFunc.js"></script>
+    <script src="../Js/CmnMis/CmnMisTableOpt.js"></script>
+    <script src="../Js/CmnMis/CmnMisControl.js"></script>
+    <script src="../Js/CmnMis/CmnMisItf.js"></script>
+
+    <style>
+        /*通用input样式*/
+        .jscInput {  text-align: center; border: 1px #ccc solid;  height: 30px;  line-height: 30px; }
+
+        /*操作界面的样式*/
+        .jscFromDataContaqiner { width: 950px; height:auto; margin:auto; overflow: hidden;  }
+        .jscDataBlock {  width: 440px;  height: 160px;  margin:5px; display: inline-block; overflow: hidden; }
+        .jscSynDataResultContainer { width: 950px; overflow: hidden; margin: auto;  }
+
+        /*结果显示的样式*/
+        .jscViewResult { height: 300px;  overflow: scroll; border: 1px #ccc solid; width: 100%; }
+
+        /*左边数据来源样式*/
+        .jscDataSrouceList { width: 430px; height: 100%; position: fixed; left: 0px;  top: 0px; border: 1px #ccc solid; background: #fff; }
+        .jscOperatPanel { width: 100px; height: 300px; border: 1px #ccc solid; background: #fff; position: absolute; right: -50px; top: 50%; margin-top: -150px; z-index:9; }
+        .jscSearchContainer { width: 100%; height: 100px; position: absolute; left: 0px; top: 0px; z-index: 9; } 
+        .jscListPanel {  width: 100%; height: 700px; position: absolute; left: 0px; top: 50%; margin-top: -350px; z-index: 8; }
+        .jscPageContainer {  width: 100%; height: 30px; position: absolute; left: 0px; bottom: 50px; z-index: 9; text-align:center; }
+        .jscPageContainer b {  cursor:pointer; }
+        .jscPageContainer b.hover {  color:#ff6a00; }
+        /*登录部分的样式*/
+        .jscLoginContainer{width:100%;height:100%;background:rgba(0, 0, 0, 0.45);position:fixed;z-index:10;top:0px;left:0px;}
+        .jscLogin{width:600px;height:200px; background:#fff;position:absolute;left:50%;top:50%;margin-left:-300px;margin-top:-100px;padding-top:50px;}
+    </style>
+
+</head>
+<body>
+
+    <div class="jscDataSrouceList">
+        <div class="jscOperatPanel">
+
+           
+        </div>
+
+        <div class="jscSearchContainer">
+            <div style="text-align:center;font-size:26px;margin-top:10px">
+                <select class="jscDataSourceSelect jscInput" style="width: 410px; height: 40px; font-size: 30px;">
+                    <option class="jscDataSourceItem dat-formdesc" value="{userformid}" tname="{tablename}"> </option>
+                </select>
+            </div>
+            <input type="text" style="width: 300px; height: 30px;margin:10px;" placeholder="搜索内容" />
+            <button class="jscSynBtn jscInput" style="width: 50px; height: 30px; margin: 10px; ">搜索</button>
+        </div>
+        <div class="jscListPanel">
+
+            <table width="430">
+                <thead style="background:#ccc;">
+                    <tr>
+                        <td width="40"><input type="checkbox" name="jscAllSelectDataScource" class="jscAllSelectDataScource jscInput" style="width: 20px; height: 20px; margin: 10px;"></td>
+                        <td width="80" align="center">数据代码</td>
+                        <td align="center">数据名称</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="jscSourceDataItem">
+                        <td width="40"><input type="checkbox" name="jscSelectDataScource" class="jscSelectDataScource jscInput" style="width: 20px; height: 20px; margin: 10px;"></td>
+                        <td width="80" align="center" class="dat-RecID">1</td>
+                        <td align="left" class="dat-Desc">数据名称</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+        <div class="jscPageContainer">
+            <b class="pagPre">上一页</b>
+            <b class="pagNum">1</b>
+            <b class="pagNext">下一页</b>
+        </div>
+
+    </div>
+
+    <div class="jscFromDataContaqiner">
+        <div class="jscFromDataFilter">
+            <div class="jscDataBlock">
+                <h3>表单模板数据</h3>
+               
+                <label><input type="radio" name="from_ActionType" checked /> 自动（先会根据默认字段去匹配更新，如果不存在则插入）</label> <br>
+                <label><input type="radio" name="from_ActionType" /> 插入数据</label> <br>
+                <label><input type="radio" name="from_ActionType" /> 根据字段更新数据</label> <br>
+                <label>
+                   
+                    选择字段:
+                    <select>
+                        <option>ID</option>
+                        <option>Name</option>
+                    </select>
+                </label>
+            </div> 
+            <div class="jscDataBlock">
+                <h3>表单模板数据</h3>
+                <label><input type="radio" name="temp_ActionType" checked /> 自动（先会根据默认字段去匹配更新，如果不存在则插入）</label> <br>
+                <label><input type="radio" name="temp_ActionType" /> 插入数据</label> <br>
+                <label><input type="radio" name="temp_ActionType" /> 根据字段更新数据</label> <br>
+                <label>
+                    选择字段:
+                    <select>
+                        <option>ID</option>
+                        <option>Name</option>
+                    </select>
+                </label>
+               
+            </div>
+            <hr />
+          
+            <div class="jscDataBlock">
+                <h3>表单字段数据</h3>
+                <label><input type="radio" name="col_ActionType" checked /> 自动（先会根据默认字段去匹配更新，如果不存在则插入）</label> <br>
+                <label><input type="radio" name="col_ActionType" /> 插入数据</label> <br>
+                <label><input type="radio" name="col_ActionType" /> 根据字段更新数据</label> <br>
+                <label>
+                    选择字段:
+                    <select>
+                        <option>ID</option>
+                        <option>Name</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        <hr />
+    </div>
+
+    <div class="jscSynDataResultContainer">
+        <button class="jscSynBtn jscInput" style="width: 50px;margin:20px;">同步</button>
+
+        <input type="text" class="jscItfUrl" style="width: 300px; height: 30px;" placeholder="请输入来源的域名，或者目标域名" />
+
+        <div class="jscViewResult"></div>
+    
+    </div>
+
+    <div class="jscLoginContainer">
+
+        <div class="jscLogin">
+            <table width="600">
+                <tr>
+                    <td align="right"> 用户名：</td>
+                    <td><input type="text" class="cmn-LoginUserName" style="width: 200px; height: 25px;" /></td>
+                </tr>
+                <tr>
+                    <td align ="right"> 密  码：</tdalign>
+                    <td><input type="password" class="cmn-LoginPassWord" style="width: 200px; height: 25px;" /></td>
+                </tr>
+                <tr>
+                    <td align ="right">目标或者来源主域名：</tdalign>
+                    <td><input type="text" class="jscItfUrl" style="width: 400px; height: 25px;" /></td>
+                </tr>
+                <tr>
+                    <td align="right"></tdalign>
+                    <td> <button class="jscLoginBtn jscInput" style="width: 50px;">登录</button></td>
+                </tr>
+                <tr class="jscTargetTip" style="display:none;">
+                    <td align="right">来源站：</tdalign>
+                    <td style="color:red;"> 登录失败</td>
+                </tr>
+                <tr class="jscSourceTip" style="display:none;">
+                    <td align="right">目标站：</tdalign>
+                    <td style="color:red;"> 登录失败</td>
+                </tr>
+            </table>
+            
+        </div>
+
+    </div>
+
+    <script>
+
+        var SynManage = {
+            SourceItf: "http://" + Cmn.Func.GetMainDomain() + "/Itf/CSharp/CmnMisItf.aspx",     //数据来源接口
+            TargetItf: "",                                                                      //同步目标接口地址
+            LoginItf: "",                                                                       //登录接口地址
+            CurDomianUserID: "",                                                                //获取当前域登录的用户
+            TargetDomianUserID: "",                                                              //目标域的用户代码
+            //选择的数据列表
+            SelectedList: {},
+            //元数据列表
+            SourceDataList:{},
+            CurDataSourceTabelName:"",
+            //登录
+            Login: function (callback) {
+                $(".jscTargetTip").hide();
+                $(".jscSourceTip").hide();
+
+                //如果填写的地址是当前域的话
+                if ($(".jscItf").val() + "".indexOf(Cmn.Func.GetMainDomain()) > -1) {
+                    SynManage.TargetItf = "http://" + Cmn.Func.GetMainDomain() + "/Itf/CSharp/CmnMisItf.aspx";
+                    SynManage.SourceItf = "http://cg.cagoe.com/Itf/CSharp/CmnMisItf.aspx";
+                }
+                else {
+                    SynManage.TargetItf = $(".jscItfUrl").val() + "/Itf/CSharp/CmnMisItf.aspx";
+                    SynManage.SourceItf = "http://" + Cmn.Func.GetMainDomain() + "/Itf/CSharp/CmnMisItf.aspx";
+                }
+
+                SynManage.TargetDomianUserID = CmnAjax.GetData(Cmn.Func.AddParamToUrl(SynManage.TargetItf, "method=GetUserID")).UserID;
+
+                var _err = "", _isok = true; _count = 0;
+
+                if (SynManage.TargetDomianUserID == "") {
+                    CmnMis.Frame.InitLogin(SynManage.TargetItf, function (data) {
+                        if (data.IsSuccess == "1") { }
+                        else { _isok = false; $(".jscTargetTip").show(); }
+                        _callback();
+                    });
+                }
+                else { _callback(); }
+
+                if (SynManage.CurDomianUserID == "") {
+                    CmnMis.Frame.InitLogin(SynManage.SourceItf, function (data) {
+                        if (data.IsSuccess == "1") { }
+                        else { _isok = false; $(".jscSourceTip").show(); }
+                        _callback();
+                    });
+                }
+                else { _callback(); }
+
+                function _callback() {
+                    if (++_count >= 2) {
+                        if (_isok) {
+                            $(".jscLoginContainer").fadeOut();
+                            callback && callback();
+                        }
+                        else { alert(_err); }
+                    }
+                }
+            },
+            //获取数据源域的表单数据
+            LeftDataSource: function (recid) {
+                //加载下拉框
+                CmnAjax.FillData(".jscDataSourceItem",SynManage.SourceItf, {
+                    "CurUserFormID": 1,
+                    "method": "GetRecList",
+                    "SortBy":"[sortid] asc",
+                    "Condition": "[formdesc]='用户表单管理' or [formdesc]='自定义接口管理'"
+                }, function () { $(".jscDataSourceSelect").trigger("change");});
+
+                //填充需要同步的数据
+                $(".jscDataSourceSelect").on("change", function () {
+                    var _recid = $(this).val();
+
+                    SynManage.CurDataSourceTabelName = $(this).find("option:selected").attr("tname");
+
+                    var _datapaging = new CmnAjax.DataPaging("", SynManage.SourceItf, {
+                        "method": "GetRecList",
+                        "CurUserFormID": _recid
+                    }, ".jscPageContainer", 15, function (data) {
+                        if (!!data.data) {
+                            $.each(data.data, function (index, item) {
+                                if (this.interfaceid != undefined && this.itfdesc != undefined) this["RecID"] = this.interfaceid;
+                                if (this.itfdesc != undefined) this["Desc"] = this.itfdesc;
+                                if (this.userformid != undefined && this.formdesc != undefined) this["RecID"] = this.userformid;
+                                if (this.formdesc != undefined) this["Desc"] = this.formdesc;
+                                SynManage.SourceDataList[SynManage.CurDataSourceTabelName + "_" + this.RecID] = this;
+                            });
+
+                            Cmn.FillData(".jscSourceDataItem", data.data);
+                        }
+                    });
+                    _datapaging.Paging.ActiveClass = "hover";
+                });
+
+                //全选
+                $(".jscAllSelectDataScource").on("click", function () {
+
+                    if (this.checked) {
+                        $(".jscSelectDataScource").each(function () { this.checked = true; $(this).trigger("change"); });
+                    }
+                    else { $(".jscSelectDataScource").each(function () { this.checked = false; $(this).trigger("change"); }) }
+
+                });
+
+                //选择要同步的数据
+                $(".jscListPanel").delegate(".jscSelectDataScource","change", function () {
+                    var _key = SynManage.CurDataSourceTabelName + "_" + $(this).parents(".jscSourceDataItem").find(".dat-RecID").html();
+                    if (this.checked) {
+                        SynManage.SelectedList[_key] = SynManage.SourceDataList[_key];
+                    }
+                    else { delete SynManage.SelectedList[_key];}
+                });
+
+            }
+        }
+
+
+        //登录
+        $(function () {
+           
+            //默认当前域
+            if (!$(".jscItfUrl").val()) { $(".jscItfUrl").val("http://" + Cmn.Func.GetMainDomain() + "/") }
+
+            SynManage.CurDomianUserID = CmnAjax.GetData(Cmn.Func.AddParamToUrl(SynManage.SourceItf, "method=GetUserID")).UserID;
+
+            //点击登录的
+            $(".jscLoginBtn").click(function () {
+                SynManage.Login(function () {
+                    SynManage.LeftDataSource();
+                });
+            });
+
+
+           
+
+
+        })
+
+
+    </script>
+
+</body>
+</html>

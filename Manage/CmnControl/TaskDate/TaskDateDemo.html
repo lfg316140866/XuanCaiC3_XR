@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="../../../Js/jquery.js"></script>
+    <script src="fullcalendar.min.js"></script>
+    <link href="fullcalendar.css" rel="stylesheet" />
+    <script src="TaskDate.js"></script>
+    <title></title>
+    <script>
+
+        $(document).ready(function () {
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+            var ev1 =  [
+				{
+				    title: '- All Day Event',
+				    start: new Date(y, m, 1)
+				},
+				{
+				    title: 'Long Event',
+				    start: new Date(y, m, 1),
+				    end: new Date(y, m, d - 2),
+				    allDay: true
+				},
+				{
+				    id: 999,
+				    title: 'Repeating Event',
+				    start: new Date(y, m, 1),
+				    allDay: false
+				},
+				{
+				    id: 1,
+				    title: 'Repeating Event',
+				    start: new Date(y, m, 1),
+				    allDay: false
+				},
+				{
+				    title: 'Meeting',
+				    start: new Date(y, m, 1),
+				    allDay: true
+				},
+				{
+				    title: 'Lunch',
+				    start: new Date(y, m, 1),
+				    end: new Date(y, m, d, 14, 0),
+				    allDay: true
+				},
+				{
+				    title: 'Birthday Party',
+				    start: new Date(y, m, d+1, 19, 0),
+				    end: new Date(y, m, d+1, 22, 30),
+				    allDay: false
+				},
+				{
+				    title: 'Click for Google',
+				    start: new Date(y, m, 28),
+				    end: new Date(y, m, 29),
+				    url: 'http://google.com/'
+				}
+            ];
+           
+            var ev2 = [
+               {
+                   title: 'All Day Event',
+                   start: new Date(2013, 10, 11)
+               },
+               {
+                   title: 'Long Event',
+                   start: new Date(2013, 10, 11),
+                   end: new Date(2013, 10, 22),
+                   allDay: true
+               }
+            ];
+            var cale = new TaskDate("#calendar");
+           
+            cale.TaskDateLoad(ev1, 2013, 12);
+            $(".show").click(function () {
+                cale.TaskDateLoad(ev2, 2013, 10);
+            });
+
+        });
+      
+</script>
+    <style>
+
+	body {
+		margin-top: 40px;
+		text-align: center;
+		font-size: 14px;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		}
+		
+	#loading {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		}
+        .taskdate
+        {
+             width:850px; overflow:hidden;
+        }
+        .task-title
+        {
+            width:850px; height:42px; background:url(images/day02.png) no-repeat;
+        }
+        #calendar
+        {
+            width:850px;
+        }
+        .fc-border-separate thead
+        {
+            display:none;
+        }
+        .fc-widget-content
+        {
+            border:1px solid red;
+        }
+
+          .fc-day-number
+        {
+            float:left; font-size: 57px;font-family: Verdana, Geneva, sans-serif;color: rgb(202, 202, 202);
+        }
+        .fc-day:hover
+        {
+             background:red; 
+        }
+        .fc-today
+        {
+            background:red; 
+        }
+             .fc-today .fc-day-number
+            {
+                color:#fff;
+            }
+        .fc-day-content div
+        {
+            height:150px;
+        }
+        .fc-event
+        {
+             background:none;border:none; 
+        }
+        .fc-event-inner
+        {
+            background:none; background-image:url(images/overlay.png); color:#fff ; border:none;
+        }
+</style>
+</head>
+<body>
+    <button class="show">diabwo</button>
+    <div class="taskdate">
+        <div class="task-title"></div>
+
+
+    </div>
+    <div id='calendar'></div>
+</body>
+</body>
+</html>

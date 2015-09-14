@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" id="viewport" content="target-densitydpi=device-dpi,width=640, maximum-scale=0.5">
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+	document.getElementById('viewport').setAttribute('content', 'target-densitydpi=device-dpi,width=640, maximum-scale=' + window.screen.width / 640);
+</script>
+<title>C3-XR完美体验</title>
+<link rel="stylesheet" href="css/style.css?m=3122326" />
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body style="overflow:hidden"  scroll=no>
+<!-- <div class="loading" style="display:none;">
+	<figure class="loading_top"><img src="images/loading_top.jpg"></figure>
+	<figure class="loading_icon"><img src="images/loading_icon.png"></figure>
+	<div class="loading_num">80%</div>
+	<figure class="loading_bottom"><img src="images/loading_bottom.jpg"></figure>
+</div> -->
+<section class="wrapper" id="wrap">
+	<header class="logo">
+		<div class="logo_text"></div><div class="logo_icon"></div>
+	</header>
+	<article class="power">
+		<div class="power_tips"><img src="images/go_1_tips.png"></div>
+		<div class="power_bg"></div>
+		<div class="power_car">
+			<div class="power_wheel_1"></div>
+			<div class="power_wheel_2"></div>
+			<img src="images/power_car.png" />
+		</div>
+		<div class="power_speed"><span id="power_speed_value">0</span><img src="images/power_car_speed.png"></div>
+	</article>
+	<article class="power_result">
+		<div class="power_result_bg"><img src="images/result_1_body.jpg"></div>
+		<a class="power_btn_back" href="index.html"></a>
+		<a class="power_btn_yuyue" href="yuyue.html"></a>
+	</article>
+</section>
+<!--screenTips-->
+<div class="screenTips">
+	<div class="st_overlay"></div>
+	<div class="st_icon"></div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/main.min.js"></script>
+<script type="text/javascript">
+orient();
+//用户变化屏幕方向时调用
+$(window).bind( 'orientationchange', function(e){
+orient();
+});
+var score = 0;
+var SHAKE_THRESHOLD = 3000;
+var last_update = 0;
+var x = y = z = last_x = last_y = last_z = 0;
+init();
+function init() {
+    if (window.DeviceMotionEvent) {
+        window.addEventListener('devicemotion', deviceMotionHandler, false);
+    } else {
+        alert('not support mobile event');
+    }
+}
+function deviceMotionHandler(eventData) {
+    var acceleration = eventData.accelerationIncludingGravity;
+    var curTime = new Date().getTime();
+    if ((curTime - last_update) > 100) {
+        var diffTime = curTime - last_update;
+        last_update = curTime;
+        x = acceleration.x;
+        y = acceleration.y;
+        z = acceleration.z;
+        var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+
+        if (speed > SHAKE_THRESHOLD) {
+            powerCarMove();
+        }
+        last_x = x;
+        last_y = y;
+        last_z = z;
+    }
+}
+
+function powerCarMove(){
+	$(".power_bg").addClass("power_move2");
+	$(".power_wheel_1,.power_wheel_2").addClass("power_wheel_move");
+	speed= Math.floor(Math.random()*(180-150+1)+150);;
+	score = speed;
+	var pobj2 = $("#power_speed_value");
+	snum2 = Math.round(speed/20),
+	tnum2=0,
+	timer2 = setInterval(function(){
+		tnum2+=snum2;
+		if(tnum2>speed){
+			tnum2 = speed;
+			clearInterval(timer2);
+		}
+		console.log(tnum2);
+		pobj2.html(tnum2);
+	},70);
+
+	setTimeout(function(){
+		speed2 = 0;
+		snum3 = 3,
+		tnum3=speed,
+		timer3 = setInterval(function(){
+			tnum3-=snum3;
+			if(tnum3<speed2){
+				tnum3 = speed2;
+				clearInterval(timer3);
+			}
+			console.log(tnum3);
+			pobj2.html(tnum3);
+		},90);
+	},4000)
+
+	setTimeout(function(){
+		$(".power_wheel_1,.power_wheel_2").removeClass("power_wheel_move");
+		setTimeout(function(){
+			goPowerResult();
+		},1000)
+	},9600)
+}
+</script>
+<script type="text/javascript" src="js/share.js"></script>

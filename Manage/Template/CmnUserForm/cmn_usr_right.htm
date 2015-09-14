@@ -1,0 +1,82 @@
+﻿
+<style>
+    .authority_management{width:1000px;margin:30px auto;height:auto;}
+    .admin { width: 564px;  border: solid 1px #e6e6e6; float: left;  }
+    .form_name {   width: 364px; height: auto;  border: solid 1px #e6e6e6; float: left;  padding-bottom: 333px;margin-left:20px; }
+    .authority_management h3 { font-size: 18px; line-height: 60px; text-align: left;  cursor: pointer; text-indent:20px;  }
+    .admin_content {  border-top: solid 1px #e6e6e6;   width: 562px; }
+    .admin_content span { font-size: 18px; height: 40px;  line-height: 40px;   border-left: solid 7px #a0a0a0;  margin-left: 15px; padding-left: 7px;  }
+    .li_frist {    border: none;   font-size: 14px;  }
+    .form_name_content {  border-top: solid 1px #e6e6e6;  width: 362px;  height: auto;  }
+    .form_name_sideright { width: 362px; height: auto;  }
+    .form_name_sideright li {  width: 342px; height: 35px;  line-height: 35px; margin-top: 5px;  background: #ff6900;  padding-left: 22px; cursor: pointer;  }
+    .form_name_sideright li a { color: #fff;  font-size: 14px;  text-decoration: none;  }
+    .PublicAdminNav { width: 542px; padding-left: 22px; height: 46px; }
+    .PublicAdminNav li {   height: 35px;  width: 78px; border: solid 1px #e6e6e6; line-height: 35px;  float: left;  text-align: center; }
+    .PublicAdminNav li a {  font-size: 14px;  text-decoration: none;  display: block;cursor:pointer; }
+    .PublicAdminNav li a:hover { background: #ff6900;  color: #fff; }
+    .PublicAdminNav li .select1 { background: #ff6900; color: #fff; }
+    .PublicAdminNav li .selectr { background: #a0a0a0; color: #fff;cursor:no-drop;  }
+    .PublicAdminNav li .selectr:hover {  background: #a0a0a0; color: #fff; cursor: no-drop; }
+</style>
+
+  <!--右侧菜单功能-->
+<div class="RightContentWrap">
+    <!--_____________________权限管理菜单____________________________-->
+    <div class="MenuFunctionLoacitionWrap MenuFunctionLoacitionWrapAuthority_Management" style="display:block;">
+        <div class="authority_management">
+
+            <div class="admin">
+
+                <h3 class="jscTargetDesc">admin</h3>
+
+                <div class="admin_content jscCurUserFormContainer">
+
+                    <div class=" PublicContent admin_content_top jscCurUserRightModel dat-userformmoduleid-recid" style="display:none;">
+
+                        <span class="dat-userformmoduledesc jscCurUserFormModeDesc" style="cursor:pointer;"> </span>
+                        <b class="jscCurUserFormModeSwitch" style="font-size: 20px;line-height: 40px;">+</b>
+
+                        <ul class="PublicAdminNav admin_top jscCurUserRightForm jscCurUserRightForm{userformmoduleid} dat-userformid-recid dat-RecID-rid" style="display:none;">
+                            <li class="li_frist dat-formdesc dat-formdesc-title" style="border:none;overflow:hidden;" title="">默认回复</li>
+                            <li><a class="jscAddFormRight select{IsShow} jscIsShow" colname="IsShow">是否显示</a></li>
+                            <li><a class="jscAddFormRight select{AllowAdd}" colname="AllowAdd">能否添加</a></li>
+                            <li><a class="jscAddFormRight select{AllowDell}" colname="AllowDell">能否删除</a></li>
+                            <li><a class="jscAddFormRight select{AllowModify}" colname="AllowModify">能否更新</a></li>
+                            <li style="width:125px;"><a class="jscAddFormRight select{AllowToExcel}" colname="AllowToExcel">能否导出Excel</a></li>
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="form_name jscFormContainer">
+
+                <div class="form_model jscFormModel dat-userformmoduleid-recid" style="border-bottom: 1px #ccc solid; display: none;" >
+                    <h3 class="jscOpenFormModel" style="text-align:left;">
+                        <b style="font-size: 20px;line-height: 40px;">+</b>
+                        <span class="dat-userformmoduledesc" style="font-size: 18px;"></span>
+                        <strong class="jscAddModelToUserRight" style="float: right; margin-right: 15px; color: #F57B14; ">添 加 所 有</strong>
+                    </h3>
+                    <div class="form_name_content jscFormContent" style="display:none;">
+                        <ul class="form_name_sideright">
+                            <li class="jscUserFormDesc{userformmoduleid} dat-userformid-recid">
+                                <a href="#" class="dat-formdesc"> </a>
+                                <b class="jscAddUserRight" style="float: right; margin-right: 10px; color: #fff; ">添 加</b>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div><!--MenuFunctionLoacitionWrap_end-->
+
+</div><!--RightContentWrap_end-->
+<div class="height0"></div>

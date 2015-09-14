@@ -1,0 +1,405 @@
+@charset "utf-8";
+@import "tobe/base";   //引入sass的tade模块
+@import "compass/typography";  //引入compasss五大模块
+@import "compass/css3";
+@import "compass/layout";
+@import "compass/support";
+// @import "compass/helpers";
+// @import "compass/tilities";
+//注释掉font-face
+//$fontClassoutput: glass music search times weibo;
+//@import "D:/tobe/ext/font-face/font-face";
+//@import "D:/tobe/ext/font-face/variables";
+/* CSS Document */
+// /*********
+// 可能会用到的样式
+// filter:alpha(opacity=50);opacity:0.5;
+// width:0px;height:0px;border-width:10px 7px 0 7px; border-color: #ccc transparent transparent transparent; 
+// box-shadow:2px -1px 6px #eaeaea;behavior: url(PIE_uncompressed.htc);
+// */
+//@include clearfix;
+//@extend %pagebtn;
+
+//定义浏览器的兼容最低版本
+$browser-minimum-versions:("ie":"8");
+/*-------------------------------------css--------------------------------------------*/
+html{overflow:hidden;}
+html,body,.Wrap,.Main{@extend %wh100; font-size:12px;font-family:"Microsoft Yahei";}
+body{width:$Width;@extend %center-block;height:$Height;overflow: hidden;}
+a{@extend %wh100;display: block;}
+.Wrap{@include position();}
+.Main{@include position();}
+.Position{position:absolute;}
+.PublicScenes{@include position();display:none;@extend %wh100;overflow:hidden;}
+/*各场景背景*/
+.Bg{@extend %wh100;@include position();overflow:hidden;min-width:$wrapWidth;}
+.Bg img{width:$Width;min-width:$wrapWidth;height:$Height;}
+.PublicScenes .Bg img{position:relative;}
+.Inner{min-width:$wrapWidth;@extend %center-block; position:relative;height:$Height;width:$Width;}
+a{@extend %wh100;display: block;}
+img{width: $Width;}
+/*********************首页************************/
+.wrap{@extend %wh100;}
+.main{@extend %wh100;}
+.bg{width: $Width;@include position();}
+.home_title{@include position(73%,41%);width: 33%;}
+.home_tip{@include position(19%,43%);width: 30.5%;}
+.home_icon{@include position(74%,81%);width: 19%;}
+.events_btn{@include position(79%,62%);width: 8%;}
+.join_btn{@include position(86%,49%);width: 12%;}
+.home_car{@include position(37.5%,33.5%);width: 50%;z-index: 2;}
+.icon{@include position(60%);width: 14%;z-index: 4;}
+.photo{@include position(60%,6.5%);width: 33%;z-index: 3;}
+.home_img{@include position();width: 50%;height: $Height;
+   img{height: $Height;}
+   }
+// .two_bg{top:-10%;}
+.tip_bar{@include position(22%,35%);width: 33%;}
+
+/*********************炫彩之旅************************/
+.journey_tip{@include position(56%,62%);width: 26%;}
+.journey_line{@include position(47%,10%);width: 60%;}
+.journey_car{@include position(50%,20%);width: 45%;}
+.journey_people_1{@include position(23%,26%);width: 10%;
+    .journey_people_name1{@include position(53%,-30%);width: 36%;}
+    .journey_drop_1{@include position(40%,16%);width: 15%;z-index: 10;}
+}
+.journey_people_2{@include position(15%,35%);width: 15%;
+    .journey_people_name2{@include position(18%,84%);width: 30%;}
+    .journey_drop_2{@include position(37%,22%);width: 8%;}
+}
+.journey_people_3{@include position(27%,41%);width: 25%;
+    .journey_people_name3{@include position(45%,75%);width: 21%;}
+    .journey_drop_3{@include position(19%,39%);width: 5%;}
+}
+.journey_pop_1{@include position(18%,17%);width: 15%;display: none;
+    .check_btn{@include position(56%,33%);width: 33%;}
+}
+.Colorfuldetails_tip{@include position(19%,22%);width: 45%;}
+.Colorfuldetails_video{@include position(37%,26%);width: 500px;height: 300px;cursor:pointer;
+    img{height: $Height;}
+}
+.Colorfuldetails_bar1{@include position(18%,-7%);width: 13.5%;}
+.Colorfuldetails_bar2{@include position(38%,-7%);width:13.5%;}
+.Colorfuldetails_bar3{@include position(58%,-7%);width:13.5%;}
+.journey_pop_2{@include position(12%,44%);width: 15%;display:none;
+    .check_btn2{@include position(56%,33%);width:33%;}
+}
+.journey_pop_3{@include position(26%,58%);width: 15%;display:none;
+   .check_btn3{@include position(56%,33%);width:33%; z-index: 10;}
+}
+
+/*********************镜像季************************/
+.mirror_con{@include horizontal-center(36%,56%);
+    .checking_btn{@include position(59%,84%);width: 9%;}
+    .attended_btn{@include position(8%,82%);width: 12%;}
+    .travel_btn{@include position(10%,7%);width: 18%;}
+    .video_img{@include position(24%,2%);width: 48%;}
+}
+.mirror_tip{@include position(16%,22%);width: 18%;}
+
+
+/*********************土豆印象节首页************************/
+.box_img {height:$Height;
+  img{height:$Height;}
+}
+.intro_home_tip{@include horizontal-center(17%,18%);margin-left: -10.5%;}
+.intro_home_title{@include horizontal-center(39%,16%);margin-left: -10%;}
+.join_date{@include horizontal-center(77%,18%);margin-left: -10.5%;}
+.takes_btn{@include horizontal-center(65.5%,19%);margin-left: -11%;}
+
+.trend_btn{@include position(71.5%,70%);width: 8%;}
+.hey_btn{@include position(74.5%,28%);width: 8%;}
+.out_btn{@include position(75.5%,17.6%);width: 8%;}
+.riotous_btn{@include position(76%,60.5%);width: 8%;}
+
+
+/*********************土豆印象节嗨翻天***********************/
+.hey_tip{@include position(17%,37%);width: 26%;}
+.hey_date2{@include position(28%,60%);width:33%;}
+.hey_date1{@include position(28%,6.5%);width:33%;}
+.hey_icon{@include position(34%,36.5%);width:25%;}
+.hey_takesbtn{@include position(22%,52%);width: 16.5%;}
+
+/*********************土豆印象节炫缤纷***********************/
+.riotous_tip{@include position(19%,20%);width:28%;}
+.riotous_icon{@include position(27%,59%);width:25%;}
+.riotous_car{@include position(48%,8%);width:50%;}
+.riotous_takesbtn{@include position(36.5%,20%);width:16.5%;}
+
+/*********************土豆印象节引潮流************************/
+.trend_takesbtn{@include position(35%,34%);width:16.5%;}
+.trend_tip{@include position(20%,34%);width:32%;}
+.trend_des1{@include position(4%);width:50%;}
+.trend_des2{@include position(4%,60%);width:40%;}
+.trend_icon{@include position(39%,39.5%);width:25%;}
+
+
+/*********************土豆印象节秀出来************************/
+.out_tip{@include position(19%,22.5%);width:28%;}
+.out_icon{@include position(23%,59%);width:25%;}
+.out_polple{@include position();width:80%;}
+.out_takesbtn{@include position(36%,22.5%);width:16.5%;}
+
+
+/*********************左侧切换按钮************************/
+.side_box{@include position(20%);z-index: 10;display:none;
+  .side_nav{width: $Width;height:$Height;
+    li{margin-bottom: 20px;width: 110px;position: relative;height: 75px;
+      a{background:image-url('btn-sc10dba4247.png') no-repeat;position:absolute;left:-180px;}
+      i{background:image-url('btn-sc10dba4247.png') no-repeat;position:absolute;left:0px;cursor:pointer;}
+    }
+    li.out_nav{
+        i{background-position:0 -248px;width:71px;height: 66px;}
+        a{background-position:0 -165px;width: 108px;height: 75px;}
+    } 
+
+    li.hey_nav {
+        i{background-position:0 -90px;width: 68px;height: 67px;}
+        a{background-position:0 0px;width: 103px;height: 82px;}
+    }
+    li.riotous_nav {
+        i{background-position:0 -401px;width: 65px;height: 52px;}
+        a{background-position:0 -322px;width: 104px;height:71px;}
+    }
+    li.trend_nav {
+        i{background-position:0 -557px;width: 70px;height: 72px;}
+        a{background-position:0 -461px;width: 103px;height:88px;}
+    }
+    li.select{
+      a{left:0px;}
+      i{display:none;}
+    }
+  }
+}
+.pub_hoverside{display:none;}
+/*********************浮层************************/
+.pop_box_float{
+  @include  pop(0.7);background: image-url('float_bg.png') repeat!important;
+  /***********活动说明浮层*************/
+  .events_float{@include horizontal-center(17%,53%);height: 73%;display: none;background: #fff;
+    .events_con{@include position();width: $Width;max-height:$Height;overflow: hidden;
+      .events_bar{@include position(40%,3%);overflow: hidden;width: 90%;}
+    }
+    .event_btn{position: absolute;top: 0;right: -3%;width: 3%;
+    }
+  }
+}
+/***********土豆印象节留资*************/
+.impression_float{display:none;@include horizontal-vertically-center(730px,558px);background:image-url('impression_bg.png') no-repeat;
+    .impression_box{@include horizontal-center(150px,260px);margin-left: -140px;
+        .impression_form{width:$Width;height:$Height;
+          .impression_bar{width:254px;
+            li{width: 254px;margin-bottom: 15px;
+                 .pub_impression{background-color:$Color-White;@include form-box(12px,32px,10px,#b6b6b6);}
+                 .user_name{width: 135px;margin-right: 10px;}
+                 .user_phone{width: 242px;}
+                 .user_provinces{width: 252px;}
+                 .user_area{width: 120px;}
+                 .user_city{width: 120px;margin-right: 7px;}
+                 .sex_box{@include inline-block();
+                    em{font-size:12px;color:$Color-Black;display:inline-block;margin-right:4px;font-weight:600;cursor: pointer;
+                        i{width: 17px;height: 17px;display:inline-block;background: $Color-White;@include prefixer(border-radius,50%);margin-right: 8px;vertical-align: middle;}
+                    }
+                    em.sex_set i{background: $Color-Red;}
+                 }
+                 em.attesting{@include prefixer(transform,scale(0.75));font-size:12px;@include inline-block;width: 300px;@include position(-3px,-20px);font-size:9px\0;left: 20px\0;
+                    strong{color:$Color-Red;text-decoration: underline;display: inline;cursor:pointer;}
+                 }
+                 select{padding-top:6px;padding-bottom: 6px; }
+            }
+            .last_li{margin-top:-8px;position: relative;
+            }
+          }
+
+        }   
+    }
+    .confirmed_close{position: absolute;top: 0;right:55px}
+    .confirmed_btn{@include horizontal-center(365px,260px);}
+}
+
+
+
+
+
+
+/***********优惠组合*************/
+    .preferential_float{@include horizontal-center(12%,53%);height: 70%;display: none;
+       .preferential_con{@include position();width: $Width;height: $Height;
+           // img{height: $Height;}
+       }
+       .preferential_btn{position: absolute;top: 0;right: -2.5%;width: 3%;
+           img{width: 52px!important;*width: 52px;}
+      }
+    }
+/***********留资*************/
+  .inf_float{@include horizontal-vertically-center(889px,494px);display: none;
+
+     /***********预定*************/
+     .schedule_box{display: none;background: image-url('schedule_bg.png') no-repeat;@include horizontal-vertically-center(744px,494px);}
+     /***********试驾*************/
+     .drive_box{display: none;background: image-url('drive_bg.png') no-repeat;@extend .inf_float;margin-left: -530px;}
+     /***********赢取好礼*************/
+     .gift_box{@extend .drive_box;background: image-url('gift_bg.png') no-repeat;}
+}
+
+/***********信贷浮层*************/
+.credit_float{@extend .pop_box_float;display: none;}
+.credit_box{@include horizontal-vertically-center(744px,494px); background:image-url('credit_bg.png') no-repeat;height: 586px;display:block;}    
+/***********预定*************/
+.sex{width: 100px;height: 30px;@extend %clearfix;@include position(38px,10px);
+   .man{@include float();}
+   .women{@include float(right);}
+   .sex_box em{@include font-style(12px,$Color-Gray,null,600);} 
+   .sex_box>img{display:none;vertical-align:middle;width: 19px!important;*width: 19px;}
+   .sex_box>img.set_btn{display:none;}
+   .sex_box>img.noneset_btn{display:inline-block;}
+   .Select>img.set_btn{display:inline-block;}
+   .Select>img.noneset_btn{display:none;}
+}
+.schedule_form{@include position(80px,125px);width: 264px;height: 264px;}
+.schedule_close_btn{position: absolute;top: 5.5%;right: -3%;
+    img{*width: 52px;}
+}
+.schedule_btn{@include position(453px);width: 410px;height: 41px;
+      a{background: image-url('transparent_bg.png') repeat;      
+      }
+}
+.public_inf{@include form-box(12px,30px,10px,$Color-Black);}
+.name{@include position();width: 252px;}
+.phone{@extend .name;top:70px;}
+.email{@extend .name;top: 112px;}
+.date{@extend .name;top: 152px;width: 262px;}
+.province{@extend .name;top: 192px;width: 262px;}
+.city{@include position(230px);width: 126px;}
+.area{@extend .city;left: 136px;}
+
+
+/***********试驾*************/
+.drive_form{@extend .schedule_form;left: 610px;top: 126px;}
+.drive_close_btn{@extend .schedule_close_btn;right:-6%;top: -0.5%;
+   img{}
+}
+.drive_btn{@extend .schedule_btn;left: 476px;}
+.gift_form{@extend .schedule_form;left: 614px;top: 128px;}
+.credit_form{@extend .schedule_form;left: 127px;top: 98px;width: 272px;
+  .date{width: 272px;}
+  .province{width: 272px;}
+  .phone{top: 76px;}
+  .email{top: 120px;}
+  .area{left: 144px;}
+}
+
+
+
+/***********最新作品*************/
+.work_float{display: none;@include horizontal-vertically-center(859px,398px);background: image-url('work_float_bg.png') no-repea; 
+    .work_box{height: 264px;@include horizontal-center(84px,782px);
+        .work_bar{width: $Width;height: $Height;position: relative;
+           .work_nav{width: $Width;height: $Height;@include clearfix;position:relative;overflow: hidden;     
+               li{@include float();width: 256px;height: 130px;padding: 2px;}
+           }
+        }
+    }
+}
+
+.clen_btn{position: absolute;top: 40px;right: 40px;}
+.fl_arrow{@include  vertically-center(-80px,58px);}
+.fr_arrow{position: absolute;top: 50%;margin-top: -29px;right: -80px;}
+/***********最新作品详情*************/
+.checking_float{display: none;@include horizontal-vertically-center(726px,436px);background: image-url('checking_float_bg.png') no-repeat;
+    .checking_con{width: 352px;@include horizontal-center(30px,699px);margin-left: -353px;}
+    .sub_btn{@include position(394px,394px);width: 325px;height: 42px;
+        a{background: image-url('transparent_bg.png') no-repeat;}
+    }
+}
+/***********新闻资讯详情*************/
+.mesage_float{display: none;@include horizontal-vertically-center(1054px,560px);background: image-url('inf_float_bg.png') no-repeat;
+    .mesage_con{width: 860px;height: 440px;@include position(80px,100px);max-height:$Height;overflow: hidden;
+      .mesage_bar{@include position();overflow: hidden;width: 100%;height: 100%; text-align: center;
+          h2{@include font-style(24px,$Color-Black,null);margin-bottom: 20px;}
+          p,h4,span{@include font-style(14px,$Color-Black,null);display: block;}
+          img{width: 513px;margin-top: 20px;}
+          h4{font-size:16px;margin: 10px 0px;}
+          span{margin-bottom: 20px;}
+          p{text-align: left;}
+      }
+    }
+    .mesage_btn{@include position(0px,1015px);width: 40px;height: 40px;
+        a{background: image-url('transparent_bg.png') no-repeat;}
+    }
+}
+
+/***********答题浮层*************/
+.answer_float{display: block;@include horizontal-vertically-center(850px,477px);
+     .answer_close_btn{position: absolute;top: 32px;right: 36px;}
+
+     .answer_one{display: none;width: $Width;height: $Height;background: image-url('answer_one_bg.png') no-repeat;
+         .continue_btn{@include position(370px,510px);}
+     }
+
+     .answerchen_one{background: image-url('answerchen_one_bg.png') no-repeat;
+          .answerchen_one_dsm1{@include position(300px,405px);}
+          .answerchen_one_dsm2{@include position(300px,510px);}
+             span{@include font-style(21px,$Color-GrayWhite,null);vertical-align:top;}
+             span.check_set{color:#d90d22;}
+             a{width: 30px;height: 30px;background:image-url('checkbox_bg.png') -30px 0px no-repeat;margin-right: 16px;@include inline-block;}
+             a.checkbox_set{background-position:0px 0px;}
+     }
+
+     .answer_two{background: image-url('answer_two_bg.png') no-repeat;@extend .answer_one;
+         .continue2_btn{@include position(330px,300px);}
+         .answer_gift_btn{@include position(405px,665px);}
+         .answer_share_btn{@include position(405px,574px);}
+     }
+     .answerchen_two{background: image-url('answerchen_two_bg.png') no-repeat;
+        .answer_gift_btn{@include position(330px,554px);}
+        .answer_share_btn{@include position(330px,460px);}
+        .answerchen_msg{@include position(340px,100px);}
+        .answerchen_two_desl{@include position(170px,230px);width: 60%;
+            .answerchen_two_img1{display:none;}
+            .answerchen_two_img2{display:none;}
+        }
+     }
+
+}
+
+.answer_msg{position: absolute;right: 345px;top: 382px;
+  .error_msg{display:none;}
+  .proper_msg{display:none;}
+}
+.answer_msg2{@include position(418px,20px);
+   .error_msg2{display:none;position: relative;top: -74px;left: 78px;}
+   .congratulate_box{display:none;}
+}
+/***********答题一*************/
+.answer_con{@include position(220px,400px);
+   span{@include font-style(21px,$Color-GrayWhite,null);vertical-align:top;}
+   span.check_set{color:#d90d22;}
+   a{width: 30px;height: 30px;background:image-url('checkbox_bg.png') -30px 0px no-repeat;margin-right: 16px;@include inline-block;}
+   a.checkbox_set{background-position:0px 0px;}
+}
+.answer_two_con{@include position(198px,68px);}
+
+/***********陈星洲答题浮层*************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

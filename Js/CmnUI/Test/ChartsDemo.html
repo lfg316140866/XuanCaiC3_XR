@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../../jquery1_9_1.js"></script>
+    <script src="../../Cmn.js"></script>
+    <script src="../CmnUI.js"></script>
+    <script src="../Chart/Highcharts/highcharts.js"></script>
+    <script src="../Chart/Highcharts/exporting.js"></script>
+    <script src="../Chart/Highcharts/griMap.js"></script>
+    <script src="../Chart/CGChart.js"></script>
+</head>
+<body>
+
+
+    <div id="chart" width="500" height="300"></div>
+    <script>
+        //配置json
+        var _MappingOption = [{
+            YFieldName: "Qty",
+            XFieldName:"name",
+            Desc:"数量"
+        },
+        {
+            YFieldName: "age",
+            Desc: "年龄"
+        }]
+
+
+        var _data = [{ "Qty": 30, "name": "a", "age": "310" }, { "Qty": 130, "name": "b", "age": "120" }, { "Qty": 230, "name": "c", "age": "110" }];
+
+       // var _chart = new Cmn.UI.CGChart("chart", _data, Cmn.UI.ChartType.Pie, _MappingOption, {});
+       // _chart.AddSeries([{ "aaa": 320 }, { "aaa": 1130 }, { "aaa": 2230 }]);
+        //1  
+      
+
+        $('#chart').griMap({
+            width: 400,
+            height: 300,
+            data: { "shanghai": { "value": "50" }},
+            hoverCallback: function (obj, event) {
+                console.log(obj.name+"=="+obj.value)
+                //var evt = window.event || event;
+
+                //var x = (evt.pageX || evt.clientX + document.body.scrollLeft + document.documentElement.scrollLeft) + 10;
+                //var y = (evt.pageY || evt.clientY + document.body.scrollTop + document.documentElement.scrollTop) + 10;
+
+                //var tool_tips = function () {
+                //    $('#_tool_tips').length > 0 && $('#_tool_tips').remove();
+                //    var tipsConGRIiner = ['<div id="_tool_tips" class="tips-small"> ',
+                //                             '<p>' + obj.name + ':' + (obj.value || 0) + '</p>',
+                //                       '</div>'];
+                //    $('body').append(tipsConGRIiner.join(''));
+                //    $('#_tool_tips').show().css({ top: y, left: x });
+                //}();
+            }
+        });
+
+        //多组数据对比 性别  年龄端
+        var _data1 = [{ "YearA": "2010", "A": "23", "YearB": "2010", "B": "50" }, { "Year": "2010", "A": "23", "B": "50" }, { "Year": "2010", "A": "23", "B": "50" }];
+ 
+
+        function ShowChart(data) {
+            var _appingOption = [];
+            var _data = [];
+
+            for (var _i = 0; _i < data.length; _i++) {
+                _appingOption[_appingOption.length] = {
+                    YFieldName: "y"+_i,
+                    XFieldName: "x" + _i,
+                    Desc: data["jxsName"]
+                };
+
+               
+                _data[0]["y" + _i] = data["jxsName"];
+                _data[0]["x" + _i] = data["jxsName"];
+                _data[1]["y" + _i] = data["jxsName"];
+                _data[1]["x" + _i] = data["jxsName"];
+            }
+
+
+            var _chart = new Cmn.UI.CGChart("chart", _data, Cmn.UI.ChartType.Line, _MappingOption, {});
+        }
+
+
+    </script>
+</body>
+</html>

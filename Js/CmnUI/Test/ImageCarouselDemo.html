@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>图片轮播插件</title>
+    <script src="../../ThirdLib/jquery.js"></script>
+    <script src="../../ThirdLib/touch.mini.js"></script>
+    <script src="../../ThirdLib/TweenMax.min.js"></script>
+    <script src="../../Cmn.js"></script>
+    <script src="../CmnUI.js"></script>
+
+    <style>
+        .jscImageContainer {
+            width: 300px;
+            height: 500px;
+            position: relative;
+            margin: auto;
+        }
+        .jscImage{position:absolute;top:0px;left:0px;width:100%;height:100%;}
+    </style>
+
+</head>
+
+<body>
+
+    <div class="jscImageContainer">
+        <div class="jscImage cmn-ui-item" style="background:#000000"></div>
+        <div class="jscImage cmn-ui-item" style="background:#808080"></div>
+        <div class="jscImage cmn-ui-item" style="background:#ff0000"></div>
+        <div class="jscImage cmn-ui-item" style="background:#ff6a00"></div>
+        <div class="jscImage cmn-ui-item" style="background:#ffd800"></div>
+        <div class="jscImage cmn-ui-item" style="background:#4cff00"></div>
+    </div>
+    <button>上一页</button>
+    <button>下一页</button>
+    <script>
+
+        var ImageCarousel = null;
+
+        $(function () {
+
+            ImageCarousel = Cmn.UI.ImageCarousel(".jscImageContainer");
+
+            $("button").click(function () {
+                if ($(this).index() == 1) {
+                    ImageCarousel.Prev();
+                }
+                else { ImageCarousel.Next();}
+
+            })
+
+        });
+
+    </script>
+</body>
+</html>

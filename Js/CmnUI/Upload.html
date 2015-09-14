@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../ThirdLib/jquery.js"></script>
+    <script src="FileUpload/resources/ajaxfileupload.js"></script>
+    <script src="../Cmn.js"></script>
+    <script src="../CmnAjax.js"></script>
+    <script src="CmnUI.js"></script>
+    <script src="FileUpload/FileUpload.js"></script>
+    
+</head>
+<body>
+   
+ 
+    <style>
+        .cmn-FileUploadPublicBtn {
+            background-color: #fff;
+            display: inline-block;
+            padding: 20px;
+            margin: 10px 20px 10px 10px;
+            height: 30px;
+            width: 110px;
+            line-height: 30px;
+            text-align: center;
+            color: #505050;
+            border: 1px solid #e8e8e8;
+            border-radius: 3px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            font-family: Arial,"微软雅黑";
+            padding: 0px;
+            font-size: 12px;
+            *display: inline;
+            *zoom: 1;
+        }
+
+        .cmn-SelectFile {
+            display: block;
+        }
+
+        .cmn-FileViewContainer {
+            padding: 10px;
+            background-color: #fff;
+            position: absolute;
+            color: #505050;
+            border: 1px solid #e8e8e8;
+            border-radius: 3px;
+            text-align: right;
+        }
+
+        .cmn-FileInfoItem {
+            margin-bottom: 15px;
+        }
+
+        .cmn-DelFileItemBtn {
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .cmn-FileName {
+            color: #000;
+        }
+
+        .cmn-FileName img {
+            max-height: 50px;
+            max-width: 50px;
+            *width: 50px;
+        }
+
+        .cmn-FileSize {
+            color: #aaa8a8;
+        }
+
+        .cmn-ProgressContainer {
+            width: 150px;
+            background: #e8e8e8;
+            display: inline-block;
+            height: 5px;
+            font-size: 0px;
+            text-align: left;
+        }
+
+        .cmn-Progress {
+            width: 100%;
+            height: 100%;
+            background: #07b2f3;
+            display: inline-block;
+
+        }
+    </style>
+
+
+    <div class="cmn-UploadFileContainer">
+
+        <div class="cmn-SelectFile cmn-FileUploadPublicBtn selectFile">选择文件</div>
+
+        <div class="cmn-FileViewContainer">
+
+            <div class="cmn-FileInfoItem">
+                <span class="cmn-FilePreview"> </span>
+
+                <span class="cmn-FileSize" format="({size}KB)"></span>
+
+                <span class="cmn-ProgressContainer">
+                    <label class="cmn-Progress" changeattr="width"></label>
+                </span>
+
+                <span class="cmn-DelFileItemBtn">×</span>
+                <span class="cmn-UploadMsg uploadMsg"></span>
+            </div>
+
+            <div class="cmn-AddUploadFile cmn-FileUploadPublicBtn">添加</div>
+            <div class="cmn-CancelUpload cmn-FileUploadPublicBtn">取消</div>
+            <div class="cmn-UploadBtn cmn-FileUploadPublicBtn">上传</div>
+        </div>
+
+    </div>
+    <div id="log"></div>
+     
+    <label class="selectFile">点击我上传</label>
+
+    <script>
+       
+        var _file = Cmn.UI.FileUpload(".cmn-UploadFileContainer", "/Itf/CSharp/Upload.aspx", true);
+     //   _file.Data = { limitSize: _file.LimitSize, suffix: _file.LimitFileSuffix.toString() }
+        _file.OnComplete = function (event) {
+
+            alert(event.data.state);
+        }
+
+        //_file.IsChangeUpload = true;
+        //_file.UploadItf = "/manage/Upload.aspx?method=File";
+        //_file.SelectComplete = function (e) {
+        //    $(e.target).parent(".cmn-crl-inputfileleft").find(".cmn-crl-upfilebtn").prop("disabled", "disabled");
+        //}
+        //_file.OnFilter = function (e) {
+        //    $(e.target).parent(".cmn-crl-inputfileleft").find(".cmn-crl-upfilebtn").val(e.name + "[" + (Math.round(e.size / 1024 / 1024 * 100) / 100) + "M]");
+        //}
+        //_file.OnProgress = function (e) {
+        //    $(e.target).parent(".cmn-crl-inputfileleft").find(".cmn-crl-upfileprogress").css({ "width": e.progress + "%" });
+        //}
+        //_file.OnComplete = function (e) {
+        //    $(".cmn-crl-result").html($(".cmn-crl-result").html() + e.file.name + "[<b><a href='delete.aspx?fileName" + e.data.path + "'>删除</a></b>]<br>");
+
+        //}
+        //_file.OnCompleteAll = function (e) {
+        //    $(e.target).parent(".cmn-crl-inputfileleft").find(".cmn-crl-upfilebtn").removeAttr("disabled").val("浏览文件");
+        //    $(e.target).parent(".cmn-crl-inputfileleft").find(".cmn-crl-upfileprogress").css({ "width":"0%" });
+        //}
+
+         
+         
+    </script>
+
+</body>
+</html>

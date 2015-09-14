@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../ThirdLib/jquery.js"></script>
+    <script src="../Cmn.js"></script>
+    <script src="../CmnAjax.js"></script> 
+    <script src="CmnUI.js"></script>
+    <script src="ImageTools/ImageTools.js"></script>
+    <script>
+
+        window.onload = function () {
+            window._ImageTools = Cmn.UI.ImageTools("body");
+            var _image = new Image();
+           
+            _image.onload = function () {
+
+                _ImageTools.Init("body", _image);
+               
+            }
+
+            _image.src = "VideoPic.jpg";
+
+            var _image1 = new Image();
+           
+            _image1.onload = function () {
+
+                _ImageTools.CanvasCompose({ ImageData: _image1 });
+                _ImageTools.CanvasCompose({ ImageData: _image1,x:50,y:50,rotate:50,scale:1 });
+               
+            }
+
+            _image1.src = "Leaf2.png";
+        }
+
+    </script>
+</head>
+ 
+<body>
+    <canvas width="500" height="500" class="cg-ImageTools-Preview"></canvas>
+</body>
+</html>

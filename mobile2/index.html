@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+    <title>C3-XR土豆映像季</title>
+    
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+		.swiper-slide{background:#090;}
+		.close_btn{position:absolute; left:550px; top:50px; width:80px; height:80px; background:rgba(0,0,0,0);}
+		.hongbao_btn{position:absolute; width:430px; height:60px; background:rgba(0,153,0,0); left:100px; top:790px;}
+		.game1{position:absolute; width:430px; height:100px; background:rgba(0,153,0,0); left:100px; top:290px;}
+		.game2{position:absolute; width:430px; height:100px; background:rgba(0,153,0,0); left:100px; top:430px;}
+		.rule_btn{position:absolute; width:230px; height:70px; background:rgba(0,153,0,0); left:220px; top:810px;}
+	</style>
+    
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="js/greensock/TweenMax.min.js"></script>
+	<script src="js/greensock/plugins/CSSPlugin.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+	<script src="src/provinceCity.js?r=" + Math.random()></script>
+	<script src="src/share.js?r=" + Math.random()></script>
+    
+    <script>
+		var swiper, h;
+		var sex = '男';
+		
+		$(document).ready(function(e) {
+			
+			//省份城市联动代码
+			new PCAS("Province", "City", "County");
+			
+			h = $(window).height();
+			
+            swiper = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination',
+				paginationClickable: true,
+       			direction: 'vertical'
+			});
+			
+			//$('.wrapper').height(h - 65);
+			
+			$('.close_btn').click(function(){
+				$(this).parent().parent().hide();
+				$(this).parent().hide();
+			});
+			
+			$('.pop_btn1').click(function(){
+				$('.popup').fadeIn(200);
+				$('.popup .pop1').show();
+			});
+			$('.pop_btn2').click(function(){
+				$('.popup').fadeIn(200);
+				$('.popup .pop2').show();
+			});
+			$('.pop_btn3').click(function(){
+				//$('.popup').fadeIn(200);
+				//$('.popup .pop3').show();
+				swiper.slideTo(5)
+			});
+			
+			//$('.popup').fadeIn(200);
+			//$('.popup .pop3').show();
+			
+			$('.post_btn').bind('click', function(event){
+				post1();
+			});
+			
+			$('.male').addClass('choose');
+			$('.male').click(function(){
+				$('.radio').removeClass('choose');
+				$(this).addClass('choose');
+				sex = '男';
+			})
+			$('.female').click(function(){
+				$('.radio').removeClass('choose');
+				$(this).addClass('choose');
+				sex = '女';
+			})
+			
+        });
+		
+		function post1(){
+			var data = {};
+			data.name = $('.biaodan .username').val();
+			data.sex = '男'
+			data.Phone = $('.biaodan .usertel').val();
+			data.province = $('.biaodan .province').val();
+			data.city = $('.biaodan .city').val();
+			data.county = $('.biaodan .district').val();	
+			data.site = 'mobile';
+			data.Directions = 5;
+			data.source = window.location.href;
+			data.disclaimer = '同意';
+			
+			$.ajax({
+				dataType:'jsonp',
+				url:'http://xuancaic3xr.dongfeng-citroen.com.cn/Itf/Php/AjaxItf.php?method=GetSqlData&ItfName=AddReservationdrive',
+				data:data,
+				success: function(data){
+					if(data.IsSuccess == "1"){
+						alert('提交成功');
+						window.location.reload();
+					}
+					else{
+						alert(data.ErrMsg);
+					}
+				}
+			})
+		}
+		
+    </script>
+    
+</head>
+
+<body>
+	<div class="logo"><img src="images/logo.jpg" /></div>
+    <div class="wrapper">
+    	<!-- Swiper -->
+    	<div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                	<div class="pop_btn3 p1"></div>
+                	<img src="images/p1.jpg" />
+                </div>
+                <div class="swiper-slide">
+                	<div class="pop_btn1"></div>
+                	<div class="pop_btn2"></div>
+                	<div class="pop_btn3"></div>
+                	<img src="images/p2.jpg" />
+                </div>
+                <div class="swiper-slide">
+                	<div class="pop_btn3"></div>
+                	<img src="images/p3.jpg" />
+                </div>
+                <div class="swiper-slide">
+                	<div class="pop_btn3"></div>
+                	<img src="images/p4.jpg" />
+                </div>
+                <div class="swiper-slide">
+                	<div class="pop_btn3"></div>
+                	<img src="images/p5.jpg" />
+                </div>
+                <div class="swiper-slide">
+                	<div class="pop3">
+                        <div class="close_btn"></div>
+                        <input class="username" type="text" placeholder="您的姓名" />
+                        <input class="usertel" type="tel" maxlength="11" placeholder="您的电话" />
+                        <select class="province" name="Province"></select>
+                        <select class="city" name="City"></select>
+                        <select class="district" name="County"></select>
+                        <div class="male radio"></div>
+                        <div class="female radio"></div>
+                        <div class="post_btn"></div>
+                        <img src="images/pop3.jpg" />
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- End Swiper -->
+	</div>
+    
+    <div class="popup">
+    	<div class="pop1">
+        	<div class="close_btn"></div>
+        	<img src="images/pop1.jpg" />
+        </div>
+    	<div class="pop2">
+        	<div class="close_btn"></div>
+        	<img src="images/pop2.jpg" />
+        </div>
+    </div>
+    
+</body>   
+</html>

@@ -1,0 +1,137 @@
+﻿/*************文件上传*************/
+
+ .cg-Ctl-FileUploadPublicBtn {
+        background-color: #fff;
+        display: inline-block;
+        height: 33px;
+        width: 110px;
+        line-height: 33px;
+        text-align: center;
+        color: #505050;
+        border: 1px solid #e8e8e8;
+        border-radius: 3px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        font-family: Arial,"微软雅黑";
+        padding: 0px;
+        font-size: 12px;
+        *display: inline;
+        *zoom: 1;
+    } 
+    .cg-Ctl-SelectFileBtn { display: block;  }
+    .cg-Ctl-FileViewContainer {  padding: 10px 10px 0px 10px;  background-color: #fff; position: relative; color: #505050;  border: 1px solid #e8e8e8;  border-radius: 3px; text-align: left;  display: none;  }
+    .cg-Ctl-FileInfoItem { margin-bottom: 10px;  }
+    .cg-Ctl-DelFileItemBtn { cursor: pointer;  padding: 5px; }
+    .cg-Ctl-FilePreview {  color: #000; }
+    .cg-Ctl-FilePreview img {  max-height: 50px;  max-width: 50px; *width: 50px;  }
+    .cg-Ctl-FileSize { color: #aaa8a8; }
+    .cg-Ctl-ProgressContainer {  width: 150px; background: #e8e8e8; display: inline-block;zoom:1; height: 5px; font-size: 0px; text-align: left; }
+    .cg-Ctl-Progress { width: 100%;  height: 100%;  background: #07b2f3; }
+
+/*************单选按钮*************/
+.SelectFormWrap{height:35px;font-size:0;line-height:35px;}
+.SelectFormWrap .SelectFormInner,.SelectFormWrap .SelectFormInner span,.SelectFormWrap .SelectFormInner span a{display:inline-block;*display:inline;zoom:1;font-size:0;}
+.SelectFormWrap .SelectFormInner{cursor:pointer;margin-left:10px;
+-moz-transition: all .2s ease-in;
+-webkit-transition: all .2s ease-in;
+-o-transition: all .2s ease-in;
+-ms-transition: all .2s ease-in;
+transition: all .2s ease-in;
+}
+.SelectFormWrap .SelectFormInner:active .a_1{
+    -webkit-transform:scale(0.8);
+    -o-transform:scale(0.8);
+    -moz-transform:scale(0.8);
+    -ms-transform:scale(0.8);
+    transform:scale(0.8);
+}
+
+.SelectFormWrap .SelectFormInner span{width:100%; }
+.SelectFormWrap .SelectFormInner span a{vertical-align:middle;text-decoration:none; cursor:default;cursor:pointer; }
+.SelectFormWrap .SelectFormInner span a.a_1{width:20px;height:20px;border-radius:50%;overflow:hidden;background:#fff;border:1px solid #d2d2d2;
+-moz-transition: all .2s ease-in;
+-webkit-transition: all .2s ease-in;
+-o-transition: all .2s ease-in;
+-ms-transition: all .2s ease-in;
+transition: all .2s ease-in;
+
+}
+
+.SelectFormWrap .SelectFormInner span a.a_2{font-size:14px;color:#454545; margin-left:8px;}
+
+.SelectFormWrap .SelectFormInner.Select span a.a_1{background:#ff6900;border-color:#ff6900;}
+
+/**上传图片模块**/
+.UploadImgModulesWrap{width:100%;height:auto;}
+.UploadImgModulesInner{width:151px;cursor:pointer; height:33px;background:url(../Image/uploadbtnAndSeleftFileBtn.jpg) no-repeat;display:inline-block;*display:inline;zoom:1; overflow:hidden;-moz-transition: all .2s ease-in;
+-webkit-transition: all .2s ease-in;
+-o-transition: all .2s ease-in;
+transition: all .2s ease-in;
+border: 1px #ccc solid;
+border-radius: 3px;
+}
+.UploadImgModulesInnerOne{background-position:0px 0px;}
+.UploadImgModulesInnerOne:hover{background-position:0px -33px;}
+.UploadImgModulesInnerTwo{background-position:-151px 0px;}
+.UploadImgModulesInnerTwo:hover{background-position:-151px -33px;}
+.UoloadImgPreviewContainer img{width:100%;}
+ 
+/**自定义上传模块**/
+ .customImageUploadContainer .addCoverImage {
+    width: 186px;
+    height: 175px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 175px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.customImageUploadContainer .addCoverImage .iconfont {
+    font-size: 18px;
+    position: relative;
+    z-index: 2;
+    color:#ff6900;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+    margin: 0 0 30px 0; 
+    text-shadow:
+    -1px -1px 0 #fff,  
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+    Letter-spacing:3px;
+}
+.customImageUploadContainer .addCoverImage:hover .iconfont {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.customImageUploadContainer .img_Preview_box {
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+    display: block;
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px; 
+}
+.customImageUploadContainer .img_Preview_box img {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+.customImageUploadContainer .progressContainer {
+    background-color: #ccc;
+    width: 208px;
+    margin-top: 5px;
+    height: 2px;
+}
+.customImageUploadContainer .progressContainer .progress {
+    width: 0%;
+    display: block;
+    height: 2px;
+    background: #09F;
+}

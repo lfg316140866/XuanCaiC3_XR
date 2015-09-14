@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="../../jquery.js"></script>
+    <script src="../../Cmn.js"></script>
+    <script src="../../CmnFuncExd.js"></script>
+    <script src="CmnUIPlugin.js"></script>
+    <script src="jquery-powerSwitch.js"></script>
+    <title></title>
+    <style>
+        .active {
+        font-size:16px;color:red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container" style="overflow:hidden;width:600px;height:300px;">
+        <div style="width:1500px;height:300px; position:relative;">
+            <div class="content" style="width: 150px; height: 300px; background: red;font-size:40px;color:#fff; ">1</div>
+            <div class="content" style="width: 150px; height: 300px; background: #000; font-size: 40px; color: #fff;">2</div>
+            <div class="content" style="width: 150px; height: 300px; background: red; font-size: 40px; color: #fff;">3</div>
+            <div class="content" style="width: 150px; height: 300px; background: #000; font-size: 40px; color: #fff;">4</div>
+            <div class="content" style="width: 150px; height: 300px; background: red; font-size: 40px; color: #fff; ">5</div>
+            <div class="content" style="width: 150px; height: 300px; background: #000; font-size: 40px; color: #fff; ">6</div>
+            <div class="content" style="width: 150px; height: 300px; background: red; font-size: 40px; color: #fff;">7</div>
+            <div class="content" style="width: 150px; height: 300px; background: #000; font-size: 40px; color: #fff; ">8</div>
+            <div class="content" style="width: 150px; height: 300px; background: #4cff00; font-size: 40px; color: #fff; ">9</div>
+        </div>
+        
+        <div class="action" style="width:300px;height:300px;position:absolute;top:150px;">
+            <button class="next">下一页</button>
+            <button class="prev">上一页</button>
+            <div class="menu">
+                <button class="item">1</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        //$(".action").powerSwitch({
+        //    classDisabled: '',
+        //    container: $("#caroBoxEnd"),
+        //    number: 2
+        //});
+
+
+        Cmn.CmnUIPlugin.ImageCarousel(".content", {
+            container:".container",//插件主容器
+            delay: 0,//自动切换延迟时间
+            speed: 900,//切换过度时间
+            switchModel: "Position",// Position 切换模式 Scroll 滚动条模式切换 Position 定位模式切换
+            switchNum: 4,//切换数量
+            loop:false,
+            prev: ".prev",//上一页选择器
+            next: ".next",//下一页选择器
+            no: ".item",//编号选择器
+            active: "active"
+        })
+
+    </script>
+</body>
+</html>

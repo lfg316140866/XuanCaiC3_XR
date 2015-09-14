@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+<title>C3-XR自由炫彩</title>
+
+<script src="http://cdnjs.gtimg.com/cdnjs/libs/wxmoment/0.0.2-rc1/wxmoment.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/easeljs-0.7.1.min.js"></script>
+<script src="js/tweenjs-0.5.1.min.js"></script>
+<script src="js/movieclip-0.7.1.min.js"></script>
+<script src="js/preloadjs-0.4.1.min.js"></script>
+<script src="js/soundjs-0.5.2.min.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="wap.js"></script>
+<script src="js/share.js?r=2"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64537057-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style>
+	html {width:640px;height:100%;color:#fdefed;background-color:#000;font-family: "Microsoft YaHei"; overflow:hidden;}
+	body {width:640px;height:100%;color:#fdefed;text-align:center;background-color:#000;font-family:"Microsoft YaHei";text-align:center; overflow:hidden;}
+	body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, p, blockquote, th, td,figure { margin: 0; padding: 0; }
+	html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:normal;font-size:100%;vertical-align:baseline;word-break:break-all}
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+	ul,li,dl,ol,p,form,div{margin:0px; padding:0px; list-style-type:none;word-break: break-all;word-wrap: break-word}
+	div,a,img,figure { -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; -webkit-user-select: none; }
+	
+	
+	.main{position:absolute; left:0; top:0; overflow:hidden; height:100%; width:100%;}
+	.main .cont{position:absolute; left:0; top:0;}
+	.main .cont .sound_btn{position:absolute; left:550px; top:80px; z-index:20; display:block;}
+	
+	
+	.loading{position:absolute; left:0; top:0; z-index:99; width:100%; height:100%; background:#000; overflow:hidden;}
+	.loading .logo{position:absolute; left:38px; top:39px; z-index:10; display:none;}
+	.loading .bfh{position:absolute; left:320px; top:300px; z-index:10;}
+	.loading .loadbar{position:absolute; left:50%; top:450px; margin-left:-64px;}
+	.loading .progressNum{position:absolute; left:0; top:500px; font-size:1.3em; color:#000; z-index:99; color:#FFF; width:640px; height:100px; }
+	.loading .ge{position:absolute; left:300px; top:160px;}
+	.loading .shi{position:absolute; left:170px; top:190px; z-index:11;}
+	
+	.btn{position:absolute; width: 280px;height: 90px;background: rgba(0,255,0,0);z-index: 110;left: 100px;top: 900px;}
+	
+	.popup{position:absolute; left:0; top:0; width:100%; height:100%; z-index:30; display:none;}
+	.popup .qrcode{position:absolute; left:50%; top:150px; margin-left:-215px; z-index:10; display:block; width:430px;}
+	.popup .share_cont{position:absolute; left:50%; top:50px; margin-left:-271px; z-index:10; display:none;}
+	.popup .bg{position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.85);}
+</style>
+
+<script>
+
+var w,h, startY, endY;
+var frameArr = [{f:64,s:2}, {f:158,s:2}, {f:251,s:2}, {f:342,s:2}, {f:418,s:2}, {f:517,s:2}, {f:618,s:2}, {f:709,s:2}, {f:790,s:2}, {f:882,s:2}, {f:977,s:2}, {f:1076,s:2}, {f:1171,s:2}];
+var frameIndex = 0;
+var frameNum = frameArr[frameIndex].f;
+var speed = 4;
+
+$(document).ready(function(e) {
+	
+	w = $(window).width();
+	h = $(window).height();
+	
+	var c = document.getElementById('canvas');
+	//c.width = w;
+	//c.height = h;
+	
+	$('.loading').width(w);
+	$('.loading').height(h);
+	
+	if(h < 1008){
+		var scale = h / 1000;
+		var t = (h - 1000) * 0.5 - 20;
+		$('.main .cont').css({'-webkit-transform':'scale('+scale+')', top:t});
+	}
+	
+	
+    init();
+	
+	new WxMoment.OrientationTip();//横屏提示
+	
+	
+	
+	$('.btn').hide();
+	$('.btn').bind('touchstart', function(){
+		window.location = 'http://xuancaic3xr.dongfeng-citroen.com.cn/mobile/';
+	});
+	
+	
+});
+
+function onEvent(){
+	 $(document).bind("touchstart", function (event) {
+        event.preventDefault();
+        var touch = event.originalEvent.changedTouches[0];
+        startY = touch.pageY;
+        endY = startY;
+    })
+
+	$(document).bind("touchmove", function (event) {
+	    event.preventDefault();
+	    var touch = event.originalEvent.changedTouches[0];
+	    endY = touch.pageY;
+	})
+
+	$(document).bind("touchend", function (event) {
+		if(Math.abs(startY - endY) > 200){
+			if (startY < endY) {
+				//prev
+				if(frameIndex > 0){
+					speed = 2;
+					frameIndex --;
+					update();
+				}
+			}
+			else{
+				//next
+				if(frameIndex < frameArr.length-1){
+					frameIndex ++;
+					speed = frameArr[frameIndex].s;
+					update();
+				}
+			}
+			
+		}
+	});
+	
+	
+	$('.btn').bind("touchstart", function (event) {
+		frameIndex ++;
+		speed = frameArr[frameIndex].s;
+		update();
+		ga('send', 'event', 'page', 'weiwan_daixu');
+    });
+	
+	$('.share_cont, .popup .bg').bind("touchstart", function (event) {
+		event.stopPropagation();
+		$('.popup').hide();
+		$('.share_btn').show();
+		$('.qr_btn').show();
+		ga('send', 'event', 'popup', 'hidePopup');
+    });
+	
+	$('.share_btn').bind("touchstart", function (event) {
+		$('.popup').show();
+		$('.popup .share_cont').show();
+		$('.popup .qrcode').hide();
+		$('.share_btn').hide();
+		$('.qr_btn').hide();
+		ga('send', 'event', 'popup', 'show_share_tips');
+    });
+	
+	$('.qr_btn').bind("touchstart", function (event) {
+		$('.popup').show();
+		$('.popup .share_cont').hide();
+		$('.popup .qrcode').show();
+		$('.share_btn').hide();
+		$('.qr_btn').hide();
+		ga('send', 'event', 'popup', 'show_qrcode');
+    });
+	
+	
+	var flag = 1;
+	$('.sound_btn').bind('touchstart',function(){
+		if(flag == 1){
+			flag = 0;
+			$('.sound_btn img').attr('src', 'images/close_sound.png');
+			bgSound.pause();
+			ga('send', 'event', 'music', 'pause_sound');
+		}
+		else{
+			flag = 1;
+			$('.sound_btn img').attr('src', 'images/open_sound.png');
+			bgSound.resume();
+			ga('send', 'event', 'music', 'open_sound');
+		}
+	});
+	
+}
+
+function update(){
+	var targetFrame = frameArr[frameIndex].f;
+	var o = {f:frameNum, t:targetFrame};
+	TweenLite.to(o, speed, {f:targetFrame, onUpdate:function(){
+		frameNum = Math.floor(o.f);
+		updateFrame(frameNum);
+	}});
+	
+	if(frameIndex == frameArr.length-1){
+		$('.btn').show();
+	}
+	else{
+		$('.btn').hide();
+	}
+}
+
+function updateFrame(f){
+	exportRoot.main.gotoAndStop(f);
+}
+
+
+
+
+
+
+
+
+
+var canvas, stage, exportRoot;
+var bgSound;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+
+	var loader = new createjs.LoadQueue(false);
+	loader.installPlugin(createjs.Sound);
+	loader.addEventListener("fileload", handleFileLoad);
+    loader.addEventListener("progress", handleFileProgress);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleFileProgress(event) {
+	var loaded = parseInt(event.loaded / event.total * 100);
+	$('.progressNum').html(loaded + "%");
+}
+
+function handleComplete() {
+	exportRoot = new lib.wap();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+	
+	$('.loading').hide();
+	onEvent();
+}
+
+function playSound(id, loop) {
+	bgSound = createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+}
+
+</script>
+</head>
+
+<body>
+    <div style="position:absolute; left:0; top:0; display:none;"><img src="images/vmcake.jpg" /></div>
+	<div class="loading">
+    	<div class="loadbar"><img src="images/loading.gif" /></div>
+    	<div class="progressNum">0%</div>
+    </div>
+    
+    
+    <div class="popup">
+        <div class="share_cont">
+        	<img src="images/share_tips.png" />
+        </div>
+        <div class="bg"></div>
+    </div>
+    
+    <div class="main">
+    	<div class="cont">
+        	<div class="sound_btn"><img src="images/open_sound.png" /></div>
+			<div class="btn"></div>
+			<div class="share_btn"></div>
+			<div class="qr_btn"></div>
+			<canvas id="canvas" width="640" height="1100" style="background-color:#000"></canvas>
+        </div>
+    </div>
+</body>
+</html>

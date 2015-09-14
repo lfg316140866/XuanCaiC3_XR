@@ -1,0 +1,91 @@
+﻿ <div class="RightContentWrap ">
+    <!--搜索-->
+    <div class="FilterWrap">
+        <div class="FilterInner">
+            <div class="SearchWrap">
+                <input type="text" class="cmn-SearchContent" value="" />
+                <a class="cmn-btnSearch"></a>
+            </div>
+
+            <!--从什么到什么-->
+            <div class="FromToInputWrap">
+                从<input type="text" />至
+            </div>
+
+            <div class="FilterSelect SelectTime">
+                <select class="cmn-SearchColSelect" style="height:100%;width:100%;font-size:13px;"></select>
+                <!--<h1>筛选分类1</h1>
+                <div class="FilterDownPull">
+                    <a >筛选分类2</a>
+                    <a >筛选分类3</a>
+                    <a >筛选分类4</a>
+                    <a >筛选分类5</a>
+                </div>
+                <span><img src="images/CustomMenu/TriangleIcon.png" /></span>-->
+            </div>
+            <!--<div class="FilterSelect SelectSort">
+                <h1>选择时间1</h1>
+                <div class="FilterDownPull">
+                    <a >选择时间2</a>
+                    <a >选择时间3</a>
+                    <a >选择时间4</a>
+                    <a >选择时间5</a>
+                </div>
+                <span><img src="images/CustomMenu/TriangleIcon.png" /></span>
+            </div>-->
+            <!--添加-->
+            <div class="MenuAddBtn">
+                <img class="JiaIcon" src="images/CustomMenu/JiaIcon.png">
+                添加菜单
+                <img class="NewIcon" src="images/CustomMenu/NewIcon.png">
+            </div>
+        </div>
+        <h2 style="color: #505050; line-height: 60px; height: 30px; padding:0px 60px; font-size: 16px;">
+            共 ( <b class="cmn-RecCount" style="font-size:16px;"></b> ) 条记录
+        </h2>
+    </div>
+    <!-----------------------UserFormTemplate------------------>
+    <!--_____________________列表____________________________-->
+    <div class="MenuFunctionLoacitionWrap MenuFunctionLoacitionWrapEditor cmn-RecListView" style="display:none;">
+
+        <div class="MenuFunctionLoacitionInner">
+            <table class="EditorTableTitle EditorTableTitle1" width="943" border="0" align="center" cellspacing="1">
+                <tbody>
+                    <tr>
+                        <td class="W60 cmn-ColTitle dat-ColWidth-style[width]">{ColTitle}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <table class="EditorTableTitle EditorTableTitle2 cmn-Rec" width="943" border="0" align="center" cellspacing="1">
+                    <tbody>
+                        <tr>
+                            <td class="cmn-ColName dat-ColAlign-align dat-ColWidth-style[width] W60 dat-{ColName}"> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--翻页-->
+            <div class="FlipWrap cmn-RecPage" activeclass="Select">
+                <div class="FlipBox FlipBox1">
+                    <!--选中状态添加class:Select-->
+                    <div class="FlipPageBtn FlipPreviousBtn pagPre">&lt;&lt; 上一页</div>
+                    <div class="FlipPageBtn FlipPageNum pagNum">1</div>
+                    <div class="FlipPageBtn FlipMoreText pagMore">...</div>
+                    <div class="FlipPageBtn FlipNextBtn pagNext">下一页&gt;&gt;</div>
+                </div>
+                <div class="FlipBox FlipBox2">
+                    <div class="FlipPageBtn FlipPreviousBtn">共<span class="pagCount"></span>页，到第</div>
+                    <div class="FlipPageBtn FlipPageValue"><input class="pagToPagInput" type="text" value="1" /></div>
+                    <div class="FlipPageBtn ">页</div>
+                    <div class="FlipPageBtn FlipConfirm pagToPagBtn">确定</div>
+                </div>
+            </div>
+        </div><!--MenuFunctionLoacitionInner_end-->
+        <!--添加菜单按钮-->
+        <div class="AddMenuBtn" style="position:relative; height:30px;">
+            <a class="ConfigurationFormBtn cmn-DownloadCsv" target="_blank"><span class="span_1" style=" vertical-align:middle;"></span><span class="span_2">导出CSV</span></a>
+        </div>
+    </div>
+</div>
+<div class="height0"></div>

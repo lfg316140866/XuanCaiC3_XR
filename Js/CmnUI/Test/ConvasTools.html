@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=640,user-scalable=no;" />
+    <title></title>
+    <script src="../../ThirdLib/jquery.js"></script>
+    <script src="../../ThirdLib/touch.mini.js"></script>
+    <script src="../../ThirdLib/exif.js"></script>
+    <script src="../../ThirdLib/mobileBUGFix.mini.js"></script>
+    <script src="../../Cmn.js"></script>
+    <script src="../../CmnAjax.js"></script>
+    <script src="../CmnUI.js"></script>
+    <script src="../CanvasTools/CanvasTools.js"></script>
+</head>
+<body>
+
+    <div class="jscContainer"></div>
+    <div class="jscSelect">上传</div>
+  
+    
+    <script>
+
+        var _Stage = Cmn.UI.CanvasTools.ImageProcess(".jscContainer", 700, 700);
+
+        _Stage.BindSelectFileBtn(".jscSelect", 5);
+
+      var _img = new Image();
+      var _bit = null;
+      _img.onload = function () {
+
+          //_Stage.AddChild(_img);
+      }
+
+      _Stage.OnSelectFile.Add(function (bitmpa) {
+        //  bitmpa.SetCurClipFn(_Stage.IrregularShape(150, 80, [{ x: 0, y: 0 }, { x: 150, y: 0 }, { x: 150, y: 150 }, { x: 130, y: 180 }, { x: -10, y: 180 }]))
+        //  _Stage.AddChildAt(10,_img, 200, 200);
+      })
+
+      _img.src = "../VideoPic.jpg?" + Math.random();
+
+
+      
+
+    </script>
+
+</body>
+</html>
+

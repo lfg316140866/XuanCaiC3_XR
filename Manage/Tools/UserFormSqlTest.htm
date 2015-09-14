@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>sql管理</title>
+    <script src="../../Js/ThirdLib/jquery.js"></script>
+    <script type="text/javascript" src="../../Js/Cmn.js"> </script>
+    <script type="text/javascript" src="../../Js/CmnAjax.js"> </script>
+    <script src="../Js/SiteConfig.js" type="text/javascript"></script>
+    <script src="../Js/CmnMis/CmnMisUserForm.js"></script>
+    <script src="../Js/CmnMis/CmnMisFunc.js"></script>
+    <script src="../Js/CmnMis/CmnMisItf.js"></script>
+    <script src="../Js/CmnMis/CmnMisTableOpt.js"></script>
+</head>
+<body>
+    <div style="display:none; margin-bottom:10px;" class="infUserForm">用户表单名称：</div>
+    Sql语句：<br/><textarea id="txtSql" rows="10" style="width:1000px;"></textarea><br/>
+    <input type="button" style="height:35px;display:none;" id="btnSaveSql" value=" 更新用户表单中的sql " />
+    <input type="button" style="height:35px;width:100px;" id="btnExecSql" value=" 执行sql " /> 注：最多显示10条记录
+    <br/><br/>
+    <div id="divResult"></div>
+</body>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var _userformid = Cmn.Func.GetParamFromUrl("userformid");
+
+            if (_userformid != "") {
+                CmnMis.TableOpt.GetData("cmn_usr_UserForm", { "Condition":"[userformid]="+ _userformid }, false, function (data) {
+                    if (data.data.length > 0) {
+                        $(".infUserForm").show();
+                        $("#btnSaveSql").show();
+
+                        $(".infUserForm").html("用户表单名称：<b>" + data.data[0]["formdesc"]+"</b>");
+                        $("#txtSql").val(data.data[0]["selectsql"]);
+                        $("#btnSaveSql").val("更新Sql到【" + data.data[0]["formdesc"] + "】");
+
+                        $("#btnSaveSql").bind("click", function () {
+                            CmnMis.TableOpt.UpdateRec("cmn_usr_UserForm", _userformid, {"selectsql":$("#txtSql").val()}, function () {
+                                alert("保存成功！");
+                            }, function () {
+                                alert("保存失败！");
+                            });
+                        });
+                    }
+                    else { alert("没有获取到用户表单对应的sql！"); }
+                });
+            }
+        });
+
+        $("#btnExecSql").bind("click", function () {
+            if ($("#txtSql").val() == "") { Cmn.alert("sql语句不能为空"); return; }
+
+            $("#divResult").html("");
+
+            CmnAjax.PostData(Cmn.Func.AddParamToUrl(InterfaceUrl, "method=DBGetResultSet"),
+                "{'sql':'" + Cmn.Func.FormatJsonData($("#txtSql").val()) + "','Top':'10'}", function (data) {
+                    if (data.IsSuccess && data.IsSuccess=="0" && data.ErrMsg=="未登录") {
+                        window.location.href = "../Login.html?SysName=" + Cmn.Func.GetParamFromUrl("SysName", window.location.href);
+                    }
+                    else if (data.IsSuccess && data.IsSuccess == "0") { $("#divResult").html(data.ErrMsg); }
+                    else {                        
+                        var _result = "<div>执行成功！</div><br/><table border='1'><tr>";
+                        var _rec = "";
+
+                        for (var _i = 0; _i < data.data.length; _i++) {
+                            _rec += "<tr>";
+
+                            for (var _key in data.data[_i]) {
+                                if (_i == 0) { _result += "<th>"+_key+"</th>"; }
+
+                                _rec += "<td>"+data.data[_i][_key] + "</td>";
+                            }
+
+                            _rec += "</tr>";
+                        }
+
+                        _result += "</tr>"+_rec+"</table>";
+
+                        $("#divResult").html(_result);
+                    }
+            });
+        });
+
+    </script>
+</html>

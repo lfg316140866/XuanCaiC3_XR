@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="Css/reset.css" />
+    <!--<link rel="stylesheet" href="style/style.css" />-->
+    <link href="Css/style.css" rel="stylesheet" />
+    <title>WechatCrm</title>
+    <script src="../Js/ThirdLib/jquery.js"></script>
+    <script type="text/javascript" src="../Js/Cmn.js"> </script>
+    <script type="text/javascript" src="../Js/CmnAjax.js"> </script>
+    <script src="Js/SiteConfig.js"></script>
+    <script type="text/javascript" src="Js/CmnMis/CmnMis.js"> </script>
+    <script src="Js/CmnMis/CmnMisFrame.js"></script>
+    <script src="Js/CmnMis/CmnMisFunc.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $(CmnMis.Frame.Cfg.Selector.SysName).html(CmnMis.Func.GetSysCfg("SysName"));
+
+            $("#TempUseControlFucus").focus().select();
+
+            $("#UserName").focus(function () {
+                if ($(this).val() == "请输入您的用户名") {
+                    $(this).val("");
+                }
+                $(this).css("color", "#000000");
+            });
+            $("#UserName").blur(function () {
+                if ($(this).val() == "") {
+                    $(this).val("请输入您的用户名");
+                    $(this).css("color", "#d7d7d7");
+                }
+            });
+
+            $("#PassWord1").focus(function () {
+                if ($(this).val() == "请输入您的密码") {
+                    $(this).hide();
+                    $("#PassWord2").show();
+                    $("#PassWord2").focus().select();
+                    $("#PassWord2").css("color", "#000000");
+                }
+            });
+            $("#PassWord2").blur(function () {
+                if ($(this).val() == "") {
+                    $(this).hide();
+                    $("#PassWord1").show();
+                }
+            });
+
+
+            $("#TwoCodeValue").focus(function () {
+                if ($(this).val() == "验证码") {
+                    $(this).val("");
+                }
+                $(this).css("color", "#000000");
+            });
+            $("#TwoCodeValue").blur(function () {
+                if ($(this).val() == "") {
+                    $(this).val("验证码");
+                    $(this).css("color", "#d7d7d7");
+                }
+            });
+
+            $(".TwoCode").html(Code(4));
+
+            $(".TwoCode").click(function () {
+                $(".TwoCode").html(Code(4));
+            });
+
+        })
+
+        function Code(len) {
+            var str = "qwertyuiopasdfghjklmnbvcxz1234567890"
+            function getRandomNum(lbound, ubound) {
+                return (Math.floor(Math.random() * (ubound - lbound)) + lbound);
+            }
+            var s = str.split("");
+            var t = "";
+            for (var i = 0; i < len; i++) {
+                t += s[getRandomNum(1, 36)];
+            }
+            return t;
+        }
+    </script>
+</head>
+<body>
+    <input name="TempUseControlFucus" type="text" id="TempUseControlFucus" style="width:1px;height:1px;position:fixed; left:10000px;" />
+    <div class="Wrap">
+        <div class="Main">
+            <div class="HeaderWrap">
+                <div class="HeaderInner HeaderInner1">
+                    <div class="HeaderLogo">
+                        <img src="Image/Public/Logo.png" />
+                    </div>
+                </div>
+            </div><!--HeaderWrap_end-->
+            <div class="HeaderWraps">
+                <div class="HeaderInner HeaderInner2">
+                    <div class="HeaderTimeLeft">欢迎进入<span class="cmn-SysName"></span>  现在时间：<span class="span_1 cmn-CurrentSysDate">00:00:00 2014.10.15</span></div>
+
+                </div>
+            </div><!--HeaderWraps_end-->
+            <div class="ContentWrap">
+                <div class="ContentInner ContentLoginWrap">
+                    <div class="LoginBox LoginBox1">
+                        <input name="UserName" type="text" id="UserName" value="请输入您的用户名" class="txt cmn-LoginUserName" onfocus="this.className='txt_focus cmn-LoginUserName';" onblur="this.className='txt cmn-LoginUserName';" size="25" style="width:245px" />
+                        <label>
+                            <span class="span_1">
+                                <!--正确-->
+                                <img class="ProperIcon" src="Image/Public/ProperIcon.png" />
+                                <!--错误-->
+                                <img class="ErrorIcon" src="Image/Public/ErrorIcon.png" />
+                            </span>
+                            <span class="span_2">*</span>提示：用户名错误
+                        </label>
+                    </div>
+                    <div class="LoginBox LoginBox2 ">
+                        <input name="PassWord" type="text" id="PassWord1" value="请输入您的密码" class="txt" onfocus="this.className='txt_focus';" onblur="this.className='txt';" style="width:245px" />
+                        <input name="PassWord" type="password" id="PassWord2" value="" class="txt cmn-LoginPassWord" onfocus="this.className='txt_focus cmn-LoginPassWord';" onblur="this.className='txt cmn-LoginPassWord';" style="width:245px;display:none;" />
+                        <label>
+                            <span class="span_1">
+                                <!--正确-->
+                                <img class="ProperIcon" src="Image/Public/ProperIcon.png" />
+                                <!--错误-->
+                                <img class="ErrorIcon" src="Image/Public/ErrorIcon.png" />
+                            </span>
+                            <span class="span_2">*</span>提示：密码错误
+                        </label>
+                    </div>
+                    <div class="LoginBox LoginBox3" style="top: 224px;">
+                        <input id="TwoCodeValue" type="text" class="txt" value="验证码" />
+                        <div class="TwoCode" style="border: 1px solid #d7d7d7;height: 33px;"></div>
+                        <label>
+                            <span class="span_1">
+                                <!--正确-->
+                                <img class="ProperIcon" src="Image/Public/ProperIcon.png" />
+                                <!--错误-->
+                                <img class="ErrorIcon" src="Image/Public/ErrorIcon.png" />
+                            </span>
+                            <span class="span_2"></span>看不清,换一张
+                        </label>
+                    </div>
+                    <!--同意-->
+                    <input type="checkbox" class="Agree" />
+
+                    <!--登录按钮-->
+                    <input id="login" type="button" value="登 陆" class="cmn-LoginbtnLogin LoginBtn" />
+
+                    <!--如忘记密码请邮件至-->
+                    <div class="ForgotPasswordWrap">
+                        友情提示：如忘记密码请邮件至：<a href="javascript:void(0)">ERIC@CAGOE.COM</a>
+                    </div>
+
+                </div>
+            </div><!--ContentWrap_end-->
+            <!--Footer-->
+            <div class="FooterWrap ">
+                <div class="FooterInner cmn-CopyRight">
+                    ©2015 CAGOE 版权所有
+                </div>
+            </div>
+        </div><!--Main_end-->
+    </div><!--wrap_end-->
+</body>
+</html>

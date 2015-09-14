@@ -1,0 +1,626 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>管理后台</title>
+    <script src="../Js/ThirdLib/jquery.js"></script>
+    <script src="../Js/ThirdLib/jquery-ui.js"></script>
+    <script type="text/javascript" src="Js/SiteConfig.js"></script>
+    <script type="text/javascript" src="../Js/Cmn.js"> </script>
+    <script type="text/javascript" src="../Js/CmnAjax.js"> </script>
+    <script type="text/javascript" src="../Js/CmnUI/CmnUI.js"></script>
+    <script type="text/javascript" src="Js/CmnMis/CmnMis.js"> </script>
+    <script type="text/javascript" src="Js/CmnMis/CmnMisControl.js"></script>
+    <script type="text/javascript" src="Js/CmnMis/CmnMisFunc.js"></script>
+    <script type="text/javascript" src="Js/CmnMis/CmnMisUserForm.js"></script>
+    <script type="text/javascript" src="Js/CmnMis/CmnMisFrame.js"></script>
+    <script type="text/javascript" src="Js/CmnMis/CmnMisTableOpt.js"></script> 
+    <script type="text/javascript" src="CmnControl/HtmlEditor/xheditor-1.2.1.min.js"></script>
+    <script type="text/javascript" src="Js/CmnMis/CmnMisItf.js"></script>
+    <script src="../Js/ThirdLib/md5.js"></script>
+    <script src="Js/Global.js"></script>
+
+    <link href="Css/reset.css" rel="stylesheet" />
+    <link href="Css/style2.css" rel="stylesheet" />
+    <link href="Css/control.css" rel="stylesheet" /> 
+    <link href="Css/ThirdLib/themes/ui-lightness/jquery.ui.theme.css" rel="stylesheet" />
+    <link href="Css/ThirdLib/themes/ui-lightness/jquery.ui.autocomplete.css" rel="stylesheet" />
+    <script src="../Js/CmnUI/FileUpload/FileUpload.js"></script>
+</head>
+<body>
+
+    <div class="Wrap">
+        <div class="Main">
+            <div class="HeaderWrap">
+                <div class="HeaderInner HeaderInner1">
+                    <div class="HeaderLogo">
+                        <img src="Image/Public/Logo.png" />
+                    </div>
+                </div>
+            </div><!--HeaderWrap_end-->
+            <div class="HeaderWraps">
+                <div class="HeaderInner HeaderInner2">
+                    <div class="HeaderTimeLeft">欢迎进入<span class="cmn-SysName">微信平台管理系统</span>  现在时间：<span class="span_1 cmn-CurrentSysDate">00:00:00 2014.10.15</span></div>
+                    <div class="HeaderTimeRight">您好，<span class="span_1 cmn-CurLoginUsername"></span><span class="span_2 cmn-btnExitLogin">注销退出</span></div>
+                </div>
+            </div><!--HeaderWraps_end-->
+            <div class="height0"></div>
+
+            <div class="ContentWrap">
+                <div class="height0"></div>
+
+                <div class="ContentInner ContentCustomMenuWrap">
+                    <!--左侧菜单-->
+                    <div class="CmnLeftMenuWrap">
+
+                        <!--左侧大标-->
+                        <!--<div class="LeftMenuLargeScale">菜单</div>-->
+
+                        <div class="CmnLeftMenuInner">
+
+                            <div class="CmnLeftMenuBox">
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                                <div class="CmnLeftMenuList">
+                                    <span class="CmnLeftMenuListIcon"><img src="Image/CustomMenu/KeyWordIcon.png" /></span>
+                                    <a class="CmnLeftMenuListTitle" href="javascript:void(0)">菜单1</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!--菜单展开-->
+                    <div class="MenuExpansionWrap">
+
+                        <div class="MenuExpansionInner">
+
+                            <!--菜单位置-->
+                            <div class="MenuExpansionTitleWrap">
+                                <!--范围-->
+                                <span class="MenuExpansionReturn">返回</span>
+
+                                <!--菜单当前位置-->
+                                <span class="MenuExpansionTitleList">位置1</span>>
+                                <span class="MenuExpansionTitleList">位置2</span>>
+                                <span class="MenuExpansionTitleList">位置3</span>>
+                                <span class="MenuExpansionTitleList">位置4</span>>
+                                <span class="MenuExpansionTitleList">位置5</span>
+                            </div>
+
+                            <div class="MenuExpansionCon">
+
+                                <!--二级菜单列表-->
+                                <dl class="MenuExpansionDl">
+                                    <!--二级分类标题-->
+                                    <dt class="MenuExpansionDt">
+                                        <a href="javascript:void(0)">区域1<i>></i></a>
+                                    </dt>
+
+                                    <dd class="MenuExpansionDd">
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                     
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                    </dd>
+
+                                </dl>
+
+                                <!--二级菜单列表-->
+                                <dl class="MenuExpansionDl">
+                                    <!--二级分类标题-->
+                                    <dt class="MenuExpansionDt">
+                                        <a href="javascript:void(0)">区域2<i>></i></a>
+                                    </dt>
+
+                                    <dd class="MenuExpansionDd">
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                  
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                    </dd>
+
+                                </dl>
+
+                                <!--二级菜单列表-->
+                                <dl class="MenuExpansionDl">
+                                    <!--二级分类标题-->
+                                    <dt class="MenuExpansionDt">
+                                        <a href="javascript:void(0)">区域3<i>></i></a>
+                                    </dt>
+
+                                    <dd class="MenuExpansionDd">
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                    </dd>
+
+                                </dl>
+
+                                <!--二级菜单列表-->
+                                <dl class="MenuExpansionDl">
+                                    <!--二级分类标题-->
+                                    <dt class="MenuExpansionDt">
+                                        <a href="javascript:void(0)">区域4<i>></i></a>
+                                    </dt>
+
+                                    <dd class="MenuExpansionDd">
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                       
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                    </dd>
+
+                                </dl>
+
+                                <!--二级菜单列表-->
+                                <dl class="MenuExpansionDl">
+                                    <!--二级分类标题-->
+                                    <dt class="MenuExpansionDt">
+                                        <a href="javascript:void(0)">区域5<i>></i></a>
+                                    </dt>
+
+                                    <dd class="MenuExpansionDd">
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                    
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮1<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮2<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮3<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮4<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                        <a href="javascript:void(0)">按钮5<span class="MenuExpansionMoreBtn">+</span></a>
+                                    </dd>
+
+                                </dl>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="cmn-UserFormTemplate " name="cmn-UserForm">
+                        <!--显示明细格式给此div添加class:DetailedFormWrap-->
+                        <div class="RightContentWrap ">
+                            <!--搜索-->
+                            <div class="FilterWrap">
+                                <div class="FilterInner">
+                                    <div class="SearchWrap">
+                                        <input type="text" class="cmn-SearchContent" value="" />
+                                        <a class="cmn-btnSearch"></a>
+                                    </div>
+
+                                    <!--从什么到什么-->
+                                    <div class="FromToInputWrap">
+                                        从<input type="text"  />至 
+                                    </div>
+
+                                    <div class="FilterSelect SelectTime">
+                                        <select class="cmn-SearchColSelect" style="height:100%;width:100%;font-size:13px;"></select>
+                                        <!--<h1>筛选分类1</h1>
+                                        <div class="FilterDownPull">
+                                            <a >筛选分类2</a>
+                                            <a >筛选分类3</a>
+                                            <a >筛选分类4</a>
+                                            <a >筛选分类5</a>
+                                        </div>
+                                        <span><img src="Image/CustomMenu/TriangleIcon.png" /></span>-->
+                                    </div>
+                                    <!--<div class="FilterSelect SelectSort">
+                                    <h1>选择时间1</h1>
+                                    <div class="FilterDownPull">
+                                        <a >选择时间2</a>
+                                        <a >选择时间3</a>
+                                        <a >选择时间4</a>
+                                        <a >选择时间5</a>
+                                    </div>
+                                    <span><img src="Image/CustomMenu/TriangleIcon.png" /></span>
+                                </div>-->
+                                    <!--添加-->
+                                    <div class="MenuAddBtn cmn-opt-Add">
+                                        <img class="JiaIcon" src="Image/CustomMenu/JiaIcon.png">
+                                        添加
+                                        <img class="NewIcon" src="Image/CustomMenu/NewIcon.png">
+                                    </div>
+                                </div>
+                                <h2 style="color: #505050;  padding:0px 60px; font-size: 16px;"><!--line-height: 60px; height: 30px;-->
+                                    共 ( <b class="cmn-RecCount" style="font-size:16px;"></b> ) 条记录
+                                </h2>
+                            </div>
+                            <!-----------------------UserFormTemplate------------------>
+                            <!--_____________________列表____________________________-->
+                            <div class="MenuFunctionLoacitionWrap MenuFunctionLoacitionWrapEditor cmn-RecListView" style="display:none;">
+
+                                <div class="MenuFunctionLoacitionInner">
+                                    <table class="EditorTableTitle EditorTableTitle1" width="100%" border="0" align="center" cellspacing="1">
+                                        <tbody>
+                                            <tr class="MenuFunctionLoacitionListTitle">
+                                                <td class="W60 cmn-ColTitle dat-ColWidth-style[width]">{ColTitle}</td>
+                                                <td class="W80">操作</td>
+                                            </tr>
+                                            <tr class="cmn-Rec MenuFunctionLoacitionListInner">
+                                                <td class="cmn-ColName dat-ColAlign-align dat-ColAlign-style[text-align] dat-ColWidth-style[width] W60 dat-{ColName}"> </td>
+
+                                                <td class="W80">
+                                                    <a data-keyval="{userid}" class="EditorIconBtn cmn-opt-Update"><!--<img data-keyval="{userid}" class="cmn-opt-Update" src="Image/CustomMenu/EditorIcon.png" />--></a>
+                                                    <a data-keyval="{userid}" class="DelIconBtn cmn-opt-Delete"><!--<img data-keyval="{userid}" class="cmn-opt-Delete" src="Image/CustomMenu/DelIcon.png" />--></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                    <!--<div>
+                                        <table class="EditorTableTitle EditorTableTitle2 " width="100%" border="0" align="center" cellspacing="1">
+                                            <tbody>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>-->
+                                    <!--翻页-->
+                                    <div class="FlipWrap cmn-RecPage" activeclass="Select">
+                                        <div class="FlipBox FlipBox1">
+                                            <!--选中状态添加class:Select-->
+                                            <div class="FlipPageBtn FlipPreviousBtn pagPre">&lt;&lt; 上一页</div>
+                                            <div class="FlipPageBtn FlipPageNum pagNum">1</div>
+                                            <div class="FlipPageBtn FlipMoreText pagMore">...</div>
+                                            <div class="FlipPageBtn FlipNextBtn pagNext">下一页&gt;&gt;</div>
+                                        </div>
+                                        <div class="FlipBox FlipBox2">
+                                            <div class="FlipPageBtn FlipPreviousBtn">共<span class="pagCount"></span>页，到第</div>
+                                            <div class="FlipPageBtn FlipPageValue"><input class="pagToPagInput" type="text" value="1" /></div>
+                                            <div class="FlipPageBtn ">页</div>
+                                            <div class="FlipPageBtn FlipConfirm pagToPagBtn">确定</div>
+                                        </div>
+                                    </div>
+                                </div><!--MenuFunctionLoacitionInner_end-->
+
+                                <!--添加菜单按钮-->
+                                <div class="AddMenuBtn" style="position:relative;">
+                                    <span class="cmn-opt-Add"><img class="JiaIcon" src="Image/CustomMenu/JiaIcon.png" />添加<img class="NewIcon" src="Image/CustomMenu/NewIcon.png" /></span>
+                                </div>
+
+                                <div class="ConfigurationFormBtn">
+                                    <a class="cmn-DownloadCsv" target="_blank">
+                                        <span class="span_1" style=" vertical-align:middle;"><img src="Image/csvicon2.png" /></span>
+                                        <span class="span_2">导出CSV</span>
+                                    </a>
+                                    <a class="cmn-btnSetUserForm" target="_blank">
+                                        <span class="span_1" style=" vertical-align:middle;"></span>
+                                        <span class="span_2">界面配置</span>
+                                    </a>
+                                    <a class="cmn-btnDebugSelectSql" target="_blank">
+                                        <span class="span_1" style=" vertical-align:middle;"></span>
+                                        <span class="span_2">调试表单SelectSql</span>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <!--MenuFunctionLoacitionWrap_end-->
+                            <!--_____________________添加菜单____________________________-->
+                            <div class="MenuFunctionLoacitionWrap MenuFunctionLoacitionWrapAddMenu cmn-AddEditView" style="display:none;">
+                                <div class="MenuFunctionLoacitionInner">
+                                    <div class="MenuFunctionLoacitionBoxWrap cmn-EditPanel">
+
+                                        <div class="MenuFunctionLoacitionBox MenuFunctionLoacitionBox6 cmn-Ctl-Container">
+                                            <div class="Label1 cmn-Ctl-ColNameContainer">
+                                                <span class="cmn-Ctl-ColIsRequired">*</span>
+                                                <span class="cmn-Ctl-ColName"></span>
+                                            </div> 
+                                            <div class="Label2 cmn-Ctl-Content"> </div>
+                                            <div class="Label3 cmn-Ctl-TipContainer">
+                                                <span class="span_1 cmn-Ctl-VerifyContainer">
+                                                    <img class="ProperIcon cmn-Ctl-VerifyRight" src="Image/Public/ProperIcon.png" />
+                                                    <img class="ErrorIcon cmn-Ctl-VerifyError" src="Image/Public/ErrorIcon.png" />
+                                                </span>
+                                                <span class="span_2 cmn-Ctl-TipDesc">* 提示：数字越小靠近一级菜单！</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--MenuFunctionLoacitionInner_end-->
+                                <!--保存，取消-->
+                                <div class="AddMenuBtn">
+                                    <span class="cmn-btnSave">保存</span>
+                                    <span class="cmn-btnReturn">取消</span>
+                                </div>
+
+                            </div>
+                            <!--MenuFunctionLoacitionWrap_end-->
+                        </div>
+                        <div class="height0"></div>
+                        <!--<a class="cmn-btnSetUserForm" href="" target="_blank">配置用户界面</a>-->
+                        <!--RightContentWrap_end-->
+                    </div>
+
+                    <div class="height0"></div>
+                    <!--UserFromEnd-->
+                </div>
+            </div><!--ContentWrap_end-->
+
+
+            <div class="height0"></div>
+            <!--Footer-->
+            <div class="FooterWrap FooterWraps">
+                <div class="FooterInner cmn-CopyRight">
+                    ©2015 CAGOE 版权所有
+                </div>
+            </div>
+        </div><!--Main_end-->
+    </div><!--wrap_end-->
+    <!--操作提示浮层-->
+
+    <div class="ManageTipsPopWrap cg-TipContainer">
+        <div class="ManageTipsPopInner">
+            <div class="ManageTipsTitle"><span class="span_1">系统提示</span><span class="span_2 jscGraphicPvPopWrapCancel cg-TipCancel"></span></div>
+            <div class="ManageTipsPopCon">
+                <div class="ManageTipsBox">
+                    <div class="GraphicPvPullDownTitle">
+                        <span class="span_1 cg-TipIcon" style="display:none;">
+                            <img class="ManageTipsPopCorrect cg-TipIconOK" src="Image/CustomMenu/Correct.png" />
+                            <img class="ManageTipsPopErrorIcon cg-TipIconError" src="Image/CustomMenu/ErrorIcon.png" />
+                        </span>
+                        <span class="span_2 cg-TipText">操作成功</span>
+                    </div>
+                </div>
+                <div class="ManageTipsFooter">
+                    页面自动 <a class="cg-TipCancel">关闭</a> 等待时间：<span class="cg-TipAutoCancelTimer">1</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--关闭明细浮层-->
+    <div class="CloseDetailedFormPopBtn">
+        <img src="Image/Public/DetailedFormPopWrapClose.png" />
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            CmnMis.Frame.EventFrameInitComplete = function () {
+                CmnMis.CurUserForm["EventAfterRecListLoad"] = function () {
+                    //判断html高度，超过807时给footer添加class    Dx
+                    if ($(document).height() <= 807) {
+                        $(".FooterWrap").addClass("FooterWraps");
+                    } else {
+                        $(".FooterWrap").removeClass("FooterWraps");
+                    }
+                }
+            }
+
+        }
+
+    </script>
+</body>
+</html>

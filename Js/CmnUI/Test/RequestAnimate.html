@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../../ThirdLib/jquery.js"></script>
+    <script src="../../Cmn.js"></script>
+  
+    <script>
+ 
+        Cmn.IsDebuging = true;
+        try{
+        Cmn.Am.Timeline.Add(function () {
+            Cmn.DebugLog("a");
+        }, 500);
+        } catch (e) {
+            alert(e.message);
+        }
+        alert("a");
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

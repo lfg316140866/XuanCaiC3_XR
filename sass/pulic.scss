@@ -1,0 +1,96 @@
+@charset "utf-8"; 
+@import "tobe/base";   //引入sass的tade模块
+@import "compass/typography";  //引入compasss五大模块
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+
+$browser-minimum-versions:("ie":"7");
+
+%transparent_bg{background: image-url('transparent_bg.png') repeat;}
+/*-------------------------------------顶部导航区域--------------------------------------*/
+.header_box{width: $Width;@include position();height: 96px;z-index: 10;
+   .header_logo{width:$Width;height: 50px;background-color:$Color-White;
+     .title{@include float(right);width:66px;height:50px}
+     .logo{@include float();width:137px;height:50px}
+   }
+   .header_sidebar{height: 46px;@include horizontal-center(50px,1234px);
+      .header_nav{width: $Width;height: $Height;background: image-url('header_nav_bg.png') no-repeat;@include clearfix;
+         li{@include float();width: 185px;height: 46px;
+            a{@extend %transparent_bg;
+              &:hover{height: 46px;}
+            }
+         }
+         .last_li{width: 145px;margin-right: 0;}
+      }
+   }
+}
+.header_nav li.nav_btn a:hover{background: image-url('compose-sb6daa522b5.png') no-repeat;width: 219px;}
+.header_nav li.nav_btn.nav_set a{background: image-url('compose-sb6daa522b5.png') no-repeat;width: 219px;}
+.header_nav li.nav_btn2{margin-left: -22px!important;margin-right: 12px;}
+.header_nav li.nav_btn3{margin-right: 2px!important;}
+//循环导航选中后的hover
+@for $i from 1 through 4{
+  .header_nav li.nav_btn#{$i}.nav_set a{
+        background-position:0px (-54+$i*54px)*(-1);
+  }
+}
+@for $i from 1 through 4{
+  .header_nav li.nav_btn#{$i} a:hover{
+        background-position:0px (-54+$i*54px)*(-1);
+  }
+}
+
+/*-------------------------------------底部导航区域--------------------------------------*/
+.footer{width:$Width;height: 32px;position: absolute;bottom: 0;left: 0;z-index: 10;background: image-url('footer_bg.png') repeat;
+  @include legacy-pie-clearfix();
+    .footer_tip{@include float();margin-left: 30px;margin-right: 20px;width: 89px;height: 40px;}
+    .copyright{@include float();width: 606px;height: 32px;
+       p{@include font-style(16px,$Color-GrayDark,null);line-height: 32px;
+          em{font-style:normal;}
+          span{padding: 0 12px;}
+       }
+    }
+    .footer_share{@include float(right);width: 174px;height: 32px;background: image-url('share_bg.png') no-repeat;
+        .share_sidebar{width:120px;height:26px;margin-left: 54px;padding-top: 3px;
+          li{@include float();width: 25px;height: 26px;margin-right: 4px;
+            a{@extend %transparent_bg;}
+          }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

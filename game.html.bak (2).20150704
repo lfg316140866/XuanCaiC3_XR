@@ -1,0 +1,363 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/pulic.css" rel="stylesheet" />
+    <link href="css/reset.css" rel="stylesheet" />
+    <script src="Js/jquery-1.9.1.js"></script>
+    <script src="Js/Cmn.js"></script>
+    <script src="Js/CmnAjax.js"></script>
+    <script src="Js/CmnFuncExd.js"></script>
+    <script src="Manage/Js/SiteConfig.js"></script>
+    <script src="Manage/Js/CmnMis/CmnMisFunc.js"></script>
+    <script src="Manage/Js/CmnMis/CmnMisItf.js"></script>
+    <script src="Manage/Js/CmnMis/CmnMisTableOpt.js"></script>
+    <script src="Js/SiteJs/SiteFunc.js"></script>
+    <script src="Js/CmnTools/VideoPlayer/VideoProcess.js"></script>
+    <script src="Js/SiteJs/Site.js"></script>
+    <script src="Js/SiteJs/provinceCity.js"></script>
+    <script src="Js/SiteJs/Index.js"></script>
+    <script src="Js/jquery.cxscroll.min.js"></script>
+    <script src="Js/swfobject.js"></script>
+    <title>C3-XR自由炫彩</title>
+    
+
+    <script type="text/javascript">
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+        function getVars(){
+		return "host=http://xuancaic3xr.nn.cagoe.com&pic="+getQueryString("pic")+"&music="+getQueryString("music");
+	}
+	console.log(getVars());
+
+        ///作品展示方法
+        function showWorks() {
+            //显示图片轮播浮层
+            $(".js_pop_box_float").show();
+            $(".Js_WorkFloat").show();  //图片轮播
+            $(".Js_checking_float").hide()//图片详情
+            
+            //调用作品信息管理接口拿到轮播图片
+            CmnMis.Itf.GetData("SelectInfo", "", false, function (data) {
+                var _html1 = "";
+                //var _html2 = "";
+                if (data.IsSuccess == "1") {
+                    if (data.data.length % 2 == 1) {
+                        data.data.length -=1;
+                    }
+                    for (var _i = 0; _i < data.data.length; _i += 2) {
+                       
+                        _html1 += "<li><a href=\"javascript:void(0)\"><img class=\"Js_pic\" src=\"" + data.data[_i]["pic_url"] + "\" alt=\"\" /></a><a href=\"javascript:void(0)\"><img  class=\"Js_pic\" src=\"" + data.data[_i + 1]["pic_url"] + "\" alt=\"\" /></a></li>";
+                    }
+                    $(".Js_workNav").html(_html1);
+                    //
+                    $("#Js_workBar").cxScroll({ time: 1500, step: 1 });
+                    $(".Js_pic").click(function () {
+                        var _src = $(this).attr("src");
+                        $(".Js_CheckingCon").find("img").attr("src", _src);
+                        $(".js_pop_box_float").show();
+                        $(".Js_checking_float").show();
+
+                    })
+                
+                }
+            });
+          
+            //点击图片轮播XX隐藏浮层
+            $(".Js_Close1").click(function () {
+                $(".js_pop_box_float").hide();
+                $(".Js_WorkFloat").hide();  //图片轮播浮层
+          
+            })
+
+            //点击图片详情XX隐藏浮层
+            $(".Js_Close2").click(function () {
+                $(".Js_checking_float").hide()//图片详情浮层
+            })
+        }
+
+        ///参与互动留资浮层方法
+        function showSendInfo() {
+            $(".js_pop_box_float>div").hide();
+            $(".js_inf_float>div").hide();
+            $(".Js_GiftBox,.js_inf_float,.js_pop_box_float").show();
+            $(".js_inf_float>div").css("margin-top", "-248px");
+            $(".js_inf_float>div").css("margin-top", "-247px");
+        }
+
+        //$(function () {
+        //    var _params = {
+        //        "wmode": "transparent"
+        //    };
+        //    swfobject.embedSWF("main.swf", "mySwf", "100%", "100%", "9.0.0", "#fff", '', _params);
+        //})
+    </script>
+    <style type="text/css">
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+        }
+
+        #mySwf {
+            width:100%; height:100%;
+            /*min-width:1200px;
+        min-height:600px;*/
+        }
+    </style>
+</head>
+<body>
+  <div id="JscAttestingFloat" class="attesting_float" style=" display:none; position:absolute; top:0; left:0; right:0; bottom:0; z-index:100000; background: url(images/attesting_bg.png) repeat;">
+        <div class="attesting_box" style="width:739px; height:474px; position:absolute; top:50%; left:50%; margin-left:-370px; margin-top: -237px; background: url(images/attesting_box_bg.png) no-repeat;">
+            <div onclick="$('#JscAttestingFloat').hide();" class="attesting_close_btn" style="position:absolute; top:15px; right:15px;"><a href="javascript:void(0)"><img src="images/attesting_close_btn.png"></a></div>
+            <div class="attesting_bar" style="width: 698px; height:350px; margin:0 auto; overflow-x: hidden;overflow-y:auto; margin-top:80px;">
+                <img src="images/attesting_con.png">
+            </div>
+        </div>    
+    </div>
+    <!--顶部导航区域-->
+    <!--顶部导航区域-->
+    <div class="header_box">
+        <div class="header_logo">
+            <div class="logo"><a href="javascript:void(0)"><img src="images/title.png" /></a></div>
+            <div class="title"><a href="javascript:void(0)"><img src="images/logo.png" /></a></div>
+        </div>
+        <div class="header_sidebar">
+            <ul class="header_nav">
+                <!--选中后添加一个nav_set-->
+                <li class="nav_btn1  nav_btn js_nav_btn1"><a href="index.html"></a></li>
+                <li class="nav_btn2 nav_btn nav_set js_nav_btn2"><a href="game.html"></a></li>
+                <li class="nav_btn3 nav_btn js_nav_btn3"><a href="Colorfuljourney.html"></a></li>
+                <li class="nav_btn4 nav_btn js_nav_btn4"><a href="Mirror.html"></a></li>
+                <li><a target="_blank" href=" http://c3-xr.dongfeng-citroen.com.cn/"></a></li>
+                <li class="last_li js_nav_btn5"><a href="javascript:void(0)"></a></li>
+                <li class="last_li js_nav_btn6"><a href="javascript:void(0)"></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div id="mySwf">
+        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="100%" height="100%" id="main" align="middle">
+            <param name="movie" value="main.swf" />
+            <param name="quality" value="high" />
+            <param name="bgcolor" value="#cccccc" />
+            <param name="play" value="true" />
+            <param name="loop" value="true" />
+            <param name="wmode" value="transparent" />
+            <param name="scale" value="showall" />
+            <param name="menu" value="true" />
+            <param name="devicefont" value="false" />
+            <param name="salign" value="" />
+            <script>
+                document.write("<param name=\"flashvars\" value=" + getVars() + "/>")
+            </script>
+            <param name="allowScriptAccess" value="sameDomain" />
+            <!--[if !IE]>-->
+            <object type="application/x-shockwave-flash" data="main.swf" width="100%" height="100%">
+                <param name="movie" value="main.swf" />
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="#cccccc" />
+                <param name="play" value="true" />
+                <param name="loop" value="true" />
+                <param name="wmode" value="transparent" />
+                <param name="scale" value="showall" />
+                <param name="menu" value="true" />
+                <param name="devicefont" value="false" />
+                <param name="salign" value="" />
+                <script>
+                    document.write("<param name=\"flashvars\" value=" + getVars() + "/>")
+                </script>
+                <param name="allowScriptAccess" value="sameDomain" />
+                <!--<![endif]-->
+                <a href="http://www.adobe.com/go/getflash">
+                    <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获得 Adobe Flash Player" />
+                </a>
+                <!--[if !IE]>-->
+            </object>
+            <!--<![endif]-->
+        </object>
+    </div>
+    <!--版权-->
+    <div class="footer">
+        <div class="footer_tip"><img src="images/footer_tip.png" /></div>
+        <div class="copyright">
+            <p><em>服务热线&nbsp;&nbsp;400&nbsp;866&nbsp;6688</em><span>|</span><em>邮箱&nbsp;callcentr@dcad.com.cn</em><span>|</span>鄂ICP备10015998号-6</p>
+        </div>
+        <div class="footer_share">
+            <ul class="share_sidebar">
+                <li><a target="_blank" class="sinaShare" href="javascript:void(0)"></a></li>
+                <li><a target="_blank" class="tenxunShare" href="javascript:void(0)"></a></li>
+                <li><a target="_blank" class="renrenShare" href="javascript:void(0)"></a></li>
+                <li><a target="_blank" class="doubanShare" href="javascript:void(0)"></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!--浮层  -->
+    <div class="pop_box_float js_pop_box_float">
+        <!--活动说明-->
+        <div class="events_float js_events_float">
+            <div class="events_con">
+                <img src="images/events_bg.png" />
+                <div class="events_bar"><img src="images/activity_description_bg.png" /></div>
+            </div>
+            <div class="event_btn js_closeBtn"><a href="javascript:void(0)"><img src="images/close_btn.png" /></a></div>
+        </div>
+        <!--留资-->
+        <div class="inf_float js_inf_float">
+            <!--预定-->
+            <div class="schedule_box js_schedule_box">
+                <form method="post" action="" class="schedule_form">
+                    <input class="name public_inf Js_Name" id="Name1" type="text" name="" />
+                    <div id="Sex1" class="sex selectsex">
+                        <!--选中状态给Select-->
+                        <div values="男" class="man Select sex_box JscSex2 Selectsex">
+                            <em>男</em>
+                            <img class="set_btn" src="images/set_btn.png" />
+                            <img class="noneset_btn" src="images/noneset_btn.png" />
+                        </div>
+                        <div values="女" class="women sex_box JscSex2">
+                            <em>女</em>
+                            <img class="set_btn" src="images/set_btn.png" />
+                            <img class="noneset_btn" src="images/noneset_btn.png" />
+                        </div>
+                    </div>
+                    <input class="phone public_inf Js_Phone" id="Phone1" type="text" name="" />
+                    <input class="email public_inf Js_Email" id="Email1" type="email" name="" />
+                    <select id="Plantime1" class="date public_inf JscCartime">
+                        <option value="一周之内">一周之内</option>
+                        <option value="两周之内">两周之内</option>
+                        <option value="一个月之内">一个月之内</option>
+                        <option value="两个月之内">两个月之内</option>
+                    </select>
+                    <select id="Province2" name="Province2" class="province public_inf Js_Province"></select>
+                    <select id="City2" name="City2" class="city  public_inf Js_City"></select>
+                    <select id="County2" name="County2" class="area public_inf Js_County"></select>
+                </form>
+                <div class="checkbox_bar" style="position: absolute;top: 382px;right: 359px;width: 255px;line-height: 1;text-align: right;">
+                        <input id="checked2" class="check_set JscCheck JscYuDing" style="vertical-align: middle; margin-right: 5px; width: 16px; height: 16px;" type="checkbox"><span style="font-size: 10px; color: #1F1E1E;">我已阅读<a onclick="$('#JscAttestingFloat').show();" href="javascript:void(0)" style="font-size: -5px; color: #E60B3C; text-decoration: underline;display: inline;"> 免责声明</a> ，同意接受来自东风雪铁龙的推广信息</span>
+                    </div>
+
+
+                <div id="ConfirmSubmitBtn1" source="1" class="schedule_btn"><a href="javascript:void(0)"></a></div>
+                <div class="schedule_close_btn js_closeBtn"><a href="javascript:void(0)"><img src="images/close_btn.png" /></a></div>
+            </div>
+            <!--试驾-->
+            <div class="drive_box js_drive_box">
+                <form method="post" action="" class="drive_form">
+                    <input class="name public_inf JscName" id="Name2" type="text" name="" />
+                    <div id="Sex2" class="sex selectsex">
+                        <!--选中状态给Select-->
+                        <div values="男" class="man Select sex_box JscSex Selectsex">
+                            <em>男</em>
+                            <img class="set_btn" src="images/set_btn.png" />
+                            <img class="noneset_btn" src="images/noneset_btn.png" />
+                        </div>
+                        <div values="女" class="women sex_box JscSex">
+                            <em>女</em>
+                            <img class="set_btn" src="images/set_btn.png" />
+                            <img class="noneset_btn" src="images/noneset_btn.png" />
+                        </div>
+                    </div>
+                    <input class="phone public_inf JscPhone" id="Phone1" type="text" name="" />
+                    <input class="email public_inf JscEmail" id="Email1" type="email" name="" />
+                    <select id="Plantime1" class="date public_inf Js_Cartime">
+                        <option value="一周之内">一周之内</option>
+                        <option value="两周之内">两周之内</option>
+                        <option value="一个月之内">一个月之内</option>
+                        <option value="两个月之内">两个月之内</option>
+                    </select>
+                    <select id="Province1" name="Province1" class="province  public_inf JscProvince"></select>
+                    <select id="City1" name="City1" class="city public_inf JscCity"></select>
+                    <select id="County1" name="County1" class="area public_inf JscCounty"></select>
+                </form>
+                <div class="checkbox_bar" style="position: absolute;top: 420px;right: 12px;width: 268px;line-height: 1;/* text-align: right; */">
+                        <input id="checked1" class="check_set JscCheck JscYuDing" style="vertical-align: middle; margin-right: 5px; width: 16px; height: 16px;" type="checkbox"><span style="font-size: 10px; color: #1F1E1E;">我已阅读<a onclick="$('#JscAttestingFloat').show();" href="javascript:void(0)" style="font-size: -5px; color: #E60B3C; text-decoration: underline;display: inline;"> 免责声明</a> ，同意接受来自东风雪铁龙的推广信息</span>
+                    </div>
+                <div source="1" class="drive_btn Js_submit_btn "><a href="javascript:void(0)"></a></div>
+                <div class="drive_close_btn js_closeBtn"><a href="javascript:void(0)"><img src="images/close_btn.png" /></a></div>
+            </div>
+            <!--赢取好礼-->
+            <div class="gift_box Js_GiftBox">
+                <form method="post" action="" class="gift_form">
+                    <input class="name public_inf Js_UserName"  type="text" name="" />
+                    <div id="Js_sex" class="sex selectsex">
+                        <!--选中状态给Select-->
+                        <div values="男" class="man Select sex_box JscSex3 Selectsex">
+                            <em>男</em>
+                            <img class="set_btn" src="images/set_btn.png" />
+                            <img class="noneset_btn" src="images/noneset_btn.png" />
+                        </div>
+                        <div values="女" class="women sex_box JscSex3">
+                            <em>女</em>
+                            <img class="set_btn" src="images/set_btn.png" />
+                            <img class="noneset_btn" src="images/noneset_btn.png" />
+                        </div>
+                    </div>
+                    <input class="phone public_inf Js_UserPhone"  type="text" name="" />
+                    <input class="email public_inf Js_UserEmail" type="email" name="" />
+                    <select class="date public_inf Js_UserCartime">
+                        <option value="一周之内">一周之内</option>
+                        <option value="两周之内">两周之内</option>
+                        <option value="一个月之内">一个月之内</option>
+                        <option value="两个月之内">两个月之内</option>
+                    </select>
+                    <select id="Province3" name="Province3" class="province  public_inf Js_IsProvince"></select>
+                    <select id="City3" name="City3" class="city public_inf Js_IsCity"></select>
+                    <select id="County3" name="County3" class="area public_inf Js_IsCounty"></select>
+                </form>
+                <div class="checkbox_bar" style="position: absolute;top: 424px;right: 8px;width: 268px;line-height: 1;/* text-align: right; */">
+                        <input id="checked3" class="check_set JscCheck JscYuDing" style="vertical-align: middle; margin-right: 5px; width: 16px; height: 16px;" type="checkbox"><span style="font-size: 10px; color: #1F1E1E;">我已阅读<a onclick="$('#JscAttestingFloat').show();" href="javascript:void(0)" style="font-size: -5px; color: #E60B3C; text-decoration: underline;display: inline;"> 免责声明</a> ，同意接受来自东风雪铁龙的推广信息</span>
+                    </div>
+                <div id="ConfirmSubmitBtn3" source="1" class="drive_btn Js_SubmitBtn "><a href="javascript:void(0)"></a></div>
+                <div class="drive_close_btn js_closeBtn"><a href="javascript:void(0)"><img src="images/close_btn.png" /></a></div>
+            </div>
+        </div>
+
+        <!--优惠组合-->
+        <div class="preferential_float js_preferential_float">
+            <div class="preferential_con"><img src="images/preferential_con.png" /></div>
+            <div class="preferential_btn js_closeBtn"><a href="javascript:void(0)"><img src="images/close_btn.png" /></a></div>
+        </div>
+
+        <!--最新作品-->
+        <div class="work_float Js_WorkFloat" style="display:none">
+            <div class="work_box scroll_vertical" id="Js_workBar">
+                <div class="work_bar box" style="overflow: hidden">
+                    <ul class="work_nav list Js_workNav" style="overflow: hidden;width:999999px">
+                        <li><a href="javascript:void(0)"><img src="images/work_img.png" alt="" /></a></li>
+                        <li><a href="javascript:void(0)"><img src="images/work_img.png" alt="" /></a></li>
+                        <li><a href="javascript:void(0)"><img src="images/work_img.png" alt="" /></a></li>
+                        <li><a href="javascript:void(0)"><img src="images/work_img.png" alt="" /></a></li>
+                        <li><a href="javascript:void(0)"><img src="images/work_img.png" alt="" /></a></li>
+                        <li><a href="javascript:void(0)"><img src="images/work_img.png" alt="" /></a></li>
+                    </ul>
+                </div>
+                <div class="fl_arrow next Js_Left"><a href="javascript:void(0)"><img src="images/fl_arrow.png" /></a></div>
+                <div class="fr_arrow prev Js_Right"><a href="javascript:void(0)"><img src="images/fr_arrow.png" /></a></div>
+            </div>
+            <div class="clen_btn Js_Close1"><a href="javascript:void(0)"><img src="images/clen_btn.png" /></a></div>
+        </div>
+
+        <!--最新作品详情-->
+        <div class="checking_float Js_checking_float">
+            <div class="checking_con Js_CheckingCon"><img src="images/site0615_03.png" /></div>
+            <div class="clen_btn Js_Close2"><a href="javascript:void(0)"><img src="images/clen_btn.png" /></a></a></div>
+        </div>
+
+    </div>
+
+</body>
+</html>

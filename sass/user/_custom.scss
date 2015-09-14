@@ -1,0 +1,98 @@
+@charset "UTF-8";
+//-----------------------------------------------------	
+%wh100{width: 100%;height: 100%;}
+%select{background:transparent;-webkit-appearance: none;width: 150px;}
+%scroll{overflow-y:scroll;-webkit-overflow-scrolling: touch; -moz-overflow-scrolling: touch; -o-overflow-scrolling: touch; }
+
+//定位
+@mixin position($top:0,$left:0,$position:absolute){
+     top:$top;
+     left:$left;
+     position: absolute;
+}
+//字体样式
+@mixin font-style($font-size,$color,$background-color,$font-weight:normal,$font-style:normal){
+   font-size:$font-size;
+   line-height:$font-size*1.5;
+   color:$color;
+   background-color:$background-color;
+   font-weight:$font-weight;
+   font-style:$font-style;
+}
+//select和input样式
+@mixin form-box($font-size,$height,$padding-left,$color){
+    border: none;
+    font-size: $font-size;
+    color: $color;
+    height: $height;
+    line-height: $height;
+    outline: none;
+    padding-left:$padding-left;
+}
+
+
+//css3浏览器加前缀
+@mixin css3-prefix($property, $value) {
+    @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+        #{$prefix}#{$property}: $value;
+    }
+}
+
+//容器运用定位水平垂直居中
+@mixin horizontal-vertically-center($width,$height){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left:-($width/2);
+    margin-top: -($height/2);
+    width: $width;
+    height: $height;
+}
+//容器运用定位水平居中
+@mixin horizontal-center($top,$width){
+    position: absolute;
+    top: $top;
+    left: 50%;
+    margin-left:-($width/2);
+    width: $width;
+}
+//容器运用定位垂直居中
+@mixin vertically-center($left,$height){
+    position: absolute;
+    top: 50%;
+    left: $left;
+    margin-top:-($height/2);
+    height: $height;
+}
+
+
+//浮层
+@mixin pop($pop-opacity,$display:none,$color-rgb:#000){
+    display: $display;
+    background:rgba($color-rgb,$pop-opacity);
+    z-index:99999;
+    @include stretch();
+    	@if $lte7 {
+	      background:$color-rgb;
+		  // filter:Alpha(opacity=$pop-opacity*100);  
+		  background: rgba($color-rgb,$pop-opacity);
+		  //*position:static;  //IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 
+		  *zoom:1; // 激活IE6、7的haslayout属性，让它读懂Alpha 
+  }
+}
+
+//透明背景
+@mixin transparent-background($pop-opacity,$color-rgb:#000){
+	background:rgba($color-rgb,$pop-opacity);
+	    	@if $lte7 {
+	      background:$color-rgb;
+		  filter:Alpha(opacity=$pop-opacity*100);  //
+		  background: rgba($color-rgb,$pop-opacity); 
+		  *zoom:1; // 激活IE6、7的haslayout属性，让它读懂Alpha 
+  }
+} 
+
+
+
+
+

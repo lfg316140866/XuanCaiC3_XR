@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="../../ThirdLib/jquery.js"></script>
+    <!--<script src="../../ThirdLib/jquery-ui.js"></script>-->
+    <script src="../../Cmn.js"></script>
+    <script src="../../CmnAjax.js"></script>
+    <script src="../CmnUI1.js"></script>
+    <title></title>
+    <style>
+        .CustomSelect {
+            width: 200px;
+            height: 35px;
+            line-height: 35px;
+            position: relative;
+        }
+
+        .CustomSelect .CustomSelect_Value {
+            width: 100%;
+            text-indent: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #454545;
+        }
+
+        .CustomSelect .CustomSelect_Icon {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+        }
+
+        .CustomSelect .CustomSelect_Icon img {
+            display: block;
+            vertical-align: middle;
+        }
+
+        /**********下拉内容以及滚动条Star*********/
+        /*下拉内容*/
+        .CustomSelect .CustomSelect_OptionContent {
+            width: 100%;
+            height: 120px;
+            text-indent: 8px;
+            position: relative;
+        }
+
+        .CustomSelect .CustomSelect_OptionContent .CustomSelect_OptionList {
+            width: 100%;
+            height: auto;
+            background: #454545;
+        }
+
+        .CustomSelect .CustomSelect_OptionContent .CustomSelect_OptionList .CustomSelect_Item {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid #fff;
+            font-size: 14px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .CustomSelect .CustomSelect_OptionContent .CustomSelect_OptionList .CustomSelect_Item:hover {
+            color: #454545;
+            background: #d7d7d7;
+        }
+        /*滚动条*/
+        .CustomSelect .CustomSelect_OptionContent .CustomSelect_ScrollBar {
+            width: 10px;
+            height: 100%;
+            position: absolute;
+            behavior: url(PIE_uncompressed.htc);
+            right: 0;
+            top: 0;
+            background: #d7d7d7;
+        }
+
+        .CustomSelect .CustomSelect_OptionContent .CustomSelect_ScrollBar:hover {
+            background: #c4c4c4;
+        }
+
+        .CustomSelect .CustomSelect_OptionContent .CustomSelect_ScrollBar .CustomSelect_ScrollBarBut {
+            width: 100%;
+            height: 20%;
+            position: absolute;
+            behavior: url(PIE_uncompressed.htc);
+            background: #898989;
+            right: 0;
+            top: 0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        /**********下拉内容以及滚动条_End*********/
+        .hover {
+            color: #ff0000;
+        }
+
+        .SelectFormWrap {
+            width: 400px;
+            height: 35px;
+            font-size: 0;
+            line-height: 35px;
+        }
+
+        .SelectFormWrap .SelectFormInner, .SelectFormWrap .SelectFormInner span, .SelectFormWrap .SelectFormInner span a {
+            display: inline-block;
+            *display: inline;
+            zoom: 1;
+            font-size: 0;
+        }
+
+        .SelectFormWrap .SelectFormInner {
+            width: 70px;
+            cursor: pointer;
+            margin-left: 2%;
+            -moz-transition: all .2s ease-in;
+            -webkit-transition: all .2s ease-in;
+            -o-transition: all .2s ease-in;
+            -ms-transition: all .2s ease-in;
+            transition: all .2s ease-in;
+        }
+
+        .SelectFormWrap .SelectFormInner:active .a_1 {
+            -webkit-transform: scale(0.8);
+            -o-transform: scale(0.8);
+            -moz-transform: scale(0.8);
+            -ms-transform: scale(0.8);
+            transform: scale(0.8);
+        }
+
+        .SelectFormWrap .SelectFormInner span {
+            width: 100%;
+        }
+
+        .SelectFormWrap .SelectFormInner span a {
+            width: 49%;
+            vertical-align: middle;
+            text-decoration: none;
+            cursor: default;
+            cursor: pointer;
+        }
+
+        .SelectFormWrap .SelectFormInner span a.a_1 {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #d2d2d2;
+            -moz-transition: all .2s ease-in;
+            -webkit-transition: all .2s ease-in;
+            -o-transition: all .2s ease-in;
+            -ms-transition: all .2s ease-in;
+            transition: all .2s ease-in;
+        }
+
+        .SelectFormWrap .SelectFormInner span a.a_2 {
+            font-size: 14px;
+            color: #454545;
+            margin-left: 10%;
+        }
+
+        .SelectFormWrap .SelectFormInner.Select span a.a_1 {
+            background: #ff6900;
+            border-color: #ff6900;
+        }
+</style>
+    <script>
+
+        $(function () {
+
+
+            //Cmn.UI.CustomSelect(".CustomSelect", [
+            //    { key: "1", val: "asdasd0" },
+            //    { key: "2", val: "asdasd1" },
+            //    { key: "2", val: "asdasd2" },
+            //    { key: "2", val: "asdasd3" },
+            //    { key: "2", val: "asdasd4" },
+            //    { key: "2", val: "asdasd5" },
+            //    { key: "3", val: "asdasd6" }
+            //]);
+
+
+            var _itf = "http://wechat.crosscollection.cn/CmnMisItf.aspx?method=ExecSql&ExecSql=CwgCAxIVRR8WHRkIGQU6IFg6EhwbGxUANw0UAkk1CxIEBwsAMC9BCgEECUhcBAAeEQsfRB4HF0JTR1gGCx8GDhcQOiBCLA4YBAsGFTMAHxdLJRALCBQLACE1SxQXGxRLCAIVNC8NDQAKABBIHAwPGgJCSRwdFBkJAwUsMFMIBwwOQVRBUEFTQEtUBgoXSAwEHAMHAw87IVQVAgoJU0xBTEVTQFVUCQUASgMCGxYYCgknIlENDB8WRElCT1NXQVNRXkUNGgNEMgsEDhAaHDgvUlhUAk8CVjIIBwcBGRE7MEwWRB8GDg0PVwsIAgMSFUVUBwseR1lRUw8RCAAKHhAuIF8jAhgSGxoVLxcWF1UqAg8cHgocPTNFFAYHBkQDBgE9KhIBGgEUFUESHBYWC0dDKhYdAx4FASgRFAdTBA4KAFRPVE9CQVFeSwACF0svDQ0ACgAQLA4XCUgLCwoSWEpLQkBFQFNTBQADSyoWHQMeBQEoERQHUwQOCgBUT1RPQEFRXktITBIFAEg1FAYdAQYfLS5IWkIaUxtXLwUSDhAaBy0qQxZIUwUHUQMAAQQ=";
+
+            Cmn.UI.CustomAutoComplete(".Cg-ui-autocomplete", _itf, {
+                Selector: {
+                    ItemSelect: ".hover"      //选中项的选择器
+                }
+            });
+
+
+            //var a = Cmn.UI.CustomRadioBox(".SelectFormWrap", [
+            //         { key: "1", val: "asdasd0" },
+            //         { key: "2", val: "asdasd1" },
+            //         { key: "3", val: "asdasd2" },
+            //         { key: "4", val: "asdasd3" },
+            //         { key: "5", val: "asdasd4" },
+            //         { key: "6", val: "asdasd5" },
+            //         { key: "7", val: "asdasd6" }
+            //]);
+
+
+            
+
+        })
+
+    </script>
+</head>
+<body>
+
+    <!--<div class="CustomSelect">
+        <div class="CustomSelect_Value cmn-SelectValue">所有季度</div>
+        <div class="CustomSelect_Icon cmn-SelectIcon"><img src="../images/TriangleIcon.png" /></div>
+
+        <div class="CustomSelect_OptionContent cmn-SelectOptionContent" style="display:none">
+            <div class="CustomSelect_OptionList cmn-SelectOptionList">
+                <div class="CustomSelect_Item cmn-SelectOptionItem">选项1</div>
+                <div class="CustomSelect_Item cmn-SelectOptionItem">选项2</div>
+                <div class="CustomSelect_Item cmn-SelectOptionItem">选项3</div>
+                <div class="CustomSelect_Item cmn-SelectOptionItem">选项4</div>
+                <div class="CustomSelect_Item cmn-SelectOptionItem">选项5</div>
+                <div class="CustomSelect_Item cmn-SelectOptionItem">选项6</div>
+                <div class="CustomSelect_Item cmn-SelectOptionItem">选项7</div>
+                <div class="CustomSelect_Item cmn-SelectOptionItem">选项8</div>
+            </div>
+
+            <div class="CustomSelect_ScrollBar cmn-ScrollBar">
+                <div class="CustomSelect_ScrollBarBut cmn-ScrollBarBtn"></div>
+            </div>
+
+        </div>
+    </div>-->
+
+    <div class="Cg-ui-autocomplete" style="margin-left:300px;">
+        <input class="Cg-AutoComplete-Input" type="text" />
+        <ul class="Cg-AutoComplete-OptionList">
+            <li class="Cg-AutoComplete-Item">asdasd</li>
+        </ul>
+    </div>
+
+
+    <!--<div class="SelectFormWrap">
+        <div class="SelectFormInner Select SelectFormInnerOne cg-Radio-Item">
+            <span>
+                <a href="javascript:void(0)" class="a_1"></a>
+                <a href="javascript:void(0)" class="a_2 cg-Radio-ItemText">普通</a>
+            </span>
+        </div>
+    </div>-->
+
+    <!--<div class="CustomSelect" style="left:300px;position:absolute;">
+        <div class="CustomSelect_Value">所有季度</div>
+        <div class="CustomSelect_Icon"><img src="images/TriangleIcon.png" /></div>
+        <div class="CustomSelect_OptionContent CustomSelect_OptionContent2">
+            <div class="CustomSelect_OptionList">
+                <div class="CustomSelect_Item">选项1</div>
+                <div class="CustomSelect_Item">选项2</div>
+                <div class="CustomSelect_Item">选项3</div>
+                <div class="CustomSelect_Item">选项4</div>
+                <div class="CustomSelect_Item">选项5</div>
+                <div class="CustomSelect_Item">选项6</div>
+                <div class="CustomSelect_Item">选项7</div>
+                <div class="CustomSelect_Item">选项8</div>
+            </div>
+
+            <div class="CustomSelect_ScrollBar cmn-ScrollBar">
+                <div class="CustomSelect_ScrollBarBut cmn-ScrollBarBtn"></div>
+            </div>
+
+        </div>
+    </div>-->
+</body>
+</html>

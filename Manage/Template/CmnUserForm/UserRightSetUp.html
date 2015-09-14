@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+<script src="../Js/jquery.js"></script>
+<script src="../Js/jquery-ui.js"></script>
+    <script src="../manage/js/SiteConfig.js"></script>
+<script src="../Js/Cmn.js"></script>
+<script src="../Js/CmnAjax.js"></script>
+<script src="../Js/CmnMis/CmnMis.js"></script>
+<script type="text/javascript" src="../Js/CmnMis/CmnMisControl.js"></script>
+    <script src="../Js/CmnMis/CmnMisItf.js"></script>
+    <script src="../Js/CmnMis/CmnMisFunc.js"></script>
+    <script src="../Js/CmnMis/CmnMisUserForm.js"></script>
+    <script src="../Js/CmnMis/CmnMisTableOpt.js"></script>
+    <script src="../Js/CmnMis/CmnMisItf.js"></script>
+    <script src="../Js/CmnMisUI.js"></script>
+<style type="text/css">
+    body
+    {
+        height:560px;
+    }
+    .userRightBox
+    {
+        position:fixed; top:10px; left:10px; width:650px;  overflow:auto;
+         border:1px solid #221a1a; text-align:center;height:450px;
+    }
+    .boxTit
+    {
+        background:#221a1a; height:50px; width:100%;  color:#fff; font-size:14px; line-height:50px; 
+    }
+    .userRightCon .col
+    {
+        width:90%; overflow:hidden; margin:auto; height:auto; border-bottom:1px solid #221a1a; text-align:left;
+    }
+     .userRightCon .colTit
+    {
+       text-indent:15px; margin-bottom:5px; margin-top:5px; color:#0094ff;
+    }
+     .userRightCon .colCon .is
+    {
+      color:#000; font-size:12px; padding:5px; cursor:pointer;
+    }
+     .userRightCon .colCon .is0
+    {
+       background:#808080; color:#fff; cursor:pointer;
+    }
+    .userRightCon .colCon .is1
+    {
+       background:#ff6a00; color:#000; cursor:pointer;
+    }
+    .userfromlist
+    {
+        width:250px;margin-left:680px;margin-top:10px;
+         border:1px solid #221a1a; 
+         height:450px;
+    }
+    .userformdescbox
+    {
+        height:400px; overflow:auto;
+    }
+     .userformdescbox div
+        {
+         width:220px; padding:5px; margin:10px;  background:#ff6a00; color:#fff; font-size:14px;
+        }
+
+</style>
+    
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".saveBut").click(function () {
+            var _isshow = $(".isshow").val();
+
+        });
+
+     
+        //用户当前权限
+        function fillRightFrom() {
+            CmnMis.Itf.GetData("GetUserByRight", "{\"userid\":\"" + Cmn.Func.GetParamFromUrl("UserID", window.location.href) + "\"}", false, function (data) {
+                Cmn.FillData(".col", data.data);
+                $(".userRightBox .boxTit").text(data.data[0].username);
+            });
+        }
+        //用户没有的权限
+        function fillFrom() {
+            CmnMis.Itf.GetData("GetUserNotRights", "{\"userid\":\"" + Cmn.Func.GetParamFromUrl("UserID", window.location.href) + "\"}", false, function (data) {
+                Cmn.FillData(".userformdesc", data.data);
+                $(".userformdesc").draggable({
+                    containment: 'body',
+                    cursor: 'move',
+                    helper: "clone",
+                    scope: 'userRightCon'
+                });
+            });
+        }
+
+        $(".userRightBox").droppable({
+            scope: 'userRightCon',
+            drop: function (event, ui) {
+                var strText = ui.draggable.text();
+                var _userformid = ui.draggable.attr("data-key");
+                CmnAjax.PostData(InterfaceUrl + "?method=AddRec",
+                                      "{'CurUserFormID':'8','userid':'" + Cmn.Func.GetParamFromUrl("UserID", window.location.href) +
+                                      "','userformid':'" + _userformid + "','isshow':'1','allowadd':'1','allowdell':'1','allowmodify':'1','allowtoexcel':'1'}", function (d) {
+                                          if (d.IsSuccess == '1') {
+                                              CmnMis.Itf.GetData("GetUserByRight", "{\"userid\":\"" + Cmn.Func.GetParamFromUrl("UserID", window.location.href) + "\"}", false, function (data) {
+                                                  $(".userRightBox .boxTit").text(data.data[0].username);
+                                                  Cmn.FillData(".col", data.data);
+                                                  ui.draggable.remove();
+                                              });
+                                           
+                                         } else {
+                                             Cmn.alert("添加失败")
+                                         }
+                                     });
+              
+            }
+        });
+
+        fillRightFrom();
+        fillFrom();
+
+
+        $(".userRightBox").delegate(".is", "click", function (e) {
+
+            var _recid = $(e.target).parent("div").attr("id"), param = "";
+         
+            if (e.target.title == "show") {
+               
+                    CmnAjax.PostData(InterfaceUrl + "?method=DeleteRec",
+                     "{'CurUserFormID':'8','RecID':'" + _recid + "'}", function (d) {
+                         if (d.IsSuccess == '1') {
+                             $(e.target).parents(".col").remove();
+                             fillFrom();
+                         } else {
+                             Cmn.alert("删除权限失败");
+                         }
+                     });
+               
+                return;
+
+            } else if (e.target.title == "add") {
+                param = "'allowadd':";
+            } else if (e.target.title == "dell") {
+                param = "'allowdell':";
+            } else if (e.target.title == "modify") {
+                param = "'allowmodify':";
+            } else if (e.target.title == "excel") {
+                param = "'allowtoexcel':";
+            }
+
+            if ($(e.target).hasClass("is0")) {
+                param += "'1'";
+            } else {
+                param += "'0'";
+            }
+            if (_recid != null && param!="") {
+                CmnAjax.PostData(InterfaceUrl + "?method=UpdateRec",
+                      "{'CurUserFormID':'8','RecID':'" + _recid + "'," + param + "}", function (d) {
+                          if (d.IsSuccess == '1') {
+                              if ($(e.target).hasClass("is0")) {
+                                  $(e.target).removeClass("is0").addClass("is1");
+                              } else {
+                                  $(e.target).removeClass("is1").addClass("is0");
+                              }
+                          } else {
+                              Cmn.alert("修改权限失败");
+                          }
+                      });
+
+
+            }
+
+        });
+    });
+
+</script>
+
+</head>
+<body>
+
+    <div class="userRightBox">
+        <div class="boxTit"> </div>
+        <div  class="userRightCon">
+            <div class="col">
+                <div class="colTit dat-ModuleDesc">网站管理</div>
+                <div class="colCon" id="{userrightid}">
+                   - <span class="dat-FormDesc">用户管理</span>--
+                    <span title="show" class="is is{IsShow}">是否显示</span>
+                    <span title="add" class="is is{AllowAdd}">能否添加</span>
+                    <span title="dell" class="is is{AllowDell}">能否删除</span>
+                    <span title="modify"class="is is{AllowModify}">能否更新</span>
+                    <span title="excel" class="is is{AllowToExcel}">能否导出Excel</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="userfromlist">
+         <div class="boxTit">表单名称</div>
+        <div class="userformdescbox">
+            <div data-key="{UserFormID}" class="userformdesc dat-FormDesc">asdasd</div>
+        </div>
+
+    </div>
+
+<!--<table class="colList">
+    <thead>
+         <tr>
+             <td colspan="9"><button class="saveBut">保存修改</button></td>
+        </tr>
+        <tr>
+             <td>模块名称</td>
+             <td>用户表单名称</td>
+             <td>是否显示</td>
+             <td>是否允许增加</td>
+             <td>是否允许删除</td>
+             <td>是否允许更新</td>
+             <td>是否允许导出excel</td>
+        </tr>
+    </thead>
+    <tbody id="colInfo">
+         <tr class="col" id="col_{UserFormID}">
+             <td><input type="text" class="dat-ModuleDesc-value" value="" readonly/></td>
+             <td><input type="text" class="dat-FormDesc-value" value="" readonly /></td>
+             <td><input type="checkbox" class="isshow checkbox dat-IsShow-value" value=""  /></td>
+             <td><input type="checkbox" class="allowadd checkbox dat-AllowAdd-value" value=""  /></td>
+             <td><input type="checkbox" class="allowdell checkbox dat-AllowDell-value" value="" /></td>
+             <td><input type="checkbox" class="allowmodify checkbox dat-AllowModify-value" value="" /></td>
+             <td><input type="checkbox" class="allowtoexcel checkbox dat-AllowToExcel-value" value=""  /></td>
+        </tr>
+    </tbody>
+    
+</table>-->
+
+
+</body>
+</html>

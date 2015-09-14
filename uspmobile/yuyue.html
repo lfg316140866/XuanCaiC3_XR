@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" id="viewport" content="target-densitydpi=device-dpi,width=640, maximum-scale=0.5">
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+	document.getElementById('viewport').setAttribute('content', 'target-densitydpi=device-dpi,width=640, maximum-scale=' + window.screen.width / 640);
+</script>
+<title>C3-XR完美体验</title>
+<link rel="stylesheet" href="css/style.css?m=3122326" />
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<!-- <div class="loading" style="display:none;">
+	<figure class="loading_top"><img src="images/loading_top.jpg"></figure>
+	<figure class="loading_icon"><img src="images/loading_icon.png"></figure>
+	<div class="loading_num">80%</div>
+	<figure class="loading_bottom"><img src="images/loading_bottom.jpg"></figure>
+</div> -->
+<section class="wrapper2" id="wrap">
+	<header class="logo">
+		<div class="logo_text"></div><div class="logo_icon"></div>
+	</header>
+	<article class="yuyue">
+		<div class="yuyue_bg"><img src="images/yuyue_body.jpg"></div>
+		<div class="yuyue_btn"></div>
+
+		<input type="text" class="name" id="name"/>
+		<input type="tel" class="mobile"  id="mobile" maxlength="11" />
+		<input type="text" class="province_show" placeholder="请选择省份或直辖市"/>
+		<input type="text" class="city_show" placeholder="城市"/>
+		<input type="text" class="area_show"  placeholder="区/县"/>
+		<select class="province" name="province" id="province"></select>
+		<select class="city" name="city" id="city"></select>
+		<select class="area" name="area" id="area"></select>
+
+	</article>
+</section>
+<!--screenTips-->
+	<div class="screenTips">
+		<div class="st_overlay"></div>
+		<div class="st_icon"></div>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="js/main.min.js"></script>
+<script src="js/provinceCity.js"></script>
+<script type="text/javascript">
+orient();
+//用户变化屏幕方向时调用
+$(window).bind( 'orientationchange', function(e){
+orient();
+});
+
+</script>
+<script>
+	$(function(){
+		new PCAS("province", "city", "area");
+		$(".province").change(function(){
+			$(".province_show").val($(this).val());
+			$(".city_show").val($(".city").val());
+			$(".area_show").val($(".area").val());
+		})
+		$(".city").change(function(){
+			$(".city_show").val($(this).val());
+			$(".area_show").val($(".area").val());
+		})
+		$(".area").change(function(){
+			$(".area_show").val($(this).val());
+		})
+		
+		$(".yuyue_btn").click(function(){
+			var name = $.trim($("#name").val());
+			if(name==""){
+				alert("请输入您的姓名");
+				return false;
+			}
+			var mobile = $.trim($("#mobile").val());
+			if(mobile==""){
+				alert("请输入您的手机号");
+				return false;
+			}
+			if(!isMobile(mobile)){
+				alert("手机号格式错误");
+				return false;
+			}
+			var province = $.trim($("#province").val());
+			if(province==""){
+				alert("请选择省份或直辖市");
+				return false;
+			}
+			var city = $.trim($("#city").val());
+			if(city==""){
+				alert("请选择城市");
+				return false;
+			}
+			var area = $.trim($("#area").val())
+			if(area==""){
+				alert("请选择区/县");
+				return false;
+			}
+
+			//ajax 提交
+			var data = {};
+			data.name = $('.name').val();
+			data.Phone = $('.mobile').val();
+			data.province = $('.province').val();
+			data.city = $('.city').val();
+			data.site = 'mobile';
+			data.Directions = 5;
+			data.source = window.location.href;
+			data.disclaimer = '同意';
+			
+			$.ajax({
+				dataType:'jsonp',
+				url:'http://xuancaic3xr.dongfeng-citroen.com.cn/Itf/Php/AjaxItf.php?method=GetSqlData&ItfName=AddReservationdrive',
+				data:data,
+				success: function(data){
+					if(data.IsSuccess == "1"){
+						alert('提交成功');
+						window.location.href = 'index.html';
+					}
+					else{
+						alert(data.ErrMsg);
+					}
+				}
+			})
+		})
+	})
+</script>
+<script type="text/javascript" src="js/share.js"></script>

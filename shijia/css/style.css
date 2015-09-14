@@ -1,0 +1,48 @@
+html {width:640px;height:100%;color:#fdefed;background-color:#FCE8E3;font-family: "Microsoft YaHei"; }
+body {width:640px;height:100%;color:#fdefed;text-align:center;background-color:#FCE8E3;font-family:"Microsoft YaHei";text-align:center;}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, p, blockquote, th, td,figure { margin: 0; padding: 0; }
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:normal;font-size:100%;vertical-align:baseline;word-break:break-all}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+ul,li,dl,ol,p,form,div{margin:0px; padding:0px; list-style-type:none;word-break: break-all;word-wrap: break-word}
+div,a,img,figure { -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; -webkit-user-select: none; }
+
+/**** Clearfix ****/
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; _clear: both;_height:0;_overflow:hidden;_line-height:0; }
+.clearauto{overflow:auto;zoom:1;}
+.b{font-weight:bold;}
+.hide,.hidden {display: none;}
+img{display:block;}
+
+.loading{position:absolute; left:0; top:0; z-index:199; width:100%; height:100%; background:rgba(0,0,0,0.9); overflow:hidden;}
+.loading .loadbar{position:absolute; left:50%; top:50%; margin-left:-16px; margin-top:-56px;}
+.loading .loading_txt{position:absolute; left:50%; top:50%; margin-left:-69px;}
+.loading .progressNum{position:absolute; left:50%; margin-left:-20px; top:50%; margin-top:-20px; font-size:2em; color:#000; z-index:99; display:none;}
+
+
+.wrapper{width:640px;height:100%;margin:0 auto;position:relative;overflow:hidden;}
+#gameMain{position:absolute; left:0; top:0;}
+.wrapper .times{position:absolute; left:560px; top:60px; font-size:1.5em; z-index:10;}
+.wrapper .score{position:absolute; left:530px; top:120px; font-size:1.5em; z-index:10; width:110px; text-align:center;}
+.wrapper .timeBar{position:absolute; left:470px; top:50px; z-index:10;}
+
+.start{position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:11;}
+.start .btn{position:absolute; left:200px; top:600px; width:260px; height:80px; background:rgba(0,204,0,0); z-index:110;}
+.start img{position:absolute; left:150px; top:200px;}
+
+.fail_cont{position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(255,255,255,0.95); z-index:12; display:none;}
+.fail_cont img{position:absolute; left:50px; top:300px;}
+.fail_cont .btn1{position:absolute; width:160px; height:100px; left:130px; top:430px; background:rgba(0,204,0,0); z-index:5;}
+.fail_cont .btn2{position:absolute; width:160px; height:100px; left:330px; top:430px; background:rgba(0,204,0,0); z-index:5;}
+.fail_cont .btn3{position:absolute; width:460px; height:100px; left:100px; top:550px; background:rgba(0,204,0,0); z-index:5;}
+
+.form_cont{position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(255,255,255,0.95); z-index:12; display:none;}
+.form_cont .username{position:absolute; left:170px; top:310px; font-size:1.5em; color:#000; border:none; background:none; width:300px; height:50px;}
+.form_cont .usertel{position:absolute; left:170px; top:420px; font-size:1.5em; border:none; background:none; color:#000; width:300px; height:50px;}
+.form_cont .province{position:absolute; left:170px; top:520px; font-size:1.5em; border:none; background:none; color:#000; width:310px; height:50px;}
+.form_cont .city{position:absolute; left:170px; top:635px; font-size:1.5em; border:none; background:none; color:#000; width:310px; height:50px;}
+.form_cont .post_btn{position:absolute; width: 260px; height: 60px; left: 180px; top: 720px; background:rgba(0,204,0,0); z-index:5;}
+
+.share_cont{position:absolute; left:0; top:0; width:100%; height:100%; z-index:22; display:none;}
+

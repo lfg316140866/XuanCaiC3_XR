@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <script>
+        window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
+
+        if (!!window.XMLHttpRequest) { document.body.innerHTML += "<br><b style='font-size:30px;color:red;'>XMLHttpRequest is ok !</b>"; }
+        else { document.body.innerHTML += "<br><b style='font-size:30px;color:red;'>XMLHttpRequest is null !</b>"; }
+
+        if (!!window.AudioContext) { document.body.innerHTML += "<br><b style='font-size:30px;color:red;'>AudioContext is ok !</b>"; }
+        else { document.body.innerHTML += "<br><b style='font-size:30px;color:red;'>AudioContext is null !</b>"; }
+
+        var _ac = new AudioContext();
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'bgSound.mp3', true);
+
+        
+        xhr.responseType = 'arraybuffer'; // XMLHttpRequest 2的新东西
+        xhr.onload = function () {
+            document.body.innerHTML += "<br><b style='font-size:40px;color:red;'>" + xhr.response + "</b>";
+             
+            _ac.decodeAudioData(xhr.response, function (buffer) {
+
+                document.body.innerHTML += "<br><b style='font-size:40px;color:red;'>"+ buffer.duration+"</b>";
+
+                var source = _ac.createBufferSource();
+                source.buffer = buffer;
+                source.connect(_ac.destination);
+                source.start(0); // 0是当前audio context中的同步时间
+            });
+        };
+        xhr.send();
+
+        //var audio = new Audio("http://fordedge.nn.cagoe.com/audio/bgSound.mp3");
+        //audio.load();
+        
+        //var _reader = new FileReader();
+
+        //_reader.onload = function (e) {
+
+        //    console.log(e.target.result);
+
+        //    //_ac.decodeAudioData(e.target.result, function (buffer) {
+        //    //    alert(buffer.duration);
+
+        //    //});
+
+        //}
+        //_reader.readAsDataURL(audio.buffered);
+
+
+    </script>
+</body>
+</html>

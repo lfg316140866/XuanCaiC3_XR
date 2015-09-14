@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,user-scalable=no;" />
+    <title></title>
+    <script src="../../ThirdLib/jquery.js"></script>
+    <script src="../../Cmn.js?asdasd"></script>
+    <script src="../../CmnFuncExd.js"></script>
+</head>
+<body>
+    <div style="width:640px;height:600px;overflow:scroll;">
+        <img src="" lazypath="http://pic.qingting.fm/2015/0303/20150303120237625.jpg!small" />
+        <img src="" lazypath="http://pic.qingting.fm/2015/0303/20150303120237625.jpg!small" />
+        <img src="" lazypath="http://pic.qingting.fm/2015/0303/20150303120237625.jpg!small" />
+        <img src="" lazypath="../VideoPic.jpg" />
+        <img src="" lazypath="../VideoPic.jpg" />
+        <img src="" lazypath="../VideoPic.jpg" />
+        <img src="" lazypath="../VideoPic.jpg" />
+        <img src="" lazypath="../VideoPic.jpg" />
+        <img src="" lazypath="../VideoPic.jpg" />
+        <img src="" lazypath="../VideoPic.jpg" />
+
+    </div>
+    <script>
+        Cmn.IsDebuging = true;
+        $("div").on("touchstart", function (e) { e.preventDefault(); });
+        $("div").on("touchmove", function (e) { e.preventDefault(); });
+        Cmn.Func.HoldSaveImage("img")
+        Cmn.Func.ImageLazyLoad("div");
+ 
+        if (Cmn.Func.IsIPad()) {
+            if (Cmn.Func.IsIPad()) {
+                if (navigator.userAgent.indexOf("Safari") > -1) {
+                    Cmn.Func.MobileAdaptive(640, 810, "images/AdviseVertical.png", Cmn.Func.MobileAdaptiveMode.WidthHeight);
+                }
+                else {
+                    Cmn.Func.MobileAdaptive(640, 1060, "images/AdviseVertical.png", Cmn.Func.MobileAdaptiveMode.WidthHeight);
+                }
+
+            }
+            else { Cmn.Func.MobileAdaptive(640, 1000, "images/AdviseVertical.png", Cmn.Func.MobileAdaptiveMode.WidthHeight); }
+        }
+        else { Cmn.Func.MobileAdaptive(640, 1000, "images/AdviseVertical.png", Cmn.Func.MobileAdaptiveMode.WidthHeight); }
+
+
+    </script>
+</body>
+</html>

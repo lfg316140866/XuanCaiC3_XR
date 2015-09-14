@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+    <title>全新世嘉</title>
+    
+    <link rel="stylesheet" href="css/main.css?r=" + Math.random() />
+    <link rel="stylesheet" href="css/swiper.css">
+    
+    <style>
+		.swiper-slide{background:#090;}
+		.close_btn{position:absolute; left:550px; top:50px; width:80px; height:80px; background:rgba(0,0,0,0);}
+		.hongbao_btn{position:absolute; width:430px; height:60px; background:rgba(0,153,0,0); left:100px; top:790px;}
+		.game1{position:absolute; width:430px; height:100px; background:rgba(0,153,0,0); left:100px; top:290px;}
+		.game2{position:absolute; width:430px; height:100px; background:rgba(0,153,0,0); left:100px; top:430px;}
+		.rule_btn{position:absolute; width:230px; height:70px; background:rgba(0,153,0,0); left:220px; top:810px;}
+	</style>
+    
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/greensock/TweenMax.min.js"></script>
+	<script src="js/greensock/plugins/CSSPlugin.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+	<script src="src/share.js?r=" + Math.random()></script>
+    
+    <script>
+		var swiper, h;
+		
+		$(document).ready(function(e) {
+			
+			h = $(window).height();
+			
+            swiper = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination',
+				paginationClickable: true
+			});
+			
+			$('.wrapper').height(h - 65);
+			$('.rule').height(h - 65);
+			
+			$('.close_btn').click(function(){
+				$('.rule').fadeOut(300);
+			});
+			
+			$('.rule_btn').click(function(){
+				$('.rule').fadeIn(300);
+			});
+			
+        });
+    </script>
+    
+</head>
+
+<body>
+	<div class="logo"><img src="images/logo.jpg" /></div>
+    <div class="wrapper">
+    	<!-- Swiper -->
+    	<div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-slide1">
+                	<a class="hongbao_btn" href="http://www.baidu.com"></a>
+                	<img src="images/home1.jpg" />
+                </div>
+                <div class="swiper-slide swiper-slide2">
+                	<div class="rule_btn"></div>
+                    <a class="game1" href="game1.html"></a>
+                    <a class="game2" href="game2.html"></a>
+                	<img src="images/home2.jpg" />
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- End Swiper -->
+	</div>
+    
+    <div class="rule">
+    	<div class="close_btn"></div>
+    	<img src="images/rule.jpg" />
+    </div>
+    
+</body>   
+</html>

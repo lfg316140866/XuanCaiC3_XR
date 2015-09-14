@@ -1,0 +1,103 @@
+@charset "UTF-8";
+//-----------------------------------------------------	
+//定义的全局变量
+$wrapWidth:1366px;                       //wrap宽度
+$halfwrapWidth:683px;                   //wrap宽度的一半
+$Width:100%;  
+$Height:100%;
+$Background-Sprites:image-url('') no-repeat;  //合成所有导航按钮和hover的背景图片
+
+// 开关设置
+//----------------------------------------------------- 
+$lte7:                  true !default; //是否兼容ie6-7
+$filter:                false !default; //是否为ie6-8开启css3滤镜兼容，常用于渐变背景 
+$printStyleSwitch:      false !default; //是否开启打印样式
+
+
+// font相关
+//----------------------------------------------------- 
+$Font-Size:          18px !default;
+$Line-Height:        1.5 !default;
+$baseFontFamily:        "Helvetica Neue", Helvetica, Tahoma, sans-serif !default;
+$fontCn:                "SimSun"; //宋体
+$fontYaHei:             "Microsoft Yahei"; //微软雅黑
+$fontHeiTi:             "SimHei"; //黑体
+
+
+// 元素上下间距
+//----------------------------------------------------- 
+$baseGap:               20px !default;
+
+
+// 基本颜色
+// color function : http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html
+// lighten($color, $amount)
+// darken($color, $amount)
+// opacify($color, $amount)
+// mix($color1, $color2[, $amount])
+//----------------------------------------------------- 
+$Color-Black:                 #000 !default;
+$Color-GrayDarker:            #333 !default;
+$Color-GrayDark:              #c5c5c5 !default;
+$Color-Gray:                  #818181  !default;
+$Color-GrayWhite:                  #c7c7c7  !default;
+$Color-GrayShallow:           #ccc !default;
+$Color-GrayLight:             #f5f5f5 !default;
+$Color-White:                 #fff !default;
+
+$Color-Red:                   #cc3300 !default;
+$Color-BlueLight:             #00A3CF !default;
+$Color-Blue:                  #0169ae !default;
+$Color-BlueDark:              #0064cd !default;
+$Color-Orange:                #F47837 !default;
+$Color-Green:                 #51B148 !default;
+$Color-Yellow:                #ffc40d !default;
+$Color-Pink:                  #c3325f !default;
+$Color-Purple:                #7a43b6 !default;
+
+$Color-Primary:               #0078E7 !default;//主色
+
+
+// link
+//----------------------------------------------------- 
+// 如果只有一个值则滑过的值为这个值的darken 5%，如果
+// 有两个值则第二个值为滑过的值
+$linkColor:             #08c !default;
+
+
+// scaffolding
+//----------------------------------------------------- 
+$bodyBgColor:           $Color-White !default;
+$textColor:             $Color-GrayDarker !default;
+
+
+// placeholder
+//----------------------------------------------------- 
+// 变量分别为：是否输出表单的占位符placeholder样式，文本色
+$placeholder:           true $Color-Gray !default;
+
+
+// 交互配色
+// 警告，错误，成功，提示
+//----------------------------------------------------- 
+// 每个变量都有三个颜色值，分别为：文本色，背景色，边框色
+$warningColor:               #514721 #FFF6BF #FFD324 !default;
+$errorColor:                 #8A1F11 #FBE3E4 #FBC2C4 !default;
+$successColor:               #264409 #E6EFC2 #C6D880 !default;
+$infoColor:                  #205791 #D5EDF8 #92CAE4 !default;
+
+
+// radius
+//----------------------------------------------------- 
+$baseRadius:            5px !default;
+$smallRadius:           3px !default;
+
+
+// z-index
+//----------------------------------------------------- 
+$zindexDropdown:        1000 !default;
+$zindexFixedTopbar:     1010 !default;
+$zindexTooltip:         1020 !default;
+$zindexAlert:           1030 !default;
+$zindexModal:           1100 !default;
+

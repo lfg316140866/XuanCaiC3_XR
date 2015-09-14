@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+<title>全新世嘉</title>
+<link rel="stylesheet" href="css/style.css?d=90887635476689987876" />
+<style>
+	.wrapper .bg{position:absolute; left:0; top:0;}
+</style>
+</head>
+
+<body>
+	<div class="loading">
+    	<div class="loadbar"><img src="images/loading.gif" /></div>
+        <div class="loading_txt"><img src="images/loading_txt.png" /></div>
+    	<div class="progressNum">0%</div>
+    </div>
+    
+    <div class="start">
+    	<div class="btn"></div>
+    	<img src="images/gameTips1.png" />
+    </div>
+    
+    <div class="fail_cont">
+        <a class="btn1" href="javascript:void();"></a>
+        <a class="btn2" href="index.html"></a>
+        <a class="btn3" href="http://www.baidu.com"></a>
+    	<img src="images/faild1.png" />
+    </div>
+    
+    <div class="share_cont">
+    	<img src="images/share1.jpg" />
+    </div>
+    
+    <div class="form_cont">
+        <input class="username" type="text" placeholder="" />
+        <input class="usertel" type="tel" maxlength="11" placeholder="" />
+        <select class="province" name="Province"></select>
+        <select class="city" name="City"></select>
+        <a class="post_btn" href="javascript:void();"></a>
+    	<img src="images/form_bg1.jpg" />
+    </div>
+    
+    <div class="wrapper">
+    	<div class="timeBar"><img src="images/timeBar.png" /></div>
+    	<div class="times">30"</div>
+        <div class="score">0</div>
+    	<div class="bg"><img src="images/bg.jpg" /></div>
+		<canvas id="gameMain" width="640" height="1136" style="background-color:none"></canvas>
+    </div>
+</body>
+</html>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="http://cdnjs.gtimg.com/cdnjs/libs/wxmoment/0.0.2-rc1/wxmoment.min.js"></script>
+<script src="js/preloadjs-0.4.1.min.js"></script>
+<script src="js/soundjs-0.5.2.min.js"></script>
+<script src="js/easeljs-NEXT.combined.js"></script>
+<script src="js/ndgmr.Collision.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="src/game1.js?r="+Math.random()></script>
+<script src="src/provinceCity.js?r=" + Math.random()></script>
+<script src="src/public.js?r=" + Math.random()></script>
+<script src="src/share.js?r=" + Math.random()></script>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title> Cmn Ui测试 </title>
+    <script src="../../ThirdLib/jquery.js"></script>
+    <script src="../../Cmn.js"></script>
+    <script src="../CmnUI.js"></script> 
+    <script>
+        $(function () {
+            Cmn.UI.Touch(".c2").Swipe("x", function (date) { 
+                console.log(date.Action);
+            });
+             
+            Cmn.UI.Touch(".c2").Tap(function (date) {
+                console.log(date.Selector+",,,,,,"+date.Action); 
+            });
+
+            Cmn.UI.Touch(".c2").Drag("x",function (date) {
+                console.log(date.x + ",,,,," + date.y + ",,,,,,," + date.Selector + ",,,,,,,," + date.Action); 
+
+            }, function (date) {
+                console.log(date.x + ",,,,," + date.y + ",,,,,,," + date.Selector + ",,,,,,,," + date.Action);
+            });
+
+        })
+
+    </script>
+
+
+</head>
+<body>
+    <div class="c1 c2" style="width: 400px; height: 400px; background: #000000; display: inline-block"></div>
+    <div class="c1" style="width:400px;height:400px;background:#0026ff;display:inline-block"></div>
+</body>
+</html>

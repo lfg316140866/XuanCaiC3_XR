@@ -1,0 +1,193 @@
+﻿<div class="RightContentWrap" >
+ 
+    <div class="chartmodule clearfix" style="margin:inherit;width:100%; border:none;">
+        <div style="margin-left:15px;margin-top:10px;">【<span style="font-size:24px;" class="jscUserFromDesc"></span>】</div>
+        <div class="savaSubmit">
+            <div class="checkallbtn yescheck jscShowListCol jscRadio"><i></i>只显示列表字段</div>
+            <div class="checkallbtn nocheck jscShowEditCol jscRadio" style="left: 187px;"><i></i>只显示编辑界面字段</div>
+            <a class="jscSavaSubmit">保存修改</a>
+            <a class="jscAddBtn" title="添加">添加字段</a>
+        </div>
+        <table class="cmn-RecListView" cellpadding=" 0" cellspacing="0" style="margin:auto">
+            <thead>
+                <tr>
+                    <td width="36">NO</td>
+                    <td width="140">字段名</td>
+                    <td width="120">字段标题</td>
+                    <td width="120">显示位置</td>
+                    <td>字段宽度</td>
+                    <td>字段格式</td>
+                    <td width="76">是否显示HTML</td>
+                    <td width="76">在列表界面显示</td>
+                    <td width="76">在编辑界面显示</td>
+                    <td>操作</td>
+                </tr>
+            </thead> 
+            <tbody class="jscRecContainer">
+                <tr class="cmn-Rec jscRec {isshowcol} {isShowEditCol}" recid="{userformcolid}">
+                    <td width="36" class="jscColDOM dat-sortid" colname="sortid">1</td>
+                    <td width="126"><input class="one jscColDOM dat-colname-value" colname="colname" type="text" /></td>
+                    <td width="100"><input class="two jscColDOM dat-coltitle-value" colname="coltitle" type="text" /></td>
+                    <td width="80">
+                        <select class="three  jscColDOM dat-colalign-v" colname="colalign">
+                            <option value="1">居中</option>
+                            <option value="3">左对齐</option>
+                            <option value="2">右对齐</option>
+                        </select>
+                    </td>
+                    <td width="64"><input class="four  jscColDOM dat-colwidth-value" colname="colwidth" type="text" /></td>
+                    <td><input class="five  jscColDOM dat-colformat-value" type="text" colname="colformat" /></td>
+                    <td><span class="checkbox jscRadio jscColDOM {isshowhtml}" colname="isshowhtml"></span></td>
+                    <td><span class="checkbox jscRadio jscColDOM {isshowingrid}" colname="isshowingrid"></span></td>
+                    <td><span class="checkbox jscRadio jscColDOM {isshowinedit}" colname="isshowinedit"></span></td>
+                    <td class="tools jscTools" style="position: relative;">
+                        <div class="morePanel jscMorePanel" style="display: none; width: 153px; line-height: 50px; height: 50px; position: absolute; background: #fff; left: -25px; top: 2px; ">
+                            <input type="button" class="two jscColCtlCfgBtn" style="width: 70px; height: 30px; cursor: pointer;" value="配置控件" />
+                            <input type="button" class="two" style="width: 70px;height:30px; cursor: pointer;" value="更多修改" />
+                        </div>
+                        <a class="addBtn jscMoreBtn" title="添加更多">添加更多</a>
+                        <a class="remove_btn jscDelRecByID" title="删除">删除</a>
+                        <div class="cmn-data" style="display:none;">
+                            <div class="dat-controlcfg jscControlcfg dat-colcontroltypeid-colcontroltypeid"></div>
+
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <!----------------   添加字段   -------------->
+        <div class="addColContainer jscAddColContainer" style="display:none;">
+            <h3 style="text-align: center; font-size: 18px;">[ 添 加 字 段 ]</h3>
+            <table cellpadding="0" cellspacing="0" style="margin:auto">
+                <tbody>
+                    <tr>
+                        <td align="right">字段名 *: </td>
+                        <td align="left"><input class="jscCol one mlone" type="text" colname="colname" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">字段标题 *: </td>
+                        <td align="left"><input class="jscCol one mlone" type="text" colname="coltitle" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">字段宽度 *: </td>
+                        <td align="left"><input class="jscCol one mlone" colname="colwidth" type="text" value="100" default="100" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">显示位置 : </td>
+                        <td align="left">
+                            <select class="three jscCol mlone" colname="colalign" style="width:100px;">
+                                <option value="1">居中</option>
+                                <option value="3">左对齐</option>
+                                <option value="2">右对齐</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">控件配置 : </td>
+                        <td align="left">
+                            <input type="button" class="two mlone" style="width:70px;cursor:pointer;" value="配置控件" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right">正则表达式配置 : </td>
+                        <td align="left">
+                            <select class="three mlone jscCol" colname="regexid" style="width:200px;">
+                                <option class="" value="">无</option>
+                                <option class="jscRegular dat-regexid-value dat-regexdesc" value="1"></option>
+                            </select>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td align="right">字段提示 : </td>
+                        <td align="left"><textarea class="jscCol mlone" colname="colhint" style="width: 150px; height: 50px; border: 1px #e0e0e0 solid;"></textarea></td>
+                    </tr>
+                   
+                    <tr>
+                        <td align="right">字段格式 : </td>
+                        <td align="left"><input class="jscCol one mlone" type="text" colname="colformat" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">默认值 : </td>
+                        <td align="left"><input class="jscCol one mlone" colname="default_value"></td>
+                    </tr>
+                    <tr>
+                        <td align="right">排序 : </td>
+                        <td align="left"><input class="jscCol one mlone" colname="sortid"></td>
+                    </tr>
+                    <tr>
+                        <td align="right">是否必填 : </td>
+                        <!--yescheck-->
+                        <td align="left"><span colname="is_required" class="jscCol checkbox yescheck mlone jscRadio"></span></td>
+                    </tr>
+                    <tr>
+                        <td align="right">在列表界面显示 : </td>
+                        <!--yescheck-->
+                        <td align="left"><span colname="isshowingrid" class="jscCol checkbox yescheck mlone jscRadio"></span></td>
+                    </tr>
+                    <tr>
+                        <td align="right">在编辑界面显示 : </td>
+                        <!--yescheck-->
+                        <td align="left"><span colname="isshowinedit" class="jscCol checkbox yescheck mlone jscRadio"></span></td>
+                    </tr>
+                    <tr>
+                        <td align="right">是否显示HTML : </td>
+                        <!--yescheck-->
+                        <td align="left"><span colname="isshowhtml" class="jscCol checkbox yescheck mlone jscRadio"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="savaSubmit jscSavaAddSubmit"><a href="javascript:;">添加</a></div>
+        </div>
+        <!------------------------------>
+
+        <!----------------  控件配置  -------------->
+        <div class="controlCfgContainer jscControlCfgContainer" style="display:none;">
+
+            <div class="controlSelectContent jscControlSelectContent" style="text-align: center; font-size: 16px; padding-top: 20px;">
+                <b class="jscCurColName"> </b>[<b class="jscCurColTitle"> </b>]<br/>
+                <b>[ 控 件 类 型 ] : </b>
+                <select class="three mlone jscControlTypeSelect" style="width:200px;">
+                    <option class="jscControlType dat-controltypeid-value dat-controltypedesc" value="1">控件1</option>
+                </select>
+            </div>
+
+            <div class="controlCfgContent jscControlCfgContent" style="width:300px;margin:auto;" >
+
+
+
+            </div>
+
+            <div class="savaSubmit jscSavaSubmitControl"><a href="javascript:;">保存</a></div>
+
+        </div>
+        <!------------------------------>
+
+        <div class="cg-UI-LayerContainer" style="display: none;overflow:hidden; width: 100%; height: 100%; position: fixed; right: 0px; top: 0px; z-index: 10001">
+            <div class="cg-UI-LayerMask" style="position: absolute; width: 100%; height: 100%; background: #ccc; filter: alpha(opacity=70); opacity: 0.7;z-index:1;"></div>
+            
+            <div class="cg-UI-LayerContentContainer" style="position: absolute; width: 550px; height:100%;top: 0%;  background: #fff; z-index: 2;margin:auto; ">
+               
+                <div class="cg-UI-LayerContent" style="position: relative; width: 100%;  background: #fff; z-index: 2; overflow-y: auto; height: 100%; ">
+                    <!----------------------->
+                   
+                    <!----------------------->
+                </div>
+            </div>
+
+        </div>
+
+       
+        <div class="savaSubmit">
+            <a class="jscReturn cmn-btnReturn" href="#">返回</a>
+            <a class="jscSavaSubmit" href="#">保存修改</a>
+            <a class="jscAddBtn" title="添加">添加字段</a>
+        </div>
+    </div>
+
+
+</div><!--RightContentWrap_end-->
+<div class="height0"></div>

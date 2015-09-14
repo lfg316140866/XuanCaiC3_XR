@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>SN设置</title>
+    <script src="../../Js/ThirdLib/jquery.js"></script>
+    <script src="../Js/SiteConfig.js"></script>
+    <script src="../../Js/Cmn.js"></script>
+    <script src="../../Js/CmnAjax.js"></script>
+    <script src="../Js/CmnMis/CmnMisFunc.js"></script>
+    <script src="../Js/CmnMis/CmnMisItf.js"></script>
+    <script src="../Js/CmnMis/CmnMisTableOpt.js"></script>
+    <style>
+        html{overflow:hidden;}
+    </style>
+</head>
+<body style="background: #000;">
+    <div style="margin:-250px -200px; width: 400px;position:absolute; top:50%;left:50%;">
+        <div style="background: #000; width: 400px; ">
+            <img style="margin-left: 87px; width: 428px;" src="../Image/Public/Logo.png">
+        </div>
+        <div style="background: #000; color: #ffffff; ">
+            <div style="line-height: 35px; font-size: 14px; width: 370px;text-align:center;">
+                您的注册码为：<span class="jscRegistrationCode">111111111</span><br />
+                最大用户数：<span class="maxUserCount">5</span><br />
+                请联系：15021101008(舒先生)获取序列号<br />
+              
+                请输入序列号：<input name="txtSN" type="text" id="txtSN" style="height:24px;" />&nbsp;&nbsp;<input type="button" style="height:30px;width:80px; cursor:pointer;" name="btnSetSN" value="注册" id="btnSetSN" />
+            </div>
+
+        </div>
+        
+    </div>
+   
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".jscRegistrationCode").html(CmnAjax.GetData(CmnMis.Func.GetCmnItfUrl("[Cmn]Cmn.Mis.Func.GetRegisterCode")));
+        $(".maxUserCount").html(CmnMis.Func.GetSysCfg("MaxUserCount"));
+
+        $("#btnSetSN").unbind("click").bind("click", function () {
+            if ($("#txtSN").val() == "") {
+                Cmn.alert("序列号不能为空！");
+                return;
+            }
+
+            CmnAjax.PostData(CmnMis.Func.GetCmnItfUrl("SetSysCfg"), { "CfgKey": "SN", "CfgValue": $("#txtSN").val() }, function () {
+                Cmn.alert("设置完成！请重新尝试登录...");
+                window.location.href = "../Login.html?SysName="+Cmn.Func.GetParamFromUrl("SysName");
+            }, function () {
+                Cmn.alert("设置失败！请重新尝试。");
+            });
+        });
+    });
+</script>
+</body>
+</html>
